@@ -46,9 +46,9 @@ function find(element) {
  * @returns true or false if the element it is not present.
  */
 function remove(element) {
-  const elementIndex = this.find(element);
+  const elementPosition = this.find(element);
   if (foundAt > -1) {
-    this.container.splice(elementIndex, 1);
+    this.container.splice(elementPosition, 1);
     --this.listSize;
     return true;
   }
@@ -71,6 +71,23 @@ function length() {
  */
 function display() {
   return this.container;
+}
+
+/**
+ * Inserts element in the list.
+ * 
+ * @param {any} element to insret in the list. 
+ * @param {any} insertPosition after witch the element will be inserted.
+ * @returns true or false if the element it is not present. 
+ */
+function insert(element, insertPosition) {
+  const elementPosition = this.find(insertPosition);
+  if (elementPosition > -1) {
+    this.container.splice(elementPosition + 1, 0, element);
+    ++this.listSize;
+    return true;
+  }
+  return false;
 }
 
 
