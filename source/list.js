@@ -2,10 +2,10 @@ function List() {
   this.container       = [];
   this.listSize        = 0;
   this.position        = 0;
-  //this.clear           = clear;
+  this.clear           = clear;
   this.find            = find;
   this.display         = display;
-  //this.insert          = insert;
+  this.insert          = insert;
   this.append          = append;
   //this.remove          = remove;
   //this.head            = head;
@@ -88,6 +88,16 @@ function insert(element, insertPosition) {
     return true;
   }
   return false;
+}
+
+/**
+ * Deletes all elements in the list.
+ * 
+ */
+function clear() {
+  delete this.container;
+  this.container = [];
+  this.listSize = this.position = 0;
 }
 
 
