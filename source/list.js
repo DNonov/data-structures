@@ -20,14 +20,31 @@ function List() {
   //this.contains        = contains;
 }
 
+/**
+ * Appends element to the list.
+ * 
+ * @param {any} element 
+ */
 function append(element){
   this.container[this.listSize++] = element;
 }
 
+/**
+ * Finds element in the list.
+ * 
+ * @param {any} element 
+ * @returns element's position or -1 if it not present.
+ */
 function find(element) {
   return this.container.indexOf(element);
 }
 
+/**
+ * Removes element from the list.
+ * 
+ * @param {any} element 
+ * @returns true or false if the element it is not present.
+ */
 function remove(element) {
   const elementIndex = this.find(element);
   if (foundAt > -1) {
@@ -38,10 +55,20 @@ function remove(element) {
   return false;
 }
 
+/**
+ * Returns the length of the list.
+ * 
+ * @returns the length of the list.
+ */
 function length() {
   return this.listSize;
 }
 
+/**
+ * Displays the list.
+ * 
+ * @returns array of the list elements.
+ */
 function display() {
   return this.container;
 }
