@@ -200,4 +200,4 @@ function getElement() {
   return this.container[this.position];
 }
 
-module.exports = new List();
+module.exports = List;

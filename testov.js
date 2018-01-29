@@ -1,4 +1,6 @@
-let list = require('./source/list');
+let listIns = require('./source/list');
+let list = new listIns();
+
 
 list.append('Pesho');
 list.append('Bylgar');
