@@ -7,17 +7,16 @@ function List() {
   this.display         = display;
   this.insert          = insert;
   this.append          = append;
-  //this.remove          = remove;
-  //this.head            = head;
-  //this.tail            = tail;
-  //this.previus         = previus;
-  //this.next            = next;
+  this.remove          = remove;
+  this.head            = head;
+  this.tail            = tail;
+  this.previus         = previus;
+  this.next            = next;
   this.length          = length;
-  //this.currentPosition = currentPosition;
-  //this.moveTo          = moveTo;
-  //this.getElement      = getElement;
-  this.length          = length;
-  //this.contains        = contains;
+  this.currentPosition = currentPosition;
+  this.moveTo          = moveTo;
+  this.getElement      = getElement;
+  this.contains        = contains;
 }
 
 /**
@@ -100,5 +99,81 @@ function clear() {
   this.listSize = this.position = 0;
 }
 
+/**
+ * Detrming if given value is in list.
+ * 
+ * @param {any} element 
+ */
+function contains(element) {
+  container.forEach(containerElement => {
+    if (element === containerElement) {
+      return true;
+    }
+    return false;
+  });
+}
+
+/**
+ * Goes to the first element in the list.
+ * 
+ */
+function head() {
+  this.position = 0;
+}
+
+/**
+ * Goes to the last element of the list.
+ * 
+ */
+function tail() {
+  this.position = this.listSize - 1;
+}
+
+/**
+ * Goes to the previus element in the list.
+ * 
+ */
+function previus() {
+  if (this.position > 0) {
+    --this.position;
+  }
+}
+
+/**
+ * Goes to the next element in the list.
+ * 
+ */
+function next() {
+  if (this.position < this.listSize - 1) {
+    ++this.position;
+  }
+}
+
+/**
+ * Returns current position in the list.
+ * 
+ * @returns current position.
+ */
+function currentPosition() {
+  return this.position;
+}
+
+/**
+ * Move to the passed position.
+ * 
+ * @param {any} position that you want to move on.
+ */
+function moveTo(position) {
+  this.position = position;
+}
+
+/**
+ * Returns the current element
+ * 
+ * @returns current element.
+ */
+function getElement() {
+  return this.container[this.position];
+}
 
 module.exports = new List();
