@@ -47,7 +47,7 @@ function find(element) {
  */
 function remove(element) {
   const elementPosition = this.find(element);
-  if (foundAt > -1) {
+  if (elementPosition > -1) {
     this.container.splice(elementPosition, 1);
     --this.listSize;
     return true;
