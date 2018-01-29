@@ -124,17 +124,17 @@ function clear() {
 }
 
 /**
- * Detrming if given value is in list.
+ * Detrming if given value is in the list.
  * 
  * @param {any} element 
  */
 function contains(element) {
-  container.forEach(containerElement => {
-    if (element === containerElement) {
+  for (let i = 0; i < this.container.length; i++) {
+    if (this.container[i] === element) {
       return true;
     }
-    return false;
-  });
+  }
+  return false;
 }
 
 /**

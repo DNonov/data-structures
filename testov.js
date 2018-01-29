@@ -12,5 +12,6 @@ console.log(list.getElement());
 list.head();
 console.log(list.getElement());
 
-
+list.insert('polya', 'Pesho')
 console.log(list.display());
+console.log(list.contains('Pesho'));
