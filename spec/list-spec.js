@@ -122,11 +122,28 @@ describe('List method', () => {
   });
 
   it('returns current position', () => {
-    currTestCaseList = new List;
+    let currTestCaseList = new List;
     currTestCaseList.append('Alice');
     currTestCaseList.append('Bob');
     expect(currTestCaseList.currentPosition()).toBe(0);
     currTestCaseList.tail();
     expect(currTestCaseList.currentPosition()).toBe(1);
+  });
+
+  it('moves to the passed position', () => {
+    let movesTestCaseList = new List();
+    movesTestCaseList.append('Alice');
+    movesTestCaseList.append('Bob');
+    movesTestCaseList.append('Jill');
+    expect(movesTestCaseList.currentPosition()).toBe(0);
+    movesTestCaseList.moveTo(1);
+    expect(movesTestCaseList.currentPosition()).toBe(1);
+  });
+
+  it('return current element', () => {
+    let returnTestCaseList = new List;
+    expect(returnTestCaseList.getElement()).toBe(undefined);
+    returnTestCaseList.append('Alice');
+    expect(returnTestCaseList.getElement()).toBe('Alice');
   });
 });

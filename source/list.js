@@ -183,7 +183,7 @@ function currentPosition() {
 }
 
 /**
- * Move to the passed position.
+ * Moves to the passed position.
  * 
  * @param {any} position that you want to move on.
  */
