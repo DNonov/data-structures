@@ -39,7 +39,7 @@ describe('List method', () => {
   it('removes element from a list', () => {
     expect(testList.remove()).toBe(false);
     expect(testList.remove('Jill')).toBe(true);
-    expect(testList.getElement()).toBe(undefined);
+    expect(testList.getElement()).toBe(false);
   });
 
   it('returns length of the list', () => {
@@ -58,7 +58,9 @@ describe('List method', () => {
     let insertTestCaseList = new List();
     insertTestCaseList.append('Alice');
     insertTestCaseList.append('Bob');
+    insertTestCaseList.insert(1, 2);
     insertTestCaseList.insert('Jill', 'Alice');
+    insertTestCaseList.insert(3);
     expect(insertTestCaseList.display()).toEqual(['Alice', 'Jill', 'Bob']);
   });
 
@@ -136,13 +138,16 @@ describe('List method', () => {
     movesTestCaseList.append('Bob');
     movesTestCaseList.append('Jill');
     expect(movesTestCaseList.currentPosition()).toBe(0);
+    movesTestCaseList.moveTo(3);
+    expect(movesTestCaseList.currentPosition()).toBe(0);
+    expect(movesTestCaseList.getElement()).toBe('Alice');
     movesTestCaseList.moveTo(1);
     expect(movesTestCaseList.currentPosition()).toBe(1);
   });
 
   it('return current element', () => {
     let returnTestCaseList = new List;
-    expect(returnTestCaseList.getElement()).toBe(undefined);
+    expect(returnTestCaseList.getElement()).toBe(false);
     returnTestCaseList.append('Alice');
     expect(returnTestCaseList.getElement()).toBe('Alice');
   });

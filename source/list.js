@@ -46,7 +46,7 @@ function List() {
 /**
  * Appends element to the list.
  * 
- * @param {any} element 
+ * @param {any} element Element that will be append.
  */
 function append(element){
   this.container[this.listSize++] = element;
@@ -55,8 +55,8 @@ function append(element){
 /**
  * Finds element in the list.
  * 
- * @param {any} element 
- * @returns element's position or -1 if it not present.
+ * @param {any} element Element that will be found or not.
+ * @returns Returns element's position or -1 if it not present.
  */
 function find(element) {
   return this.container.indexOf(element);
@@ -65,7 +65,7 @@ function find(element) {
 /**
  * Removes element from the list.
  * 
- * @param {any} element 
+ * @param {any} element Element that will be removed.
  * @returns true or false if the element it is not present.
  */
 function remove(element) {
@@ -75,13 +75,14 @@ function remove(element) {
     --this.listSize;
     return true;
   }
+  console.error('List.remove: Argument not found in the List!');
   return false;
 }
 
 /**
  * Returns the length of the list.
  * 
- * @returns the length of the list.
+ * @returns Rreturns the length of the list.
  */
 function length() {
   return this.listSize;
@@ -90,7 +91,7 @@ function length() {
 /**
  * Displays the list.
  * 
- * @returns array of the list elements.
+ * @returns Returns array of the list elements.
  */
 function display() {
   return this.container;
@@ -99,9 +100,9 @@ function display() {
 /**
  * Inserts element in the list.
  * 
- * @param {any} element to insret in the list. 
- * @param {any} insertPosition after witch the element will be inserted.
- * @returns true or false if the element it is not present. 
+ * @param {any} element Element to insret in the list. 
+ * @param {any} insertPosition Element after witch the insertion element will be inserted.
+ * @returns Returns true or false if the element it is not present. 
  */
 function insert(element, insertPosition) {
   const elementPosition = this.find(insertPosition);
@@ -110,6 +111,7 @@ function insert(element, insertPosition) {
     ++this.listSize;
     return true;
   }
+  console.error('List.insert: Wrong or less arguments!');
   return false;
 }
 
@@ -124,9 +126,11 @@ function clear() {
 }
 
 /**
- * Detrming if given value is in the list.
+ * Detrming if given element is in the list.
  * 
- * @param {any} element 
+ * @param {any} element
+ * @returns Returns true or false if the element it is not present.
+ * 
  */
 function contains(element) {
   for (let i = 0; i < this.container.length; i++) {
@@ -134,6 +138,7 @@ function contains(element) {
       return true;
     }
   }
+  console.error('List.contains: Argument not found in the List!');
   return false;
 }
 
@@ -176,7 +181,7 @@ function next() {
 /**
  * Returns current position in the list.
  * 
- * @returns current position.
+ * @returns Returns current position.
  */
 function currentPosition() {
   return this.position;
@@ -185,19 +190,27 @@ function currentPosition() {
 /**
  * Moves to the passed position.
  * 
- * @param {any} position that you want to move on.
+ * @param {any} position Position that you want to move on.
  */
 function moveTo(position) {
-  this.position = position;
+  if (position < this.listSize) {
+    this.position = position;
+  }
+  console.error('List.moveTo: Out of range argument!');
+  return false;
 }
 
 /**
  * Returns the current element
  * 
- * @returns current element.
+ * @returns Returns current element.
  */
 function getElement() {
-  return this.container[this.position];
+  if (this.container[0] !== undefined ) {
+    return this.container[this.position];
+  }
+  console.error('List.getElement: Empty List!');
+  return false;
 }
 
 module.exports = List;
