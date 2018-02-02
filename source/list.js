@@ -66,7 +66,7 @@ function find(element) {
  * Removes element from the list.
  * 
  * @param {any} element Element that will be removed.
- * @returns true or false if the element it is not present.
+ * @returns Returns true or false if the element it is not present.
  */
 function remove(element) {
   const elementPosition = this.find(element);
