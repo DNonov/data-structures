@@ -48,7 +48,7 @@ function List() {
  * 
  * @param {any} element Element that will be append.
  * @returns Returns the list object for method chaining.
- * @example List.append(2).append(4); // [2, 4]
+ * @example [1, 3] List.append(2).append(4); // [1, 3, 2, 4]
  */
 function append(element){
   this.container[this.listSize++] = element;
@@ -60,6 +60,8 @@ function append(element){
  * 
  * @param {any} element Element that will be found or not.
  * @returns Returns element's position or -1 if it not present.
+ * @example ['cat', 'dog'] List.find('cat') // 0 
+ *                          List.find('cow') // -1
  */
 function find(element) {
   return this.container.indexOf(element);
