@@ -47,9 +47,12 @@ function List() {
  * Appends element to the list.
  * 
  * @param {any} element Element that will be append.
+ * @returns Returns the list object for method chaining.
+ * @example List.append(2).append(4); // [2, 4]
  */
 function append(element){
   this.container[this.listSize++] = element;
+  return this;
 }
 
 /**
