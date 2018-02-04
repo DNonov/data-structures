@@ -60,7 +60,8 @@ function append(element){
  * 
  * @param {any} element Element that will be found or not.
  * @returns Returns element's position or -1 if it not present.
- * @example ['cat', 'dog'] List.find('cat') // 0 
+ * @example ['cat', 'dog'] List.find('cat') // 0
+ *                          List.find('dog') // 1
  *                          List.find('cow') // -1
  */
 function find(element) {
@@ -72,6 +73,7 @@ function find(element) {
  * 
  * @param {any} element Element that will be removed.
  * @returns Returns true or false if the element it is not present.
+ * @example ['cat', 'dog'] List.find('cat') // 0
  */
 function remove(element) {
   const elementPosition = this.find(element);
