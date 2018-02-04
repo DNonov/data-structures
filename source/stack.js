@@ -1,4 +1,4 @@
-function stack() {
+function Stack() {
   this.container = [];
   this.top = 0;
   this.push = push;
@@ -25,3 +25,5 @@ function clear() {
 function length() {
   return this.top;
 }
+
+module.exports = Stack;
