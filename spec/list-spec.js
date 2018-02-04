@@ -123,7 +123,7 @@ describe('List method', () => {
     expect(nextTestCaseList.getElement()).toBe('Bob');
   });
 
-  it('returns current position', () => {
+  it('returns current _position', () => {
     let currTestCaseList = new List;
     currTestCaseList.append('Alice');
     currTestCaseList.append('Bob');

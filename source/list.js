@@ -23,9 +23,9 @@
 */
 
 function List() {
-  this.container       = [];
-  this.listSize        = 0;
-  this.position        = 0;
+  this._container       = [];
+  this._listSize        = 0;
+  this._position        = 0;
   this.clear           = clear;
   this.find            = find;
   this.display         = display;
@@ -51,7 +51,7 @@ function List() {
  * @example [1, 3] List.append(2).append(4); // [1, 3, 2, 4]
  */
 function append(element){
-  this.container[this.listSize++] = element;
+  this._container[this._listSize++] = element;
   return this;
 }
 
@@ -59,13 +59,13 @@ function append(element){
  * Finds element in the list.
  * 
  * @param {any} element Element that will be found or not.
- * @returns Returns element's position or -1 if it not present.
+ * @returns Returns element's _position or -1 if it not present.
  * @example ['cat', 'dog'] List.find('cat') // 0
  *                          List.find('dog') // 1
  *                          List.find('cow') // -1
  */
 function find(element) {
-  return this.container.indexOf(element);
+  return this._container.indexOf(element);
 }
 
 /**
@@ -76,10 +76,10 @@ function find(element) {
  * @example ['cat', 'dog'] List.find('cat') // 0
  */
 function remove(element) {
-  const elementPosition = this.find(element);
-  if (elementPosition > -1) {
-    this.container.splice(elementPosition, 1);
-    --this.listSize;
+  const element_position = this.find(element);
+  if (element_position > -1) {
+    this._container.splice(element_position, 1);
+    --this._listSize;
     return true;
   }
   console.error('List.remove: Argument not found in the List!');
@@ -92,7 +92,7 @@ function remove(element) {
  * @returns Rreturns the length of the list.
  */
 function length() {
-  return this.listSize;
+  return this._listSize;
 }
 
 /**
@@ -101,21 +101,21 @@ function length() {
  * @returns Returns array of the list elements.
  */
 function display() {
-  return this.container;
+  return this._container;
 }
 
 /**
  * Inserts element in the list.
  * 
  * @param {any} element Element to insret in the list. 
- * @param {any} insertPosition Element after witch the insertion element will be inserted.
+ * @param {any} insert_position Element after witch the insertion element will be inserted.
  * @returns Returns true or false if the element it is not present. 
  */
-function insert(element, insertPosition) {
-  const elementPosition = this.find(insertPosition);
-  if (elementPosition > -1) {
-    this.container.splice(elementPosition + 1, 0, element);
-    ++this.listSize;
+function insert(element, insert_position) {
+  const element_position = this.find(insert_position);
+  if (element_position > -1) {
+    this._container.splice(element_position + 1, 0, element);
+    ++this._listSize;
     return true;
   }
   console.error('List.insert: Wrong or less arguments!');
@@ -127,9 +127,9 @@ function insert(element, insertPosition) {
  * 
  */
 function clear() {
-  delete this.container;
-  this.container = [];
-  this.listSize = this.position = 0;
+  delete this._container;
+  this._container = [];
+  this._listSize = this._position = 0;
 }
 
 /**
@@ -140,8 +140,8 @@ function clear() {
  * 
  */
 function contains(element) {
-  for (let i = 0; i < this.container.length; i++) {
-    if (this.container[i] === element) {
+  for (let i = 0; i < this._container.length; i++) {
+    if (this._container[i] === element) {
       return true;
     }
   }
@@ -154,7 +154,7 @@ function contains(element) {
  * 
  */
 function head() {
-  this.position = 0;
+  this._position = 0;
 }
 
 /**
@@ -162,7 +162,7 @@ function head() {
  * 
  */
 function tail() {
-  this.position = this.listSize - 1;
+  this._position = this._listSize - 1;
 }
 
 /**
@@ -170,8 +170,8 @@ function tail() {
  * 
  */
 function previus() {
-  if (this.position > 0) {
-    --this.position;
+  if (this._position > 0) {
+    --this._position;
   }
 }
 
@@ -180,8 +180,8 @@ function previus() {
  * 
  */
 function next() {
-  if (this.position < this.listSize - 1) {
-    ++this.position;
+  if (this._position < this._listSize - 1) {
+    ++this._position;
   }
 }
 
@@ -191,17 +191,17 @@ function next() {
  * @returns Returns current position.
  */
 function currentPosition() {
-  return this.position;
+  return this._position;
 }
 
 /**
  * Moves to the passed position.
  * 
- * @param {any} position Position that you want to move on.
+ * @param {any} position position that you want to move on.
  */
 function moveTo(position) {
-  if (position < this.listSize) {
-    this.position = position;
+  if (position < this._listSize) {
+    this._position = position;
   }
   console.error('List.moveTo: Out of range argument!');
   return false;
@@ -213,8 +213,8 @@ function moveTo(position) {
  * @returns Returns current element.
  */
 function getElement() {
-  if (this.container[0] !== undefined ) {
-    return this.container[this.position];
+  if (this._container[0] !== undefined ) {
+    return this._container[this._position];
   }
   console.error('List.getElement: Empty List!');
   return false;

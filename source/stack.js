@@ -1,29 +1,29 @@
 function Stack() {
-  this.container = [];
-  this.top = 0;
+  this._container = [];
+  this._top = 0;
   this.push = push;
   this.pop = pop;
   this.peek = peek;
 }
 
 function push(element) {
-  this.container[this.top++] = element;
+  this._container[this._top++] = element;
 }
 
 function pop() {
-  return this.container[--this.top];
+  return this._container[--this._top];
 }
 
 function peek() {
-  return this.container[this.top - 1];
+  return this._container[this._top - 1];
 }
 
 function clear() {
-  this.top = 0;
+  this._top = 0;
 }
 
 function length() {
-  return this.top;
+  return this._top;
 }
 
 module.exports = Stack;
