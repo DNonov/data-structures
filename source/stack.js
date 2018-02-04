@@ -17,3 +17,11 @@ function pop() {
 function peek() {
   return this.container[this.top - 1];
 }
+
+function clear() {
+  this.top = 0;
+}
+
+function length() {
+  return this.top;
+}
