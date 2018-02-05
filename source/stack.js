@@ -22,6 +22,10 @@
 * SOFTWARE.
 */
 
+/**
+ * Function constructor of a stack.
+ * 
+ */
 function Stack() {
   this._container = [];
   this._top       = 0;
@@ -32,10 +36,24 @@ function Stack() {
   this.length     = length;
 }
 
+/**
+ * Adds element in a stack.
+ * 
+ * @param {any} element Element that will be added.
+ * @example [] Stack.push('Cat'); // ['Cat']
+ *          ['Cat'] Stack.push('Dog'); // ['Cat', 'Dog']         
+ */     
 function push(element) {
   this._container[this._top++] = element;
 }
 
+/**
+ * Removes and returns the topmost element.
+ * 
+ * @returns Returns the removed element if the stack is not empty. Otherwise returns false.
+ * @example ['Cat', 'Dog', 'Deer'] Stack.pop(); // 'Deer'
+ *          ['Cat', 'Dog'] Stack.pop(); // 'Dog'
+ */
 function pop() {
   if (this._top !== 0) {
     return this._container[--this._top];
@@ -44,18 +62,36 @@ function pop() {
   return false;
 }
 
+/**
+ * Returns the topmost element of a stack.
+ * 
+ * @returns Returns the topmost element if the stack is not empty. Otherwise returns falsse.
+ * @example ['Cat', 'Dog'] Stack.peek(); // 'Dog'
+ *          ['Pig','Cat'] Stack.peek(); // 'Cat'
+ */
 function peek() {
   if (this._top !== 0) {
     return this._container[this._top - 1];
   }
-  console.error('Stack.peek(): Empty Stack!');
+  throw new Error('Stack.peek(): Empty Stack!');
   return false;
 }
 
+/**
+ * Deletes all elements in a stack.
+ * @example ['Cat', 'Dog'] Stack.clear(); // []
+ */
 function clear() {
   this._top = 0;
 }
 
+/**
+ * Returns the length of a stack.
+ * 
+ * @returns Returns the length of a stack.
+ * @example [] Stack.length(); // 0
+ *          ['Cat'] Stack.length(); // 1
+ */
 function length() {
   return this._top;
 }

@@ -26,28 +26,28 @@ function List() {
   this._container       = [];
   this._listSize        = 0;
   this._position        = 0;
-  this.clear           = clear;
-  this.find            = find;
-  this.display         = display;
-  this.insert          = insert;
-  this.append          = append;
-  this.remove          = remove;
-  this.head            = head;
-  this.tail            = tail;
-  this.previus         = previus;
-  this.next            = next;
-  this.length          = length;
-  this.currentPosition = currentPosition;
-  this.moveTo          = moveTo;
-  this.getElement      = getElement;
-  this.contains        = contains;
+  this.clear            = clear;
+  this.find             = find;
+  this.display          = display;
+  this.insert           = insert;
+  this.append           = append;
+  this.remove           = remove;
+  this.head             = head;
+  this.tail             = tail;
+  this.previus          = previus;
+  this.next             = next;
+  this.length           = length;
+  this.currentPosition  = currentPosition;
+  this.moveTo           = moveTo;
+  this.getElement       = getElement;
+  this.contains         = contains;
 }
 
 /**
  * Appends element to the list.
  * 
  * @param {any} element Element that will be append.
- * @returns Returns the list object for method chaining.
+ * @returns Returns the object for method chaining.
  * @example [1, 3] List.append(2).append(4); // [1, 3, 2, 4]
  */
 function append(element){

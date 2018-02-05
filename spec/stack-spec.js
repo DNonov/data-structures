@@ -56,7 +56,7 @@ describe('Stack method', () => {
 
   it('returns the top element in a stack', () => {
     let testStack = new Stack();
-    expect(testStack.peek()).toBe(false);
+    expect(() => testStack.peek()).toThrowError();
     testStack.push(1);
     expect(testStack.peek()).toBe(1);
     testStack.push('Jill');
@@ -68,7 +68,7 @@ describe('Stack method', () => {
     testStack.push(-34);
     expect(testStack.peek()).toBe(-34);
   });
-
+  
   it('deletes all elements in a stack', () => {
     let testStack = new Stack();
     testStack.push(1);
@@ -77,7 +77,7 @@ describe('Stack method', () => {
     testStack.push(4);
     expect(testStack.peek()).toBe(4);
     testStack.clear();
-    expect(testStack.peek()).toBe(false);
+    expect(() => testStack.peek()).toThrowError();
   });
   
   it('returns the length of a stack', () => {
