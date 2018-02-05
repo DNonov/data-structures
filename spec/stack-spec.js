@@ -22,7 +22,7 @@
 * SOFTWARE.
 */
 
-const Stack = require('../source/stack');
+const Stack = require('../src/stack');
 const jasmine = require('jasmine');
 
 describe('Stack method', () => {
