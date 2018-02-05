@@ -68,4 +68,15 @@ describe('Stack method', () => {
     testStack.push(-34);
     expect(testStack.peek()).toBe(-34);
   });
+
+  it('deletes all elements in a stack', () => {
+    let testStack = new Stack();
+    testStack.push(1);
+    testStack.push(2);
+    testStack.push(3);
+    testStack.push(4);
+    expect(testStack.peek()).toBe(4);
+    testStack.clear();
+    expect(testStack.peek()).toBe(false);
+  });
 });

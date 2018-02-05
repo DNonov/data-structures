@@ -24,10 +24,12 @@
 
 function Stack() {
   this._container = [];
-  this._top = 0;
-  this.push = push;
-  this.pop = pop;
-  this.peek = peek;
+  this._top       = 0;
+  this.push       = push;
+  this.pop        = pop;
+  this.peek       = peek;
+  this.clear      = clear;
+  this.length     = length;
 }
 
 function push(element) {
