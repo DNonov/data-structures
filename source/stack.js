@@ -43,7 +43,11 @@ function pop() {
 }
 
 function peek() {
-  return this._container[this._top - 1];
+  if (this._top !== 0) {
+    return this._container[this._top - 1];
+  }
+  console.error('Stack.peek(): Empty Stack!');
+  return false;
 }
 
 function clear() {

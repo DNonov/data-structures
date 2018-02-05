@@ -48,10 +48,24 @@ describe('Stack method', () => {
     testStack.push(1);
     testStack.push(2);
     testStack.push(3);
-
     expect(testStack.pop()).toBe(3);
     expect(testStack.pop()).toBe(2);
     expect(testStack.pop()).toBe(1);
     expect(testStack.pop()).toBe(false);
+  });
+
+  it('returns the top element in a stack', () => {
+    let testStack = new Stack();
+    expect(testStack.peek()).toBe(false);
+    testStack.push(1);
+    expect(testStack.peek()).toBe(1);
+    testStack.push('Jill');
+    expect(testStack.peek()).toBe('Jill');
+    testStack.push(undefined);
+    expect(testStack.peek()).toBe(undefined);
+    testStack.push(null);
+    expect(testStack.peek()).toBe(null);
+    testStack.push(-34);
+    expect(testStack.peek()).toBe(-34);
   });
 });
