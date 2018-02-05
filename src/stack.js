@@ -58,7 +58,7 @@ function pop() {
   if (this._top !== 0) {
     return this._container[--this._top];
   }
-  throw new Error('Stack.pop(): Empty Stack!');
+  console.error('Stack.pop(): Empty Stack!');
   return false;
 }
 
@@ -73,7 +73,7 @@ function peek() {
   if (this._top !== 0) {
     return this._container[this._top - 1];
   }
-  throw new Error('Stack.peek(): Empty Stack!');
+  console.error('Stack.peek(): Empty Stack!');
   return false;
 }
 

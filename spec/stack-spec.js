@@ -51,12 +51,12 @@ describe('Stack method', () => {
     expect(testStack.pop()).toBe(3);
     expect(testStack.pop()).toBe(2);
     expect(testStack.pop()).toBe(1);
-    expect(() => testStack.pop()).toThrowError('Stack.pop(): Empty Stack!');
+    expect(testStack.pop()).toBe(false);
   });
 
   it('returns the top element in a stack', () => {
     let testStack = new Stack();
-    expect(() => testStack.peek()).toThrowError();
+    expect(testStack.peek()).toBe(false);
     testStack.push(1);
     expect(testStack.peek()).toBe(1);
     testStack.push('Jill');
@@ -77,7 +77,7 @@ describe('Stack method', () => {
     testStack.push(4);
     expect(testStack.peek()).toBe(4);
     testStack.clear();
-    expect(() => testStack.peek()).toThrowError('Stack.peek(): Empty Stack!');
+    expect(testStack.peek()).toBe(false);
   });
   
   it('returns the length of a stack', () => {

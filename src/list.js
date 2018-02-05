@@ -82,7 +82,7 @@ function remove(element) {
     --this._listSize;
     return true;
   }
-  console.error('List.remove(): Argument not found in the List!');
+  console.error('List.remove(): Element not found in the List!');
   return false;
 }
 
