@@ -58,7 +58,7 @@ function pop() {
   if (this._top !== 0) {
     return this._container[--this._top];
   }
-  console.error('Stack.pop(): Empty Stack!');
+  throw new Error('Stack.pop(): Empty Stack!');
   return false;
 }
 
