@@ -79,4 +79,17 @@ describe('Stack method', () => {
     testStack.clear();
     expect(testStack.peek()).toBe(false);
   });
+  
+  it('returns the length of a stack', () => {
+    let testStack = new Stack();
+    expect(testStack.length()).toBe(0);
+    testStack.push(1);
+    expect(testStack.length()).toBe(1);
+    testStack.push(2);
+    expect(testStack.length()).toBe(2);
+    testStack.push(3);
+    expect(testStack.length()).toBe(3);
+    testStack.push(4);
+    expect(testStack.length()).toBe(4);
+  });
 });
