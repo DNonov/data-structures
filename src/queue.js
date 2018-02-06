@@ -37,11 +37,11 @@
  */
 function Queue() {
   this._container = [];
-  this.enqueue   = enqueue;
-  this.dequeue   = dequeue;
-  this.head      = head;
-  this.tail      = tail;
-  this.empty     = empty;
+  this.enqueue    = enqueue;
+  this.dequeue    = dequeue;
+  this.head       = head;
+  this.tail       = tail;
+  this.empty      = empty;
 }
 
 /**
