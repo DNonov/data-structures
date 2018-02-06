@@ -36,15 +36,24 @@ function enqueue(element) {
 }
 
 function dequeue() {
-  return this._container.shift();
+  if (this._container.length !== 0) {
+    return this._container.shift();
+  }
+  return false;
 }
 
 function head() {
-  return this._container[0];
+  if (this._container.length !== 0) {
+    return this._container[0];
+  }
+  return false;
 }
 
 function tail() {
-  return this._container[this._container.length - 1];
+  if (this._container.length !== 0) {
+    return this._container[this._container.length - 1];
+  }
+  return false;  
 }
 
 function empty() {
@@ -53,3 +62,5 @@ function empty() {
   }
   return false;
 }
+
+module.exports = Queue;
