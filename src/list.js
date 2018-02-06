@@ -22,6 +22,17 @@
 * SOFTWARE.
 */
 
+/**
+ * List function constructor.
+ * 
+ * @description In computer science, a list or sequence is an abstract data type that represents a 
+ * countable number of ordered values, where the same value may occur more than once. An instance of 
+ * a list is a computer representation of the mathematical concept of a finite sequence; 
+ * the (potentially) infinite analog of a list is a stream. Lists are a basic example of containers, 
+ * as they contain other values. If the same value occurs multiple times, each occurrence is considered a distinct item.
+ * Full wikipedia article at: https://en.wikipedia.org/wiki/List_(abstract_data_type)
+ * 
+ */
 function List() {
   this._container       = [];
   this._listSize        = 0;
