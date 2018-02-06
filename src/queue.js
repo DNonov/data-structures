@@ -22,6 +22,19 @@
 * SOFTWARE.
 */
 
+/**
+ * Queue function constructor.
+ * 
+ * @description In computer science, a queue (/ˈkjuː/ KYEW) is a particular
+ * kind of abstract data type or collection in which the entities in the 
+ * collection are kept in order and the principle (or only) operations on 
+ * the collection are the addition of entities to the rear terminal position, 
+ * known as enqueue, and removal of entities from the front terminal position, 
+ * known as dequeue. This makes the queue a First-In-First-Out (FIFO) data structure. 
+ * In a FIFO data structure, the first element added to the queue will be the 
+ * first one to be removed. Full wikipedia article at: https://en.wikipedia.org/wiki/Queue_(abstract_data_type)
+ * 
+ */
 function Queue() {
   this._container = [];
   this.enqueue   = enqueue;
@@ -31,10 +44,24 @@ function Queue() {
   this.empty     = empty;
 }
 
+/**
+ * Adds element in a queue.
+ * 
+ * @param {any} element Element that will be added.
+ * @example [] Queue.enqueue(1); // [1]
+ *          [1] Queue.enqueue(2); // [1, 2]
+ */
 function enqueue(element) {
   this._container.push(element);
 }
 
+/**
+ * Removes and returns the first element in a queue.
+ * 
+ * @returns Returns the removed element if the queue is not empty, otherwise returns false.
+ * @example [1, 2, 3] Queue.dequeue(); // [2, 3]
+ *          [2, 3] Queue.dequeue(); // [3]
+ */
 function dequeue() {
   if (this._container.length !== 0) {
     return this._container.shift();
@@ -42,6 +69,13 @@ function dequeue() {
   return false;
 }
 
+/**
+ * Returns the first element in a queue.
+ * 
+ * @returns Returns the first element if the queue is not empty, otherwise returns false.
+ * @example [1, 2, 3] Queue.head(); // 1
+ *          ['Cat', 'Dog', 'Pig'] Queue.head(); // 'Cat'
+ */
 function head() {
   if (this._container.length !== 0) {
     return this._container[0];
@@ -49,6 +83,13 @@ function head() {
   return false;
 }
 
+/**
+ * Returns the last element in a queue.
+ * 
+ * @returns Returns the last element if the queue is not empty, otherwise returns false.
+ * @example [1, 2, 3] Queue.tail(); // 3
+ *          ['Cat', 'Dog', 'Pig'] Queue.tail(); // 'Pig'
+ */
 function tail() {
   if (this._container.length !== 0) {
     return this._container[this._container.length - 1];
@@ -56,6 +97,13 @@ function tail() {
   return false;  
 }
 
+/**
+ * Returns true if queue is empty.
+ * 
+ * @returns Returns true if queue is empty, otherwise returns false.
+ * @example [] Queue.empty(); // true
+ *          [1, 2] Queue.empty(); // false
+ */
 function empty() {
   if (this._container.length === 0) {
     return true;
