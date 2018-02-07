@@ -1,7 +1,11 @@
-const List = require('./source/list');
+let LinkedList = require('./src/linkedList');
 
-let test = new List();
+let opa = new LinkedList();
 
-test.append(1).append(2);
-
-console.log(test.display());
+opa.insert(1, 'head');
+opa.insert(2, 1);
+opa.insert(3, 2);
+console.log(opa.toArray());
+opa.insert(3, 2);
+opa.remove(2);
+console.log(opa.toArray());
