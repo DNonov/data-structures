@@ -37,11 +37,6 @@
 function Stack() {
   this._container = [];
   this._top       = 0;
-  this.push       = push;
-  this.pop        = pop;
-  this.peek       = peek;
-  this.clear      = clear;
-  this.length     = length;
 }
 
 /**
@@ -51,7 +46,7 @@ function Stack() {
  * @example [] Stack.push('Cat'); // ['Cat']
  *          ['Cat'] Stack.push('Dog'); // ['Cat', 'Dog']         
  */     
-function push(element) {
+Stack.prototype.push = function (element) {
   this._container[this._top++] = element;
 }
 
@@ -62,7 +57,7 @@ function push(element) {
  * @example ['Cat', 'Dog', 'Deer'] Stack.pop(); // 'Deer'
  *          ['Cat', 'Dog'] Stack.pop(); // 'Dog'
  */
-function pop() {
+Stack.prototype.pop = function () {
   if (this._top !== 0) {
     return this._container[--this._top];
   }
@@ -77,7 +72,7 @@ function pop() {
  * @example ['Cat', 'Dog'] Stack.peek(); // 'Dog'
  *          ['Pig','Cat'] Stack.peek(); // 'Cat'
  */
-function peek() {
+Stack.prototype.peek = function () {
   if (this._top !== 0) {
     return this._container[this._top - 1];
   }
@@ -89,7 +84,7 @@ function peek() {
  * Deletes all elements in a stack.
  * @example ['Cat', 'Dog'] Stack.clear(); // []
  */
-function clear() {
+Stack.prototype.clear = function () {
   this._top = 0;
 }
 
@@ -100,7 +95,7 @@ function clear() {
  * @example [] Stack.length(); // 0
  *          ['Cat'] Stack.length(); // 1
  */
-function length() {
+Stack.prototype.length = function () {
   return this._top;
 }
 
