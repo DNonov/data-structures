@@ -37,11 +37,6 @@
  */
 function Queue() {
   this._container = [];
-  this.enqueue    = enqueue;
-  this.dequeue    = dequeue;
-  this.head       = head;
-  this.tail       = tail;
-  this.empty      = empty;
 }
 
 /**
@@ -51,7 +46,7 @@ function Queue() {
  * @example [] Queue.enqueue(1); // [1]
  *          [1] Queue.enqueue(2); // [1, 2]
  */
-function enqueue(element) {
+Queue.prototype.enqueue = function(element) {
   this._container.push(element);
 }
 
@@ -62,7 +57,7 @@ function enqueue(element) {
  * @example [1, 2, 3] Queue.dequeue(); // [2, 3]
  *          [2, 3] Queue.dequeue(); // [3]
  */
-function dequeue() {
+Queue.prototype.dequeue = function () {
   if (this._container.length !== 0) {
     return this._container.shift();
   }
@@ -76,7 +71,7 @@ function dequeue() {
  * @example [1, 2, 3] Queue.head(); // 1
  *          ['Cat', 'Dog', 'Pig'] Queue.head(); // 'Cat'
  */
-function head() {
+Queue.prototype.head = function () {
   if (this._container.length !== 0) {
     return this._container[0];
   }
@@ -90,7 +85,7 @@ function head() {
  * @example [1, 2, 3] Queue.tail(); // 3
  *          ['Cat', 'Dog', 'Pig'] Queue.tail(); // 'Pig'
  */
-function tail() {
+Queue.prototype.tail = function () {
   if (this._container.length !== 0) {
     return this._container[this._container.length - 1];
   }
@@ -104,7 +99,7 @@ function tail() {
  * @example [] Queue.empty(); // true
  *          [1, 2] Queue.empty(); // false
  */
-function empty() {
+Queue.prototype.empty = function () {
   if (this._container.length === 0) {
     return true;
   }

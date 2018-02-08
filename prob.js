@@ -1,4 +1,5 @@
 let LinkedList = require('./src/linkedList');
+let stak = require('./src/stack');
 
 let opa = new LinkedList();
 
@@ -9,3 +10,5 @@ console.log(opa.toArray());
 opa.insert(3, 2);
 opa.remove(2);
 console.log(opa.toArray());
+
+let rrt = new stak();
