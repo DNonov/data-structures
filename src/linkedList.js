@@ -23,12 +23,7 @@
 
 
 function LinkedList() {
-  this.head        = new Node('head');
-  this.find        = find;
-  this.insert      = insert;
-  this.remove      = remove;
-  this.toArray     = toArray;
-  this.findPrevius = findPrevius;
+  this.head = new Node('head');
 }
 
 function Node(element) {
@@ -36,7 +31,7 @@ function Node(element) {
   this.next    = null;
 }
 
-function find(element) {
+LinkedList.prototype.find = function (element) {
   let currentNode = this.head;
   while (currentNode.element !== element  && currentNode.next !== null) {
     currentNode = currentNode.next;
@@ -48,7 +43,7 @@ function find(element) {
   return false
 }
 
-function insert(newElement, oldElement) {
+LinkedList.prototype.insert = function (newElement, oldElement) {
   let newNode  = new Node(newElement);
   let current  = this.find(oldElement);
       if (current === false) {
@@ -58,7 +53,7 @@ function insert(newElement, oldElement) {
   current.next = newNode;
 }
 
-function toArray() {
+LinkedList.prototype.toArray = function () {
   let resultArray  = [];
   let currentNode  = this.head;
   while (currentNode.next !== null) {
@@ -68,7 +63,7 @@ function toArray() {
   return resultArray;
 }
 
-function findPrevius(element) {
+LinkedList.prototype.findPrevius = function (element) {
   let currentNode = this.head;
   while (!(currentNode.next == null) && (currentNode.next.element !== element)) {
     currentNode = currentNode.next;
@@ -76,7 +71,7 @@ function findPrevius(element) {
   return currentNode;
 }
 
-function remove(element) {
+LinkedList.prototype.remove = function (element) {
   let previusNode = this.findPrevius(element)
   if (previusNode.next !== null) {
     previusNode.next = previusNode.next.next;
