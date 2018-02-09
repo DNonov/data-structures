@@ -46,9 +46,10 @@ LinkedList.prototype.find = function (element) {
 LinkedList.prototype.insert = function (newElement, oldElement) {
   let newNode  = new Node(newElement);
   let current  = this.find(oldElement);
-      if (current === false) {
-        console.error(`LinkedList.insert(): Wrong argument ${oldElement} cannot be find!`)
-      }
+    if (current === false) {
+      console.error(`LinkedList.insert(): Wrong argument ${oldElement} cannot be find!`)
+      return false;
+    }
   newNode.next = current.next;
   current.next = newNode;
 }
