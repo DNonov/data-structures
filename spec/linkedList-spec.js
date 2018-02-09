@@ -35,6 +35,6 @@ describe('LinkedList method', () => {
     expect(testList.toArray()[1]).toBe(2);
     testList.insert(3, 2);
     expect(testList.toArray()[2]).toBe(3);
-    expect(testList.insert(1, 78)).toBe(false);
+    expect(testList.insert(1, 78)).toBe(false); 
   });
 });
