@@ -1,18 +1,13 @@
-let LinkedList = require('./src/linkedList');
+let Dictionary = require('./src/dictionary');
 let stak = require('./src/stack');
 
-let opa = new LinkedList();
+let opa = new Dictionary();
 
-opa.insert(1, 'head');
-opa.insert(2, 1);
-opa.insert(3, 5);
-console.log(opa.toArray());
-opa.insert(3, 2);
-opa.remove(2);
-opa.remove(34);
-opa.insert(1, 1);
-opa.insert(2, 3)
-console.log(opa.toArray());
-console.log(opa.find(23));
+opa.add('az' ,1);
+opa.add('ti' ,2);
+opa.add('toi' ,3);
+opa.add('tq' ,4);
+opa.add('to' ,5);
 
-let rrt = new stak();
+console.log(opa.display());
+console.log(opa.count());
