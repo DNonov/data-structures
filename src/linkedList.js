@@ -47,7 +47,7 @@ LinkedList.prototype.insert = function (newElement, oldElement) {
   let newNode  = new Node(newElement);
   let current  = this.find(oldElement);
     if (current === false) {
-      console.error(`LinkedList.insert(): Wrong argument, ${oldElement} cannot be find!`)
+      console.error(`LinkedList.insert(): Cannot find ${oldElement}!`)
       return false;
     }
   newNode.next = current.next;
@@ -66,7 +66,7 @@ LinkedList.prototype.toArray = function () {
 
 LinkedList.prototype.findPrevius = function (element) {
   let currentNode = this.head;
-  while (!(currentNode.next == null) && (currentNode.next.element !== element)) {
+  while (!(currentNode.next === null) && (currentNode.next.element !== element)) {
     currentNode = currentNode.next;
   }
   return currentNode;
@@ -77,6 +77,8 @@ LinkedList.prototype.remove = function (element) {
   if (previusNode.next !== null) {
     previusNode.next = previusNode.next.next;
   }
+  console.error(`LinkedList.remove(): Cannot find ${element}!`);
+  return false;
 }
 
 module.exports = LinkedList;

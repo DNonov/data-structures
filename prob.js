@@ -9,6 +9,7 @@ opa.insert(3, 5);
 console.log(opa.toArray());
 opa.insert(3, 2);
 opa.remove(2);
+opa.remove(34);
 opa.insert(1, 1);
 opa.insert(2, 3)
 console.log(opa.toArray());

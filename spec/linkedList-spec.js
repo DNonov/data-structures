@@ -37,4 +37,35 @@ describe('LinkedList method', () => {
     expect(testList.toArray()[2]).toBe(3);
     expect(testList.insert(1, 78)).toBe(false); 
   });
+  
+  // it('find node', () => {
+  //   let Node = {};
+  //   let testList = new LinkedList();
+  //   testList.insert(1, 'head');
+  //   testList.insert(2, 1);
+  //   testList.insert(3, 2);
+  //   expect(testList.find('pig')).toBe(false); 
+  //   expect(testList.find(23)).toBe(false); 
+  //   expect(testList.find(3)).toEqual(Node({ element: 3, next: null }));
+  //   expect(testList.find(2)).toBeDefined();
+  //   expect(testList.find(1)).toBeDefined();
+  // });
+  
+  it('returns the LinkedList in form of array', () => {
+    let testList = new LinkedList();
+    testList.insert(1, 'head');
+    testList.insert(2, 1);
+    testList.insert(3, 2);
+    expect(testList.toArray()).toEqual([1, 2, 3]);
+  });
+  
+  it('removes node form the LinkedList', () => {
+    let testList = new LinkedList();
+    expect(testList.remove(1)).toBe(false);
+    testList.insert(1, 'head');
+    testList.insert(2, 1);
+    testList.insert(3, 2);
+    testList.remove(1);
+    expect(testList.toArray()).toEqual([2, 3]);
+  });
 });
