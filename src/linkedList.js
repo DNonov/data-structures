@@ -38,15 +38,22 @@ function Node(element) {
 
 function find(element) {
   let currentNode = this.head;
-  while (currentNode.element !== element) {
+  while (currentNode.element !== element  && currentNode.next !== null) {
     currentNode = currentNode.next;
   }
-  return currentNode;
+  if (currentNode.element === element) {
+    return currentNode;
+  }
+  console.error(`LinkedList.find(): Cannot find ${element}!`)
+  return false
 }
 
 function insert(newElement, oldElement) {
   let newNode  = new Node(newElement);
   let current  = this.find(oldElement);
+      if (current === false) {
+        console.error(`LinkedList.insert(): Wrong argument ${oldElement} cannot be find!`)
+      }
   newNode.next = current.next;
   current.next = newNode;
 }
