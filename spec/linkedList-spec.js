@@ -28,7 +28,13 @@ const jasmine = require('jasmine');
 describe('LinkedList method', () => {
   it('insert new node', () => {
     let testList = new LinkedList();
-    testList.insert(1, 2);
-    expect(testList.toArray()[0]);
+    expect(testList.insert(1, 2)).toBe(false);
+    testList.insert(1, 'head');
+    expect(testList.toArray()[0]).toBe(1);
+    testList.insert(2, 1);
+    expect(testList.toArray()[1]).toBe(2);
+    testList.insert(3, 2);
+    expect(testList.toArray()[2]).toBe(3);
+    expect(testList.insert(1, 78)).toBe(false);
   });
 });
