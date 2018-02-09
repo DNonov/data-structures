@@ -22,6 +22,9 @@
 * SOFTWARE.
 */
 
+const chalk = require('chalk');
+const error = chalk.bgRed;
+
 /**
  * List function constructor.
  * 
@@ -93,7 +96,7 @@ function remove(element) {
     --this._listSize;
     return true;
   }
-  console.error('List.remove(): Element not found in the List!');
+  console.error(error(`List.remove(): Cannot find ${element}!`));
   return false;
 }
 
@@ -129,7 +132,7 @@ function insert(element, insert_position) {
     ++this._listSize;
     return true;
   }
-  console.error('List.insert(): Wrong or less arguments!');
+  console.error(error('List.insert(): Wrong or less arguments!'));
   return false;
 }
 
@@ -156,7 +159,7 @@ function contains(element) {
       return true;
     }
   }
-  console.error('List.contains(): Argument not found in the List!');
+  console.error(error(`List.contains(): Cannot find ${element}!`));
   return false;
 }
 
@@ -214,7 +217,7 @@ function moveTo(position) {
   if (position < this._listSize) {
     this._position = position;
   }
-  console.error('List.moveTo(): Out of range argument!');
+  console.error(error('List.moveTo(): Out of range argument!'));
   return false;
 }
 
@@ -227,7 +230,7 @@ function getElement() {
   if (this._container[0] !== undefined ) {
     return this._container[this._position];
   }
-  console.error('List.getElement(): Empty List!');
+  console.error(error('List.getElement(): Empty List!'));
   return false;
 }
 
