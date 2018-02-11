@@ -43,6 +43,10 @@ LinkedList.prototype.find = function (element) {
   return false
 }
 
+LinkedList.prototype._findGetElement = function (element) {
+  return this.find(element).element;
+}
+
 LinkedList.prototype.insert = function (newElement, oldElement) {
   let newNode  = new Node(newElement);
   let current  = this.find(oldElement);

@@ -38,18 +38,18 @@ describe('LinkedList method', () => {
     expect(testList.insert(1, 78)).toBe(false); 
   });
   
-  // it('find node', () => {
-  //   let Node = {};
-  //   let testList = new LinkedList();
-  //   testList.insert(1, 'head');
-  //   testList.insert(2, 1);
-  //   testList.insert(3, 2);
-  //   expect(testList.find('pig')).toBe(false); 
-  //   expect(testList.find(23)).toBe(false); 
-  //   expect(testList.find(3)).toEqual(Node({ element: 3, next: null }));
-  //   expect(testList.find(2)).toBeDefined();
-  //   expect(testList.find(1)).toBeDefined();
-  // });
+  it('find node', () => {
+    let Node = {};
+    let testList = new LinkedList();
+    testList.insert(1, 'head');
+    testList.insert(2, 1);
+    testList.insert(3, 2);
+    expect(testList._findGetElement('pig')).toBeUndefined(); 
+    expect(testList._findGetElement(23)).toBeUndefined(); 
+    expect(testList._findGetElement(3)).toBe(3);
+    expect(testList._findGetElement(2)).toBe(2);
+    expect(testList._findGetElement(1)).toBe(1);
+  });
   
   it('returns the LinkedList in form of array', () => {
     let testList = new LinkedList();

@@ -45,7 +45,7 @@ Dictionary.prototype.display = function () {
 Dictionary.prototype.count = function () {
   let number = 0;
   for (const key in Object.keys(this.conatiner)) {
-    ++number;
+    number++;
   }
   return number;
 }
