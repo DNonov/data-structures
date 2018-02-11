@@ -28,6 +28,7 @@ const error = chalk.bgRed;
 /**
  * List function constructor.
  * 
+ * @example let myList = new List();
  * @description In computer science, a list or sequence is an abstract data type that represents a 
  * countable number of ordered values, where the same value may occur more than once. An instance of 
  * a list is a computer representation of the mathematical concept of a finite sequence; 

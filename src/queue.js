@@ -25,6 +25,7 @@
 /**
  * Queue function constructor.
  * 
+ * @example let myQueue = new Queue(); 
  * @description In computer science, a queue (/ˈkjuː/ KYEW) is a particular
  * kind of abstract data type or collection in which the entities in the 
  * collection are kept in order and the principle (or only) operations on 
