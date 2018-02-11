@@ -22,15 +22,30 @@
 */
 
 
+/**
+ * Linked list function constructor.
+ * 
+ */
 function LinkedList() {
   this.head = new Node('head');
 }
 
+/**
+ * Node function constructor.
+ * 
+ * @param {any} element Node's data.
+ */
 function Node(element) {
   this.element = element;
   this.next    = null;
 }
 
+/**
+ * Finds node.
+ * 
+ * @param {any} element Element property of the node.
+ * @returns Returns the node.
+ */
 LinkedList.prototype.find = function (element) {
   let currentNode = this.head;
   while (currentNode.element !== element  && currentNode.next !== null) {
@@ -39,14 +54,27 @@ LinkedList.prototype.find = function (element) {
   if (currentNode.element === element) {
     return currentNode;
   }
-  console.error(`LinkedList.find(): Cannot find ${element}!`)
-  return false
+  console.error(`LinkedList.find(): Cannot find ${element}!`);
+  return false;
 }
 
+/**
+ * Simple wrapper, that makes function find easier to test.
+ * 
+ * @param {any} element Element property of the node.
+ * @returns Returns the element property of the node.
+ */
 LinkedList.prototype._findGetElement = function (element) {
   return this.find(element).element;
 }
 
+/**
+ * Inserts a node in a linked list.
+ * 
+ * @param {any} newElement The element that will be inserted.
+ * @param {any} oldElement The old element after whitch the new element will be added. 
+ * @returns 
+ */
 LinkedList.prototype.insert = function (newElement, oldElement) {
   let newNode  = new Node(newElement);
   let current  = this.find(oldElement);
