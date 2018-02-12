@@ -44,11 +44,11 @@ describe('LinkedList method', () => {
     testList.insert(1);
     testList.insert(2, 1);
     testList.insert(3, 2);
-    expect(testList._findGetElement('pig')).toBeUndefined(); 
-    expect(testList._findGetElement(23)).toBeUndefined(); 
-    expect(testList._findGetElement(3)).toBe(3);
-    expect(testList._findGetElement(2)).toBe(2);
-    expect(testList._findGetElement(1)).toBe(1);
+    expect(testList.GetElement('pig')).toBeUndefined(); 
+    expect(testList.GetElement(23)).toBeUndefined(); 
+    expect(testList.GetElement(3)).toBe(3);
+    expect(testList.GetElement(2)).toBe(2);
+    expect(testList.GetElement(1)).toBe(1);
   });
   
   it('returns the LinkedList in form of array', () => {
