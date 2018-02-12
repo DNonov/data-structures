@@ -36,68 +36,82 @@
  * 
  */
 function Stack() {
-  this._container = [];
-  this._top       = 0;
-}
+  let _container = [];
+  let _top       = 0;
 
-/**
- * Adds element in a stack.
- * 
- * @param {any} element Element that will be added.
- * @example [] Stack.push('Cat'); // ['Cat']
- *          ['Cat'] Stack.push('Dog'); // ['Cat', 'Dog']         
- */     
-Stack.prototype.push = function (element) {
-  this._container[this._top++] = element;
-}
 
-/**
- * Removes and returns the topmost element.
- * 
- * @returns Returns the removed element if the stack is not empty. Otherwise returns false.
- * @example ['Cat', 'Dog', 'Deer'] Stack.pop(); // 'Deer'
- *          ['Cat', 'Dog'] Stack.pop(); // 'Dog'
- */
-Stack.prototype.pop = function () {
-  if (this._top !== 0) {
-    return this._container[--this._top];
+  /**
+   * Adds element in a stack.
+   * 
+   * @param {any} element Element that will be added.
+   * @returns False if the given element is undefined.
+   * @example [] Stack.push('Cat'); // ['Cat']
+   *          ['Cat'] Stack.push('Dog'); // ['Cat', 'Dog']         
+   */     
+  this.push = function (element) {
+    if (element === undefined) {
+      return false;
+    }
+    _container[_top++] = element;
   }
-  console.error('Stack.pop(): Empty Stack!');
-  return false;
-}
 
-/**
- * Returns the topmost element of a stack.
- * 
- * @returns Returns the topmost element if the stack is not empty. Otherwise returns falsse.
- * @example ['Cat', 'Dog'] Stack.peek(); // 'Dog'
- *          ['Pig','Cat'] Stack.peek(); // 'Cat'
- */
-Stack.prototype.peek = function () {
-  if (this._top !== 0) {
-    return this._container[this._top - 1];
+  /**
+   * Removes and returns the topmost element.
+   * 
+   * @returns Returns the removed element if the stack is not empty. Otherwise returns false.
+   * @example ['Cat', 'Dog', 'Deer'] Stack.pop(); // 'Deer'
+   *          ['Cat', 'Dog'] Stack.pop(); // 'Dog'
+   */
+  this.pop = function () {
+    if (_top !== 0) {
+      return _container[--_top];
+    }
+    console.error('Stack.pop(): Empty Stack!');
+    return false;
   }
-  console.error('Stack.peek(): Empty Stack!');
-  return false;
-}
 
-/**
- * Deletes all elements in a stack.
- * @example ['Cat', 'Dog'] Stack.clear(); // []
- */
-Stack.prototype.clear = function () {
-  this._top = 0;
-}
+  /**
+   * Returns the topmost element of a stack.
+   * 
+   * @returns Returns the topmost element if the stack is not empty. Otherwise returns falsse.
+   * @example ['Cat', 'Dog'] Stack.peek(); // 'Dog'
+   *          ['Pig','Cat'] Stack.peek(); // 'Cat'
+   */
+  this.peek = function () {
+    if (_top !== 0) {
+      return _container[_top - 1];
+    }
+    console.error('Stack.peek(): Empty Stack!');
+    return false;
+  }
 
-/**
- * Returns the length of a stack.
- * 
- * @returns Returns the length of a stack.
- * @example [] Stack.length(); // 0
- *          ['Cat'] Stack.length(); // 1
- */
-Stack.prototype.length = function () {
-  return this._top;
-}
+  /**
+   * Deletes all elements in a stack.
+   * @example ['Cat', 'Dog'] Stack.clear(); // []
+   */
+  this.clear = function () {
+    _top = 0;
+  }
 
+  /**
+   * Returns the length of a stack.
+   * 
+   * @returns Returns the length of a stack.
+   * @example [] Stack.length(); // 0
+   *          ['Cat'] Stack.length(); // 1
+   */
+  this.length = function () {
+    return _top;
+  }
+
+  /**
+   * Returns array representation of a queue.
+   * 
+   * @returns Array representation of a queue.
+   */
+  this.toArray = function () {
+    return _container;
+  }
+
+}
 module.exports = Stack;

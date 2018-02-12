@@ -35,12 +35,8 @@ describe('Stack method', () => {
     testStack.push(22);
     testStack.push(-12);
 
-    expect(testStack._container[0]).toBe("Jill");
-    expect(testStack._container[1]).toBe("Bill");
-    expect(testStack._container[2]).toBe(0);
-    expect(testStack._container[3]).toBe(undefined);
-    expect(testStack._container[4]).toBe(22);
-    expect(testStack._container[5]).toBe(-12);
+    expect(testStack.push(undefined)).toBe(false);
+    expect(testStack.toArray()).toEqual(['Jill', 'Bill', 0, 22, -12]);
   });
 
   it('removes the top element in a stack', () => {
@@ -62,7 +58,7 @@ describe('Stack method', () => {
     testStack.push('Jill');
     expect(testStack.peek()).toBe('Jill');
     testStack.push(undefined);
-    expect(testStack.peek()).toBe(undefined);
+    expect(testStack.peek()).toBe('Jill');
     testStack.push(null);
     expect(testStack.peek()).toBe(null);
     testStack.push(-34);
