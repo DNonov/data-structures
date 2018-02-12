@@ -1,13 +1,15 @@
 let Dictionary = require('./src/dictionary');
 let stak = require('./src/stack');
+let Queue = require('./src/queue');
+let fs = new Queue();
 
-let opa = new Dictionary();
+let Mathp = require('./src/add');
 
-opa.add('az' ,1);
-opa.add('ti' ,2);
-opa.add('toi' ,3);
-opa.add('tq' ,4);
-opa.add('to' ,5);
+let myMath1 = new Mathp();
+let myMath2 = new Mathp();
 
-console.log(opa.display());
-console.log(opa.count());
+myMath1.push(1);
+myMath2.push(2);
+console.log(myMath1.display());
+console.log(myMath2.display());
+

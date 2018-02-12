@@ -48,7 +48,7 @@ function Node(element) {
 }
 
 /**
- * Finds node.
+ * Finds given node.
  * 
  * @param {any} element Element property of the node.
  * @returns Returns the node.
