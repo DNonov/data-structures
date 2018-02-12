@@ -37,74 +37,83 @@
  * 
  */
 function Queue() {
-  this._container = [];
-}
+  let _container = [];
 
-/**
- * Adds element in a queue.
- * 
- * @param {any} element Element that will be added.
- * @example [] Queue.enqueue(1); // [1]
- *          [1] Queue.enqueue(2); // [1, 2]
- */
-Queue.prototype.enqueue = function(element) {
-  this._container.push(element);
-}
 
-/**
- * Removes and returns the first element in a queue.
- * 
- * @returns Returns the removed element if the queue is not empty, otherwise returns false.
- * @example [1, 2, 3] Queue.dequeue(); // [2, 3]
- *          [2, 3] Queue.dequeue(); // [3]
- */
-Queue.prototype.dequeue = function () {
-  if (this._container.length !== 0) {
-    return this._container.shift();
+  /**
+   * Adds element in a queue.
+   * 
+   * @param {any} element Element that will be added.
+   * @example [] Queue.enqueue(1); // [1]
+   *          [1] Queue.enqueue(2); // [1, 2]
+   */
+  this.enqueue = function(element) {
+    _container.push(element);
   }
-  return false;
-}
 
-/**
- * Returns the first element in a queue.
- * 
- * @returns Returns the first element if the queue is not empty, otherwise returns false.
- * @example [1, 2, 3] Queue.head(); // 1
- *          ['Cat', 'Dog', 'Pig'] Queue.head(); // 'Cat'
- */
-Queue.prototype.head = function () {
-  if (this._container.length !== 0) {
-    return this._container[0];
+  /**
+   * Removes and returns the first element in a queue.
+   * 
+   * @returns Returns the removed element if the queue is not empty, otherwise returns false.
+   * @example [1, 2, 3] Queue.dequeue(); // [2, 3]
+   *          [2, 3] Queue.dequeue(); // [3]
+   */
+  this.dequeue = function () {
+    if (_container.length !== 0) {
+      return _container.shift();
+    }
+    return false;
   }
-  return false;
-}
 
-/**
- * Returns the last element in a queue.
- * 
- * @returns Returns the last element if the queue is not empty, otherwise returns false.
- * @example [1, 2, 3] Queue.tail(); // 3
- *          ['Cat', 'Dog', 'Pig'] Queue.tail(); // 'Pig'
- */
-Queue.prototype.tail = function () {
-  if (this._container.length !== 0) {
-    return this._container[this._container.length - 1];
+  /**
+   * Returns the first element in a queue.
+   * 
+   * @returns Returns the first element if the queue is not empty, otherwise returns false.
+   * @example [1, 2, 3] Queue.head(); // 1
+   *          ['Cat', 'Dog', 'Pig'] Queue.head(); // 'Cat'
+   */
+  this.head = function () {
+    if (_container.length !== 0) {
+      return _container[0];
+    }
+    return false;
   }
-  return false;  
-}
 
-/**
- * Returns true if queue is empty.
- * 
- * @returns Returns true if queue is empty, otherwise returns false.
- * @example [] Queue.empty(); // true
- *          [1, 2] Queue.empty(); // false
- */
-Queue.prototype.empty = function () {
-  if (this._container.length === 0) {
-    return true;
+  /**
+   * Returns the last element in a queue.
+   * 
+   * @returns Returns the last element if the queue is not empty, otherwise returns false.
+   * @example [1, 2, 3] Queue.tail(); // 3
+   *          ['Cat', 'Dog', 'Pig'] Queue.tail(); // 'Pig'
+   */
+  this.tail = function () {
+    if (_container.length !== 0) {
+      return _container[_container.length - 1];
+    }
+    return false;  
   }
-  return false;
-}
 
+  /**
+   * Returns true if queue is empty.
+   * 
+   * @returns Returns true if queue is empty, otherwise returns false.
+   * @example [] Queue.empty(); // true
+   *          [1, 2] Queue.empty(); // false
+   */
+  this.isEmpty = function () {
+    if (_container.length === 0) {
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * Returns array representation of a queue.
+   * 
+   * @returns Array representation of a queue.
+   */
+  this.toArray = function () {
+    return _container;
+  }
+}
 module.exports = Queue;

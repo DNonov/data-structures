@@ -7,9 +7,8 @@ describe('Queue method', () => {
     testQueue.enqueue(1);
     testQueue.enqueue(2);
     testQueue.enqueue(3);
-    expect(testQueue._container[0]).toBe(1);
-    expect(testQueue._container[1]).toBe(2);
-    expect(testQueue._container[2]).toBe(3);
+    expect(testQueue.toArray()).toEqual([1, 2, 3]);
+    
   });
   
   it('removes and returns element in a queue', () => {
@@ -21,7 +20,7 @@ describe('Queue method', () => {
     expect(testQueue.dequeue()).toBe(1);
     expect(testQueue.dequeue()).toBe(2);
     expect(testQueue.dequeue()).toBe(3);
-    expect(testQueue._container.length).toBe(0);
+    expect(testQueue.isEmpty()).toBe(true);
   });
   
   it('returns the first element in a queue', () => {
@@ -44,13 +43,13 @@ describe('Queue method', () => {
 
   it('returns true if queue is empty', () => {
     let testQueue = new Queue();
-    expect(testQueue.empty()).toBe(true);
+    expect(testQueue.isEmpty()).toBe(true);
     testQueue.enqueue(1);
-    expect(testQueue.empty()).toBe(false);
+    expect(testQueue.isEmpty()).toBe(false);
     testQueue.dequeue();
-    expect(testQueue.empty()).toBe(true);
+    expect(testQueue.isEmpty()).toBe(true);
     testQueue.enqueue(2);
     testQueue.enqueue(3);
-    expect(testQueue.empty()).toBe(false);
+    expect(testQueue.isEmpty()).toBe(false);
   });
 });
