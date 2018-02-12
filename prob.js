@@ -13,3 +13,5 @@ myMath2.push(2);
 console.log(myMath1.display());
 console.log(myMath2.display());
 
+let List = require('./src/list');
+let myList = new List();
