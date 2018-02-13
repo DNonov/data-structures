@@ -23,37 +23,37 @@
 */
 
 function Dictionary() {
-  this.conatiner = [];
-}
+  this._conatiner = [];
 
-Dictionary.prototype.add = function (key, value) {
-  this.conatiner[key] = value;
-}
 
-Dictionary.prototype.find = function (key) {
-  return this.conatiner[key];
-}
-
-Dictionary.prototype.remove = function (key) {
-  delete this.conatiner[key];
-}
-
-Dictionary.prototype.display = function () {
-  return this.conatiner;
-}
-
-Dictionary.prototype.count = function () {
-  let number = 0;
-  for (const key in Object.keys(this.conatiner)) {
-    number++;
+  this.add = function (key, value) {
+    this._conatiner[key] = value;
   }
-  return number;
-}
 
-Dictionary.prototype.clear = function () {
-  for (const key in Object.keys(this.conatiner)) {
-    delete this.conatiner[key];
+  this.find = function (key) {
+    return this._conatiner[key];
+  }
+
+  this.remove = function (key) {
+    delete this._conatiner[key];
+  }
+
+  this.display = function () {
+    return this._conatiner;
+  }
+
+  this.count = function () {
+    let number = 0;
+    for (const key in Object.keys(this._conatiner)) {
+      number++;
+    }
+    return number;
+  }
+
+  this.clear = function () {
+    for (const key in Object.keys(this._conatiner)) {
+      delete this._conatiner[key];
+    }
   }
 }
-
 module.exports = Dictionary;

@@ -131,7 +131,6 @@ function List() {
    * 
    */
   this.clear = function () {
-    delete _container;
     _container = [];
     _listSize = _position = 0;
   }
