@@ -21,6 +21,8 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 */
 
+const chalk = require('chalk');
+const error = chalk.bgRed;
 
 /**
  * Linked list function constructor.
@@ -61,7 +63,7 @@ function LinkedList() {
     if (currentNode.element === element) {
       return currentNode;
     }
-    console.error(`LinkedList.find(): Cannot find ${element}!`);
+    console.error(error(`LinkedList.find(): Cannot find ${element}!`));
     return false;
   }
 
@@ -91,7 +93,7 @@ function LinkedList() {
     let newNode  = new Node(newElement);
     let current  = _find(oldElement);
       if (current === false) {
-        console.error(`LinkedList.insert(): Cannot find ${oldElement}!`)
+        console.error(error(`LinkedList.insert(): Cannot find ${oldElement}!`));
         return false;
       }
     newNode.next = current.next;
@@ -142,7 +144,7 @@ function LinkedList() {
     if (previusNode.next !== null) {
       previusNode.next = previusNode.next.next;
     }
-    console.error(`LinkedList.remove(): Cannot find ${element}!`);
+    console.error(error(`LinkedList.remove(): Cannot find ${element}!`));
     return false;
   }
 }

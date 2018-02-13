@@ -38,7 +38,7 @@
  */
 function Queue() {
   let _container = [];
-
+  //TODO: Add all console.errors.
 
   /**
    * Adds element in a queue.
