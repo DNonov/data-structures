@@ -51,9 +51,7 @@ function Dictionary() {
   }
 
   this.clear = function () {
-    for (const key in Object.keys(this._conatiner)) {
-      delete this._conatiner[key];
-    }
+    this._conatiner = [];
   }
 }
 module.exports = Dictionary;
