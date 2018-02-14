@@ -99,6 +99,20 @@ function _Set() {
     return true;
   }
 
+  this.difference = function (set) {
+    if (set === undefined) {
+      console.error(`Set.intersect(): There is no argument or undefined set!`);
+      return false;
+    }
+    let tempSet = new _Set();
+    for (let i = 0; i < this._container.length; i++) {
+      if (!set.conatains(this._container[i])) {
+        tempSet.add(this._container[i]);
+      }
+    }
+    return tempSet;
+  }
+
   this.size = function () {
     return this._container.length;
   }
