@@ -30,6 +30,7 @@ function _Set() {
       this._container.push(element);
       return true;
     }
+    console.error(`Set.add(): ${element} is already member of the set.`);
     return false;
   }
 
@@ -39,6 +40,7 @@ function _Set() {
       this._container.splice(position, 1);
       return true;
     }
+    console.error(`Set.remove(): Cannot find ${element}!`);
     return false;
   }
 
@@ -54,6 +56,10 @@ function _Set() {
   }
 
   this.union = function (set) {
+    if (set === undefined) {
+      console.error(`Set.union(): There is no argument or undefined set!`);
+      return false;
+    }
     let tempSet = new _Set();
     for (let i = 0; i < this._container.length; i++) {
       tempSet.add(this._container[i]);
@@ -67,7 +73,11 @@ function _Set() {
   }
 
   this.intersect = function (set) {
-    let pemtSet = new _Set();
+    if (set === undefined) {
+      console.error(`Set.intersect(): There is no argument or undefined set!`);
+      return false;
+    }
+    let tempSet = new _Set();
     for (let i = 0; i < this._container.length; i++) {
       if (set.conatains(this._container[i])) {
         tempSet.add(this._container[i]);
@@ -77,11 +87,11 @@ function _Set() {
   }
 
   this.subset = function (set) {
-    if (this.size() > set.size()) {
+    if (set === undefined || this.size() > set.size()) {
       return false;
     } else {
-      for (const element in this._container) {
-        if (!set.conatains(element)) {
+      for (let i = 0; i < this._container.length; i++) {
+        if (!set.conatains(this._container[i])) {
           return false;
         }
       }
@@ -90,7 +100,7 @@ function _Set() {
   }
 
   this.size = function () {
-    return thsi._container;
+    return this._container.length;
   }
 }
 
