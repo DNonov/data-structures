@@ -122,4 +122,23 @@ describe('set method', () => {
     testSet2.add(5);
     expect(testSet1.subset(testSet2)).toBe(true);
   });
+
+  it('returns the difference of two sets', () => {
+    let testSet1 = new Set();
+    let testSet2 = new Set();
+    expect(testSet1.difference()).toBe(false);
+    expect(testSet1.difference(testSet2).display()).toEqual([]);
+    testSet1.add(1);
+    testSet1.add(2);
+    testSet1.add(3);
+    testSet2.add(1);
+    testSet2.add(3);
+    expect(testSet1.difference(testSet2).display()).toEqual([2]);
+    testSet1.add(4);
+    expect(testSet1.difference(testSet2).display()).toEqual([2, 4]);
+    testSet2.add(2);
+    testSet2.add(4);
+    testSet2.add(5);
+    expect(testSet1.difference(testSet2).display()).toEqual([]);
+  });
 });

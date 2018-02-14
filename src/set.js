@@ -101,7 +101,7 @@ function _Set() {
 
   this.difference = function (set) {
     if (set === undefined) {
-      console.error(`Set.intersect(): There is no argument or undefined set!`);
+      console.error(`Set.difference(): There is no argument or undefined set!`);
       return false;
     }
     let tempSet = new _Set();
