@@ -29,10 +29,10 @@ describe('Dictionary method', () => {
   it('adds key value pair', () => {
     let testDictionary = new Dictionary();
     testDictionary.add('moo', 'cat');
+    expect(testDictionary.find('moo')).toBe('cat');
     testDictionary.add(2, 'dog');
     testDictionary.add(3, undefined);
     testDictionary.add(4, 'car');
-    expect(testDictionary.find('moo')).toBe('cat');
     expect(testDictionary.find(2)).toBe('dog');
     expect(testDictionary.find(3)).toBe(undefined);
     expect(testDictionary.find(4)).toBe('car');
