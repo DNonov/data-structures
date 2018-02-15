@@ -22,9 +22,19 @@
 * SOFTWARE.
 */
 
+/**
+ * Set function constructor.
+ * 
+ */
 function _Set() {
   this._container = [];
 
+  /**
+   * Adds given element to a set.
+   * 
+   * @param {any} element Given element.
+   * @returns Returns false if the given element is already member of the set, otherwise returns true.
+   */
   this.add = function (element) {
     if (this._container.indexOf(element) < 0) {
       this._container.push(element);
@@ -34,6 +44,12 @@ function _Set() {
     return false;
   }
 
+  /**
+   * Deletes given element from a set.
+   * 
+   * @param {any} element Given element.
+   * @returns Returns false if the given element is not present, otherwise returns true.
+   */
   this.remove = function (element) {
     const position = this._container.indexOf(element);
     if (position > -1) {
@@ -44,10 +60,21 @@ function _Set() {
     return false;
   }
 
+  /**
+   * Returns the array representation of set.
+   * 
+   * @returns Returns the array representation of set.
+   */
   this.display = function () {
     return this._container;
   }
 
+  /**
+   * Checks if given element is member of the set.
+   * 
+   * @param {any} element Given element.
+   * @returns Returns true if the given element is member of the set, otherwise returns false.
+   */
   this.conatains = function (element) {
     if (this._container.indexOf(element)  > -1) {
       return true;
@@ -55,9 +82,19 @@ function _Set() {
     return false;
   }
 
+  /**
+   * Implements union of two sets.
+   * 
+   * @param {_Set} set Given set.
+   * @returns Returns set union of the two sets. Returns false if there is no arguments passed to the functioin.
+   */
   this.union = function (set) {
     if (set === undefined) {
       console.error(`Set.union(): There is no argument or undefined set!`);
+      return false;
+    }
+    if (!(set instanceof _Set)) {
+      console.error(`Set.union(): ${set} is not of type Set!`);
       return false;
     }
     let tempSet = new _Set();
@@ -69,12 +106,17 @@ function _Set() {
         tempSet.add(set._container[i]);
       }
     }
+    console.log(set instanceof _Set);
     return tempSet;
   }
 
   this.intersect = function (set) {
     if (set === undefined) {
       console.error(`Set.intersect(): There is no argument or undefined set!`);
+      return false;
+    }
+    if (!(set instanceof _Set)) {
+      console.error(`Set.intersect(): ${set} is not of type Set!`);
       return false;
     }
     let tempSet = new _Set();
@@ -87,6 +129,10 @@ function _Set() {
   }
 
   this.subset = function (set) {
+    if (!(set instanceof _Set)) {
+    console.error(`Set.subset(): ${set} is not of type Set!`);
+    return false;
+    }
     if (set === undefined || this.size() > set.size()) {
       return false;
     } else {
@@ -102,6 +148,10 @@ function _Set() {
   this.difference = function (set) {
     if (set === undefined) {
       console.error(`Set.difference(): There is no argument or undefined set!`);
+      return false;
+    }
+    if (!(set instanceof _Set)) {
+      console.error(`Set.difference(): ${set} is not of type Set!`);
       return false;
     }
     let tempSet = new _Set();

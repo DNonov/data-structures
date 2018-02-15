@@ -60,6 +60,10 @@ describe('set method', () => {
     testSet2.add(2);
     let unitetSet1;
     expect(unitetSet1 = testSet1.union()).toBe(false);
+    expect(unitetSet1 = testSet1.union(1)).toBe(false);
+    expect(unitetSet1 = testSet1.union('cat')).toBe(false);
+    expect(unitetSet1 = testSet1.union([])).toBe(false);
+    expect(unitetSet1 = testSet1.union({})).toBe(false);
     let unitedSet = testSet1.union(testSet2);
     expect(unitedSet.display()).toContain(1);
     expect(unitedSet.display()).toContain(2);
@@ -69,6 +73,10 @@ describe('set method', () => {
     let testSet1 = new Set();
     let intersectSet;
     expect(intersectSet = testSet1.intersect()).toBe(false);
+    expect(intersectSet = testSet1.intersect('cat')).toBe(false);
+    expect(intersectSet = testSet1.intersect(1)).toBe(false);
+    expect(intersectSet = testSet1.intersect([])).toBe(false);
+    expect(intersectSet = testSet1.intersect({})).toBe(false);
     testSet1.add(1); 
     testSet1.add(2); 
     testSet1.add(3); 
@@ -108,6 +116,10 @@ describe('set method', () => {
     let testSet1 = new Set();
     let testSet2 = new Set();
     expect(testSet1.subset()).toBe(false);
+    expect(testSet1.subset(1)).toBe(false);
+    expect(testSet1.subset('cat')).toBe(false);
+    expect(testSet1.subset([])).toBe(false);
+    expect(testSet1.subset({})).toBe(false);
     expect(testSet1.subset(testSet2)).toBe(true);
     testSet1.add(1);
     testSet1.add(2);
@@ -127,6 +139,10 @@ describe('set method', () => {
     let testSet1 = new Set();
     let testSet2 = new Set();
     expect(testSet1.difference()).toBe(false);
+    expect(testSet1.difference(1)).toBe(false);
+    expect(testSet1.difference('cat')).toBe(false);
+    expect(testSet1.difference([])).toBe(false);
+    expect(testSet1.difference({})).toBe(false);
     expect(testSet1.difference(testSet2).display()).toEqual([]);
     testSet1.add(1);
     testSet1.add(2);

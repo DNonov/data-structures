@@ -52,7 +52,5 @@ const speedTest = () => {
   console.log(end - start);
 }
 
-console.log(mySet.display());
 
-
-speedTest();        
+//speedTest();        
