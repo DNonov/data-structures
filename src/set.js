@@ -189,7 +189,7 @@ function _Set() {
    * @param {_Set} set Given set. 
    * @returns Returns set difference of the two sets.
    * Returns false if there is no argument passed to the function or the argument is not of type Set.
-   * @example [1, 2, 3] Set1 & [1, 2, 4] Set2 Set1.union(Set2); // [4] Set
+   * @example [1, 2, 3] Set1 & [1, 2, 4] Set2 Set1.difference(Set2); // [4] Set
    *
    */
   this.difference = function (set) {
