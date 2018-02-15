@@ -34,7 +34,8 @@ const error = chalk.bgRed;
  * a list is a computer representation of the mathematical concept of a finite sequence; 
  * the (potentially) infinite analog of a list is a stream. Lists are a basic example of containers, 
  * as they contain other values. If the same value occurs multiple times, each occurrence is considered a distinct item.
- * Full wikipedia article at: https://en.wikipedia.org/wiki/List_(abstract_data_type)
+ * Full wikipedia article at: 
+ * {@link https://en.wikipedia.org/wiki/List_(abstract_data_type)}
  * @public
  * @constructor
  */
@@ -66,8 +67,8 @@ function List() {
    * @param {any} element Element that will be found or not.
    * @returns Returns element's _position or -1 if it not present.
    * @example ['cat', 'dog'] List.find('cat') // 0
-   *                          List.find('dog') // 1
-   *                          List.find('cow') // -1
+   * List.find('dog') // 1
+   * List.find('cow') // -1
    */
   this.find = function (element) {
     return _container.indexOf(element);

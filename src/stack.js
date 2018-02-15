@@ -35,7 +35,8 @@ const error = chalk.bgRed;
  * pop, which removes the most recently added element that was not yet removed.
  * The order in which elements come off a stack gives rise to its alternative name, 
  * LIFO (last in, first out). Additionally, a peek operation may give access to the top without modifying the stack.
- * Full wikipedia article at: https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
+ * Full wikipedia article at: 
+ * {@link https://en.wikipedia.org/wiki/Stack_(abstract_data_type)}
  * @public
  * @constructor
  */
@@ -50,7 +51,7 @@ function Stack() {
    * @param {any} element Element that will be added.
    * @returns False if the given element is undefined.
    * @example [] Stack.push('Cat'); // ['Cat']
-   *          ['Cat'] Stack.push('Dog'); // ['Cat', 'Dog']         
+   * ['Cat'] Stack.push('Dog'); // ['Cat', 'Dog']         
    */     
   this.push = function (element) {
     if (element === undefined) {
@@ -64,7 +65,7 @@ function Stack() {
    * 
    * @returns Returns the removed element if the stack is not empty. Otherwise returns false.
    * @example ['Cat', 'Dog', 'Deer'] Stack.pop(); // 'Deer'
-   *          ['Cat', 'Dog'] Stack.pop(); // 'Dog'
+   * ['Cat', 'Dog'] Stack.pop(); // 'Dog'
    */
   this.pop = function () {
     if (_top !== 0) {
@@ -79,7 +80,7 @@ function Stack() {
    * 
    * @returns Returns the topmost element if the stack is not empty. Otherwise returns falsse.
    * @example ['Cat', 'Dog'] Stack.peek(); // 'Dog'
-   *          ['Pig','Cat'] Stack.peek(); // 'Cat'
+   * ['Pig','Cat'] Stack.peek(); // 'Cat'
    */
   this.peek = function () {
     if (_top !== 0) {
@@ -102,7 +103,7 @@ function Stack() {
    * 
    * @returns Returns the length of a stack.
    * @example [] Stack.length(); // 0
-   *          ['Cat'] Stack.length(); // 1
+   * ['Cat'] Stack.length(); // 1
    */
   this.length = function () {
     return _top;

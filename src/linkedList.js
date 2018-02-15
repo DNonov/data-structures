@@ -33,7 +33,7 @@ const error = chalk.bgRed;
  *  points to the next. It is a data structure consisting of a group of nodes which together represent 
  * a sequence. Under the simplest form, each node is composed of data and a reference (in other words, a link) 
  * to the next node in the sequence. Full wikipedia article at:
- * https://en.wikipedia.org/wiki/Linked_list
+ * {@link https://en.wikipedia.org/wiki/Linked_list}
  * @public
  * @constructor
  */
@@ -87,8 +87,8 @@ function LinkedList() {
    * At the first insertion this argument have to be ommited.  
    * @returns Returns false if the element is not present.
    * @example LinkedList.insert(1); // [1]
-   *          LinkedList.insert(2, 1); // [1] -> [2]
-   *          LinkedList.insert(3, 2); // [1] -> [2] -> [3]
+   * LinkedList.insert(2, 1); // [1] -> [2]
+   * LinkedList.insert(3, 2); // [1] -> [2] -> [3]
    */
   this.insert = function (newElement, oldElement) {
     oldElement   = oldElement || 'head';
@@ -107,7 +107,7 @@ function LinkedList() {
    * 
    * @returns Returns array representation of the linked list. 
    * @example LinkedList; // ['cat'] -> ['pig'] -> ['dog']
-   *          LinkedList.toArray(); // ['cat', 'pig', 'dog']
+   * LinkedList.toArray(); // ['cat', 'pig', 'dog']
    */
   this.toArray = function () {
     let resultArray  = [];
@@ -139,7 +139,7 @@ function LinkedList() {
    * @param {any} element Element that will be removed.
    * @returns Returns false if the element is not present.
    * @example LinkedList; // [1] -> [2] -> [3]
-   *          LinkedList.remove(2); // [1] -> [3]
+   * LinkedList.remove(2); // [1] -> [3]
    */
   this.remove = function (element) {
     let previusNode = _findPrevius(element)

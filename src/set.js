@@ -32,7 +32,8 @@ const error = chalk.bgRed;
  * certain values, without any particular order, and no repeated values. It is a computer 
  * implementation of the mathematical concept of a finite set. Unlike most other collection 
  * types, rather than retrieving a specific element from a set, one typically tests a value for 
- * membership in a set. Full wikipedia article at: https://en.wikipedia.org/wiki/Set_(abstract_data_type)
+ * membership in a set. Full wikipedia article at: 
+ * {@link https://en.wikipedia.org/wiki/Set_(abstract_data_type)}
  * @example let mySet = new Set();
  * @public
  * @constructor
@@ -46,7 +47,7 @@ function _Set() {
    * @param {any} element Given element.
    * @returns {Boolean} Returns false if the given element is already member of the set, otherwise returns true.
    * @example [] Set.add(1); // [1]
-   *          [1] Set.add(2); // [1, 2]
+   * [1] Set.add(2); // [1, 2]
    */
   this.add = function (element) {
     if (this._container.indexOf(element) < 0) {
@@ -63,7 +64,7 @@ function _Set() {
    * @param {any} element Given element.
    * @returns {Boolean} Returns false if the given element is not present, otherwise returns true.
    * @example [1, 2, 3] Set.remove(2); // [1, 3]
-   *          [1, 3] Set.remove(1); // [3]
+   * [1, 3] Set.remove(1); // [3]
    */
   this.remove = function (element) {
     const position = this._container.indexOf(element);
@@ -91,7 +92,7 @@ function _Set() {
    * @param {any} element Given element.
    * @returns {Boolean} Returns true if the given element is member of the set, otherwise returns false.
    * @example [1, 2, 3] Set.contains(3); // true
-   *          [1, 2, 3] Set.contains('cat'); // false
+   * [1, 2, 3] Set.contains('cat'); // false
    */
   this.conatains = function (element) {
     if (this._container.indexOf(element)  > -1) {
