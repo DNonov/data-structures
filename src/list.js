@@ -35,7 +35,8 @@ const error = chalk.bgRed;
  * the (potentially) infinite analog of a list is a stream. Lists are a basic example of containers, 
  * as they contain other values. If the same value occurs multiple times, each occurrence is considered a distinct item.
  * Full wikipedia article at: https://en.wikipedia.org/wiki/List_(abstract_data_type)
- * 
+ * @public
+ * @constructor
  */
 function List() {
 

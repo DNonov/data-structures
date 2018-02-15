@@ -36,7 +36,8 @@ const error = chalk.bgRed;
  * The order in which elements come off a stack gives rise to its alternative name, 
  * LIFO (last in, first out). Additionally, a peek operation may give access to the top without modifying the stack.
  * Full wikipedia article at: https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
- * 
+ * @public
+ * @constructor
  */
 function Stack() {
   let _container = [];

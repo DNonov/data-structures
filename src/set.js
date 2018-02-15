@@ -34,7 +34,8 @@ const error = chalk.bgRed;
  * types, rather than retrieving a specific element from a set, one typically tests a value for 
  * membership in a set. Full wikipedia article at: https://en.wikipedia.org/wiki/Set_(abstract_data_type)
  * @example let mySet = new Set();
- * 
+ * @public
+ * @constructor
  */
 function _Set() {
   this._container = [];

@@ -1,0 +1,19 @@
+{
+  "source": {
+    "include": [
+      "./src/dictionary.js",
+      "./src/linkedList.js",
+      "./src/list.js",
+      "./src/queue.js",
+      "./src/set.js",
+      "./src/stack.js"
+    ]
+  },
+  "opts": {
+    "template": "node_modules/@jeremyckahn/minami",
+    "encoding": "utf8",
+    "destination": "docs",
+    "recurse": true,
+    "private": false
+  }
+}

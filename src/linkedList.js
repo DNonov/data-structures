@@ -34,6 +34,8 @@ const error = chalk.bgRed;
  * a sequence. Under the simplest form, each node is composed of data and a reference (in other words, a link) 
  * to the next node in the sequence. Full wikipedia article at:
  * https://en.wikipedia.org/wiki/Linked_list
+ * @public
+ * @constructor
  */
 function LinkedList() {
   let head = new Node('head');
@@ -121,7 +123,7 @@ function LinkedList() {
    * Helper function used by remove function.
    * 
    * @param {any} element 
-   * @returns 
+   * 
    */
   const _findPrevius = function (element) {
     let currentNode = head;

@@ -30,11 +30,8 @@
  * dictionary is an abstract data type composed of a collection of (key, value) pairs, 
  * such that each possible key appears at most once in the collection. Full wikipedia article at:
  * https://en.wikipedia.org/wiki/Associative_array
- * 
- */
-/**
- * 
- * 
+ * @public
+ * @constructor
  */
 function Dictionary() {
   this._conatiner = [];

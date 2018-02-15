@@ -34,7 +34,8 @@
  * known as dequeue. This makes the queue a First-In-First-Out (FIFO) data structure. 
  * In a FIFO data structure, the first element added to the queue will be the 
  * first one to be removed. Full wikipedia article at: https://en.wikipedia.org/wiki/Queue_(abstract_data_type)
- * 
+ * @public
+ * @constructor
  */
 function Queue() {
   let _container = [];
