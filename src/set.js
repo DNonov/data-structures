@@ -22,6 +22,9 @@
 * SOFTWARE.
 */
 
+const chalk = require('chalk');
+const error = chalk.bgRed;
+
 /**
  * Set function constructor.
  * 
@@ -49,7 +52,7 @@ function _Set() {
       this._container.push(element);
       return true;
     }
-    console.error(`Set.add(): ${element} is already member of the set.`);
+    console.error(error(`Set.add(): ${element} is already member of the set.`));
     return false;
   }
 
@@ -67,7 +70,7 @@ function _Set() {
       this._container.splice(position, 1);
       return true;
     }
-    console.error(`Set.remove(): Cannot find ${element}!`);
+    console.error(error(`Set.remove(): Cannot find ${element}!`));
     return false;
   }
 
@@ -106,11 +109,11 @@ function _Set() {
    */
   this.union = function (set) {
     if (set === undefined) {
-      console.error(`Set.union(): There is no argument or undefined set!`);
+      console.error(error(`Set.union(): There is no argument or undefined set!`));
       return false;
     }
     if (!(set instanceof _Set)) {
-      console.error(`Set.union(): ${set} is not of type Set!`);
+      console.error(error(`Set.union(): ${set} is not of type Set!`));
       return false;
     }
     let tempSet = new _Set();
@@ -136,11 +139,11 @@ function _Set() {
    */
   this.intersect = function (set) {
     if (set === undefined) {
-      console.error(`Set.intersect(): There is no argument or undefined set!`);
+      console.error(error(`Set.intersect(): There is no argument or undefined set!`));
       return false;
     }
     if (!(set instanceof _Set)) {
-      console.error(`Set.intersect(): ${set} is not of type Set!`);
+      console.error(error(`Set.intersect(): ${set} is not of type Set!`));
       return false;
     }
     let tempSet = new _Set();
@@ -163,7 +166,7 @@ function _Set() {
    */
   this.subset = function (set) {
     if (!(set instanceof _Set)) {
-    console.error(`Set.subset(): ${set} is not of type Set!`);
+    console.error(error(`Set.subset(): ${set} is not of type Set!`));
     return false;
     }
     if (set === undefined || this.size() > set.size()) {
@@ -189,11 +192,11 @@ function _Set() {
    */
   this.difference = function (set) {
     if (set === undefined) {
-      console.error(`Set.difference(): There is no argument or undefined set!`);
+      console.error(error(`Set.difference(): There is no argument or undefined set!`));
       return false;
     }
     if (!(set instanceof _Set)) {
-      console.error(`Set.difference(): ${set} is not of type Set!`);
+      console.error(error(`Set.difference(): ${set} is not of type Set!`));
       return false;
     }
     let tempSet = new _Set();
