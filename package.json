@@ -10,6 +10,8 @@
   "author": "DNonov",
   "license": "MIT",
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jasmine": "^3.0.0",
     "jasmine": "^2.9.0"
   },
   "dependencies": {
