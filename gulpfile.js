@@ -1,7 +1,7 @@
-"use strict";
-const gulp = require('gulp');
-const watch = require('gulp-watch');
-const jasmine = require('gulp-jasmine');
+
+var gulp = require('gulp');
+var watch = require('gulp-watch');
+var jasmine = require('gulp-jasmine');
 
 gulp.task('test', function () {
   return gulp.src('test/**/*.test.js')
