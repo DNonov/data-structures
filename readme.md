@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/DNonov/data-structures-lib.svg?branch=master)](https://travis-ci.org/DNonov/data-structures-lib)
+
 ## About
 This repository contains collection of data structures.
 * Dictionary
