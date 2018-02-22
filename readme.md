@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/DNonov/data-structures-lib.svg?branch=master)](https://travis-ci.org/DNonov/data-structures-lib) [![license](https://img.shields.io/github/license/DNonov/data-structures-lib.svg)](./LICENSE) [![GitHub package version](https://img.shields.io/github/package-json/v/badges/shields.svg)](./package.json) [![Coverage Status](https://coveralls.io/repos/github/DNonov/data-structures-lib/badge.svg?branch=master)](https://coveralls.io/github/DNonov/data-structures-lib?branch=master)
+[![Build Status](https://travis-ci.org/DNonov/data-structures-lib.svg?branch=master)](https://travis-ci.org/DNonov/data-structures-lib) [![license](https://img.shields.io/github/license/DNonov/data-structures-lib.svg)](./LICENSE) [![GitHub package version](https://img.shields.io/github/package-json/v/DNonov/data-structures-lib.svg)](./package.json) [![Coverage Status](https://coveralls.io/repos/github/DNonov/data-structures-lib/badge.svg?branch=master)](https://coveralls.io/github/DNonov/data-structures-lib?branch=master)
 
 
 
