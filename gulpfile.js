@@ -13,4 +13,6 @@ gulp.task('watch-test', function () {
   });
 });
 
-gulp.task('build', ['test']);
+gulp.task('build', function () {
+  gulp.start('test');
+});
