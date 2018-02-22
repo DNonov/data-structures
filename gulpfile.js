@@ -12,3 +12,5 @@ gulp.task('watch-test', () => {
     gulp.start('test');
   });
 });
+
+gulp.task('build', ['test']);
