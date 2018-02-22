@@ -2,12 +2,12 @@ const gulp = require('gulp');
 const watch = require('gulp-watch');
 const jasmine = require('gulp-jasmine');
 
-gulp.task('test', () => {
+gulp.task('test', function () {
   return gulp.src('test/**/*.test.js')
     .pipe(jasmine());
 });
 
-gulp.task('watch-test', () => {
+gulp.task('watch-test', function () {
   watch('test/**/*.test.js', () => {
     gulp.start('test');
   });
