@@ -8,7 +8,7 @@ gulp.task('test', function () {
 });
 
 gulp.task('watch-test', function () {
-  watch('test/**/*.test.js', () => {
+  watch('test/**/*.test.js', function () {
     gulp.start('test');
   });
 });
