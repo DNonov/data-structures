@@ -6,7 +6,7 @@
   "scripts": {
     "test": "gulp test",
     "cover": "istanbul cover gulp test",
-    "coverall":"istanbul cover gulp test --captureExceptions spec/ && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "coveralls":"istanbul cover gulp test --captureExceptions spec/ && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "doc-build": "jsdoc -c doc-config.json"
   },
   "author": "DNonov",
