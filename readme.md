@@ -4,6 +4,8 @@
 
 ## About
 This repository contains collection of data structures.
+
+* Binary search tree
 * Dictionary
 * Linked List
 * List
