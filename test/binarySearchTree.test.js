@@ -63,16 +63,16 @@ describe('BST method', () => {
     expect(myBST.find(2)).toEqual(2);
     expect(myBST.find(23)).toEqual(23);
   });
-  // it('removes given node', () => {
-  //   let myBST = new BST();
-  //   myBST.insert(47);
-  //   myBST.insert(23);
-  //   myBST.insert(2);
-  //   myBST.insert(4);
-  //   myBST.insert(17);
-  //   myBST.remove(2)  
-  //   expect(myBST.inOrder()).toEqual([4, 17, 23, 47]);
-  //   myBST.remove(23)
-  //   expect(myBST.inOrder()).toEqual([4, 17, 47]);
-  // });
+  it('removes given node', () => {
+    let myBST = new BST();
+    myBST.insert(47);
+    myBST.insert(23);
+    myBST.insert(2);
+    myBST.insert(4);
+    myBST.insert(17);
+    myBST.remove(2);  
+    expect(myBST.inOrder()).toEqual([4, 17, 23, 47]);
+    myBST.remove(23);
+    expect(myBST.inOrder()).toEqual([4, 17, 47]);
+  });
 });

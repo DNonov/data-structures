@@ -101,7 +101,7 @@ function BST() {
       } else {
         currentNode = currentNode.right;
       }
-      if (currentNode === null) {return null;}
+      if (currentNode === null) return null;
     }
     return currentNode.data;
   }
@@ -114,41 +114,30 @@ function BST() {
     return currentNode;
   }
 
-  this.remove = function (data) {
-    let currentNode = this.root;
-    // find the node
-    while (currentNode.data !== data) {
-      if (data < currentNode.data) {
-        currentNode = currentNode.left;
-      } else {
-        currentNode = currentNode.right;
-      }
-      if (currentNode === null) {return null;}
-    }
-    if (currentNode.left === null && currentNode.right === null) {
-      // if the node is leaf
-      if (currentNode.parent.left !== null && currentNode.parent.left.data === currentNode.data) {
-        currentNode.parent.left = null;
-      } else {
-        currentNode.parent.right = null;
-      }
+  this.remove = function(data) {
+    this.root = removeNode(this.root, data)
+  }
+
+  const removeNode = function (node , data) {
+    if (node === null) return null;
+    if (node.data === data) {
+      // node has no children
+      if (node.left === null && node.right === null) return null;
+      // node has no left child
+      if (node.left === null) return node.right;
+      // node has no right child
+      if (node.right === null) return node.left;
+      // node has two children
+      var tempNode = smallestNode(node);
+      node.data = tempNode.data;
+      node.right = removeNode(node.right, node.data);
+      return node;
+    } else if (data < node.data) {
+      node.left = removeNode(node.left, data);
+      return node;
     } else {
-      // if the node has a child or children
-      if (currentNode.parent.left !== null && currentNode.parent.left.data === currentNode.data) {
-        currentNode.parent.left.setData(smallestNode(currentNode).data);
-        if (smallestNode(currentNode).parent.left == null) {
-          smallestNode(currentNode).parent.right = null;
-        } else {
-          smallestNode(currentNode).parent.left = null;
-        }
-      } else {
-        currentNode.parent.right.setData(smallestNode(currentNode).data);
-        if (smallestNode(currentNode).parent.left == null) {
-          smallestNode(currentNode).parent.right = null;
-        } else {
-          smallestNode(currentNode).parent.left = null;
-        }
-      }
+      node.right = removeNode(node.right, data);
+      return node;
     }
   }
 }
