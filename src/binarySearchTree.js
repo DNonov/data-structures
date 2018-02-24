@@ -107,7 +107,7 @@ function BST() {
   }
 
   const smallestNode = function (node) {
-    let currentNode = node.right;
+    let currentNode = node;
     while (!(currentNode.left === null)) {
       currentNode = currentNode.left;
     }
@@ -128,7 +128,7 @@ function BST() {
       // node has no right child
       if (node.right === null) return node.left;
       // node has two children
-      var tempNode = smallestNode(node);
+      var tempNode = smallestNode(node.right);
       node.data = tempNode.data;
       node.right = removeNode(node.right, node.data);
       return node;
