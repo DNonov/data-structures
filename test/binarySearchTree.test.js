@@ -37,7 +37,7 @@ describe('BST method', () => {
   });
   it('finds the smallest value', () => {
     let myBST = new BST();
-    myBST.insert(47);
+    myBST.insert(47); 
     myBST.insert(23);
     myBST.insert(2);
     myBST.insert(4);

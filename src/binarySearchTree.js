@@ -78,19 +78,19 @@ function BST() {
   }
 
   this.min = function () {
-    let currentNode = this.root;
-    while (!(currentNode.left === null)) {
-      currentNode = currentNode.left;
-    }
-    return currentNode.data;
+    const result = (function minNode(currentNode) {      
+      if(currentNode.left === null) return currentNode.data;
+      return minNode(currentNode.left);
+    })(this.root);
+    return result;
   }
 
   this.max = function () {
-    let currentNode = this.root;
-    while (!(currentNode.right === null)) {
-      currentNode = currentNode.right;
-    }
-    return currentNode.data;
+    const result = (function minNode(currentNode) {      
+      if(currentNode.right === null) return currentNode.data;
+      return minNode(currentNode.right);
+    })(this.root);
+    return result;
   }
 
   this.find = function (data) {
@@ -106,12 +106,12 @@ function BST() {
     return currentNode.data;
   }
 
-  const smallestNode = function (node) {
-    let currentNode = node;
-    while (!(currentNode.left === null)) {
-      currentNode = currentNode.left;
-    }
-    return currentNode;
+  const smallestNode = function (currentNode) {
+    const result = (function minNode(currentNode) {      
+      if(currentNode.left === null) return currentNode;
+      return minNode(currentNode.left);
+    })(this.root);
+    return result;
   }
 
   this.remove = function(data) {
