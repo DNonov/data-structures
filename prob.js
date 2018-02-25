@@ -63,7 +63,7 @@ let myBST = new BST();
     myBST.insert(2);
     myBST.insert(4);
     myBST.insert(17); 
-
+console.log(myBST.min());
 myBST.remove(47);
 console.log(myBST.inOrder());
  

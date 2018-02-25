@@ -4,7 +4,12 @@ const jasmine = require('gulp-jasmine');
 
 gulp.task('test', () => {
   return gulp.src('test/**/*.test.js')
-    .pipe(jasmine());
+    .pipe(jasmine(
+      {
+        'verbose': true,
+        'includeStackTrace': true
+      }
+    ));
 });
 
 gulp.task('watch-test',() => {
