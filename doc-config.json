@@ -6,7 +6,8 @@
       "./src/list.js",
       "./src/queue.js",
       "./src/set.js",
-      "./src/stack.js"
+      "./src/stack.js",
+      "./src/binarySearchTree.js"
     ]
   },
   "opts": {

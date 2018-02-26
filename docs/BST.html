@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Queue - Documentation</title>
+    <title>BST - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Queue</h1>
+    <h1 class="page-title">BST</h1>
     
 
     
@@ -42,7 +42,7 @@
 <header>
     
         <h2>
-        Queue
+        BST
         </h2>
         
     
@@ -56,22 +56,18 @@
 
     
 
-    <h4 class="name" id="Queue"><span class="type-signature"></span>new Queue<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="BST"><span class="type-signature"></span>new BST<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    In computer science, a queue (/ˈkjuː/ KYEW) is a particular
-kind of abstract data type or collection in which the entities in the 
-collection are kept in order and the principle (or only) operations on 
-the collection are the addition of entities to the rear terminal position, 
-known as enqueue, and removal of entities from the front terminal position, 
-known as dequeue. This makes the queue a First-In-First-Out (FIFO) data structure. 
-In a FIFO data structure, the first element added to the queue will be the 
-first one to be removed. Full wikipedia article at: 
-<a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)">https://en.wikipedia.org/wiki/Queue_(abstract_data_type)</a>
+    In computer science, binary search trees (BST), sometimes called 
+ordered or sorted binary trees, are a particular type of container: data 
+structures that store "items" (such as numbers, names etc.) in memory. 
+Full wikipedia article at: 
+<a href="https://en.wikipedia.org/wiki/Binary_search_tree">https://en.wikipedia.org/wiki/Binary_search_tree</a>
 </div>
 
 
@@ -107,7 +103,7 @@ first one to be removed. Full wikipedia article at:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="queue.js.html">queue.js</a>, <a href="queue.js.html#line41">line 41</a>
+        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line37">line 37</a>
     </li></ul></dd>
     
 
@@ -143,7 +139,7 @@ first one to be removed. Full wikipedia article at:
 <div class="section-examples">
 <h5>Example</h5>
 
-    <pre class="prettyprint"><code>let myQueue = new Queue(); </code></pre>
+    <pre class="prettyprint"><code>let myBST = new BST();</code></pre>
 
 </div>
 
@@ -172,14 +168,14 @@ first one to be removed. Full wikipedia article at:
 
     
 
-    <h4 class="name" id="dequeue"><span class="type-signature"></span>dequeue<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="find"><span class="type-signature"></span>find<span class="signature">(data)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Removes and returns the first element in a queue.
+    Finds given value within the tree.
 </div>
 
 
@@ -215,111 +211,7 @@ first one to be removed. Full wikipedia article at:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="queue.js.html">queue.js</a>, <a href="queue.js.html#line63">line 63</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
-
-
-<div class="param-desc">
-    Returns the removed element if the queue is not empty, otherwise returns false.
-</div>
-
-    
-</div>
-
-
-
-<div class="section-examples">
-<h5>Example</h5>
-
-    <pre class="prettyprint"><code>[1, 2, 3] Queue.dequeue(); // [2, 3]
-[2, 3] Queue.dequeue(); // [3]</code></pre>
-
-</div>
-
-</div>
-        
-            
-<div class="section-method">
-
-    
-
-    <h4 class="name" id="enqueue"><span class="type-signature"></span>enqueue<span class="signature">(element)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    Adds element in a queue.
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="queue.js.html">queue.js</a>, <a href="queue.js.html#line52">line 52</a>
+        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line162">line 162</a>
     </li></ul></dd>
     
 
@@ -363,7 +255,7 @@ first one to be removed. Full wikipedia article at:
 
         <tr>
             
-                <td class="name"><code>element</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
@@ -380,7 +272,284 @@ first one to be removed. Full wikipedia article at:
             
 
             <td class="description last">
-                Element that will be added.
+                
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+
+<div class="param-desc">
+    Returns given value or false if the value is not present.
+</div>
+
+    
+</div>
+
+
+
+<div class="section-examples">
+<h5>Example</h5>
+
+    <pre class="prettyprint"><code>BST.insert(10);
+BST.insert(32);
+BST.insert(41);
+BST.find(32); // 32
+BST.find(72); // false</code></pre>
+
+</div>
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="inOrder"><span class="type-signature"></span>inOrder<span class="signature">()</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Returns sorted array representation of the tree.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line103">line 103</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Array</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    Returns array representation of the tree.
+</div>
+
+    
+</div>
+
+
+
+<div class="section-examples">
+<h5>Example</h5>
+
+    <pre class="prettyprint"><code>BST.insert(10);
+BST.insert(32);
+BST.insert(41);
+BST.inOrder(41); // [10, 32, 41]</code></pre>
+
+</div>
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="insert"><span class="type-signature"></span>insert<span class="signature">(data)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Inserts new node.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line67">line 67</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>any</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                
                 
             </td>
         </tr>
@@ -407,8 +576,7 @@ first one to be removed. Full wikipedia article at:
 <div class="section-examples">
 <h5>Example</h5>
 
-    <pre class="prettyprint"><code>[] Queue.enqueue(1); // [1]
-[1] Queue.enqueue(2); // [1, 2]</code></pre>
+    <pre class="prettyprint"><code>BST.insert(10);</code></pre>
 
 </div>
 
@@ -419,14 +587,14 @@ first one to be removed. Full wikipedia article at:
 
     
 
-    <h4 class="name" id="head"><span class="type-signature"></span>head<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="max"><span class="type-signature"></span>max<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Returns the first element in a queue.
+    Returns the biggest value within the tree.
 </div>
 
 
@@ -462,7 +630,7 @@ first one to be removed. Full wikipedia article at:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="queue.js.html">queue.js</a>, <a href="queue.js.html#line77">line 77</a>
+        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line142">line 142</a>
     </li></ul></dd>
     
 
@@ -500,7 +668,7 @@ first one to be removed. Full wikipedia article at:
 
 
 <div class="param-desc">
-    Returns the first element if the queue is not empty, otherwise returns false.
+    Returns the biggest value within the tree.
 </div>
 
     
@@ -511,8 +679,10 @@ first one to be removed. Full wikipedia article at:
 <div class="section-examples">
 <h5>Example</h5>
 
-    <pre class="prettyprint"><code>[1, 2, 3] Queue.head(); // 1
-['Cat', 'Dog', 'Pig'] Queue.head(); // 'Cat'</code></pre>
+    <pre class="prettyprint"><code>BST.insert(10);
+BST.insert(32);
+BST.insert(41);
+BST.max(); // 41</code></pre>
 
 </div>
 
@@ -523,14 +693,14 @@ first one to be removed. Full wikipedia article at:
 
     
 
-    <h4 class="name" id="isEmpty"><span class="type-signature"></span>isEmpty<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="min"><span class="type-signature"></span>min<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Returns true if queue is empty.
+    Returns the smallest value within the tree.
 </div>
 
 
@@ -566,7 +736,7 @@ first one to be removed. Full wikipedia article at:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="queue.js.html">queue.js</a>, <a href="queue.js.html#line105">line 105</a>
+        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line124">line 124</a>
     </li></ul></dd>
     
 
@@ -604,7 +774,7 @@ first one to be removed. Full wikipedia article at:
 
 
 <div class="param-desc">
-    Returns true if queue is empty, otherwise returns false.
+    Returns the smallest value within the tree.
 </div>
 
     
@@ -615,8 +785,10 @@ first one to be removed. Full wikipedia article at:
 <div class="section-examples">
 <h5>Example</h5>
 
-    <pre class="prettyprint"><code>[] Queue.empty(); // true
-[1, 2] Queue.empty(); // false</code></pre>
+    <pre class="prettyprint"><code>BST.insert(10);
+BST.insert(32);
+BST.insert(41);
+BST.min(); // 10</code></pre>
 
 </div>
 
@@ -627,14 +799,14 @@ first one to be removed. Full wikipedia article at:
 
     
 
-    <h4 class="name" id="tail"><span class="type-signature"></span>tail<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="remove"><span class="type-signature"></span>remove<span class="signature">(data)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Returns the last element in a queue.
+    Removes node from the tree.
 </div>
 
 
@@ -670,7 +842,7 @@ first one to be removed. Full wikipedia article at:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="queue.js.html">queue.js</a>, <a href="queue.js.html#line91">line 91</a>
+        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line196">line 196</a>
     </li></ul></dd>
     
 
@@ -689,38 +861,79 @@ first one to be removed. Full wikipedia article at:
 
 
 
+    <h5>Parameters:</h5>
+    
 
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
 
-
-
-
-
-
-
-
-
-
-
-<div class="section-returns">
-<h5>Returns:</h5>
+        <th>Type</th>
 
         
 
+        
 
-<div class="param-desc">
-    Returns the last element if the queue is not empty, otherwise returns false.
-</div>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>any</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                
+                
+            </td>
+        </tr>
 
     
-</div>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div class="section-examples">
 <h5>Example</h5>
 
-    <pre class="prettyprint"><code>[1, 2, 3] Queue.tail(); // 3
-['Cat', 'Dog', 'Pig'] Queue.tail(); // 'Pig'</code></pre>
+    <pre class="prettyprint"><code>BST.insert(10);
+BST.insert(32);
+BST.insert(41);
+BST.remove(41); // 10, 32</code></pre>
 
 </div>
 
@@ -731,14 +944,14 @@ first one to be removed. Full wikipedia article at:
 
     
 
-    <h4 class="name" id="toArray"><span class="type-signature"></span>toArray<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~Node"><span class="type-signature">(inner) </span>Node<span class="signature">(data, left, right)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Returns array representation of a queue.
+    Node function constructor
 </div>
 
 
@@ -774,7 +987,194 @@ first one to be removed. Full wikipedia article at:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="queue.js.html">queue.js</a>, <a href="queue.js.html#line117">line 117</a>
+        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line48">line 48</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>any</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>left</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>any</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>right</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>any</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="~removeNode"><span class="type-signature">(inner) </span>removeNode<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    The actual removing function.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line204">line 204</a>
     </li></ul></dd>
     
 
@@ -805,18 +1205,88 @@ first one to be removed. Full wikipedia article at:
 
 
 
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
 
 
-<div class="param-desc">
-    Array representation of a queue.
 </div>
+        
+            
+<div class="section-method">
 
     
+
+    <h4 class="name" id="~smallestNode"><span class="type-signature">(inner) </span>smallestNode<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Small private helper function for removing.
 </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="binarySearchTree.js.html">binarySearchTree.js</a>, <a href="binarySearchTree.js.html#line179">line 179</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
