@@ -22,10 +22,29 @@
 * SOFTWARE.
 */
 
+/**
+ * Binary search tree function constructor.
+ * 
+ * @example let myBST = new BST();
+ * @description In computer science, binary search trees (BST), sometimes called 
+ * ordered or sorted binary trees, are a particular type of container: data 
+ * structures that store "items" (such as numbers, names etc.) in memory. 
+ * Full wikipedia article at: 
+ * {@link https://en.wikipedia.org/wiki/Binary_search_tree}
+ * @public
+ * @constructor
+ */
 function BST() {
   this.root = null;
   this.parent;
   
+  /**
+   * Node function constructor
+   * 
+   * @param {any} data 
+   * @param {any} left 
+   * @param {any} right 
+   */
   function Node (data, left, right) {
     this.data = data;
     this.left = left;
@@ -38,6 +57,13 @@ function BST() {
     }
   }
 
+  /**
+   * Inserts new node.
+   * 
+   * @param {any} data
+   * @example BST.insert(10);
+   *
+   */
   this.insert = function (data) {
     let newNode = new Node(data, null, null);
     if (this.root === null) {
@@ -65,7 +91,16 @@ function BST() {
     }
   }
 
-  this.inOrder = function (node) {
+  /**
+   * Returns sorted array representation of the tree.
+   *  
+   * @returns {Array} Returns array representation of the tree.
+   * @example BST.insert(10);
+   * BST.insert(32);
+   * BST.insert(41);
+   * BST.inOrder(41); // [10, 32, 41]
+   */
+  this.inOrder = function () {
     let arr = [];
     (function Order(node) {
       if (!(node === null)) {
@@ -77,6 +112,15 @@ function BST() {
     return arr;
   }
 
+  /**
+   * Returns the smallest value within the tree.
+   * 
+   * @returns Returns the smallest value within the tree.
+   * @example BST.insert(10);
+   * BST.insert(32);
+   * BST.insert(41);
+   * BST.min(); // 10
+   */
   this.min = function () {
     const result = (function minNode(currentNode) {      
       if(currentNode.left === null) return currentNode.data;
@@ -85,6 +129,16 @@ function BST() {
     return result;
   }
 
+  /**
+   * Returns the biggest value within the tree.
+   * 
+   * @returns Returns the biggest value within the tree.
+   * @example BST.insert(10);
+   * BST.insert(32);
+   * BST.insert(41);
+   * BST.max(); // 41
+   * 
+   */
   this.max = function () {
     const result = (function minNode(currentNode) {      
       if(currentNode.right === null) return currentNode.data;
@@ -93,6 +147,18 @@ function BST() {
     return result;
   }
 
+  /**
+   * Finds given value within the tree.
+   * 
+   * @param {any} data 
+   * @returns Returns given value or false if the value is not present.
+   * @example BST.insert(10);
+   * BST.insert(32);
+   * BST.insert(41);
+   * BST.find(32); // 32
+   * BST.find(72); // false
+   * 
+   */
   this.find = function (data) {
     let currentNode = this.root;
     while (currentNode.data !== data) {
@@ -101,11 +167,15 @@ function BST() {
       } else {
         currentNode = currentNode.right;
       }
-      if (currentNode === null) return null;
+      if (currentNode === null) return false;
     }
     return currentNode.data;
   }
 
+  /**
+   *  Small private helper function for removing.
+   * 
+   */
   const smallestNode = function (currentNode) {
     const result = (function minNode(currentNode) {      
       if(currentNode.left === null) return currentNode;
@@ -114,10 +184,23 @@ function BST() {
     return result;
   }
 
+  /**
+   * Removes node from the tree.
+   * 
+   * @param {any} data 
+   * @example BST.insert(10);
+   * BST.insert(32);
+   * BST.insert(41);
+   * BST.remove(41); // 10, 32
+   */
   this.remove = function(data) {
     this.root = removeNode(this.root, data)
   }
 
+  /**
+   *  The actual removing function.
+   * 
+   */
   const removeNode = function (node , data) {
     if (node === null) return null;
     if (node.data === data) {

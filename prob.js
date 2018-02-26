@@ -58,13 +58,11 @@
 
 let BST = require('./src/binarySearchTree');
 let myBST = new BST();
-    myBST.insert(47);
-    myBST.insert(23);
-    myBST.insert(2);
-    myBST.insert(4);
-    myBST.insert(17); 
+    myBST.insert(10);
+    myBST.insert(3);
+    myBST.insert(5);
+    console.log(myBST.find(72)); 
 console.log(myBST.min());
-myBST.remove(47);
 console.log(myBST.inOrder());
  
 
