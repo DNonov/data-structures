@@ -2,7 +2,7 @@
   "name": "data-strucures",
   "version": "1.0.0",
   "description": "Collection of data structures",
-  "main": "ds-lib.js",
+  "main": "index.js",
   "scripts": {
     "test": "gulp test",
     "cover": "istanbul cover gulp test",
