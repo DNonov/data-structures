@@ -13,7 +13,7 @@ This repository contains collection of data structures.
 * Set
 * Stack
 
-[Here is the documentation.](https://dnonov.github.io/data-structures-lib/)
+[Here is the documentation.](https://dnonov.github.io/DStructures/)
 
 ## Development
 
