@@ -1,7 +1,8 @@
 /**
  * Dictionary function constructor.
  * 
- * @example let myDictionary = new Dictionary();
+ * @example const Dictionary = require('dstructures').Dictionary;
+ * const myDictionary = new Dictionary();
  * @description In computer science, an associative array, map, symbol table, or 
  * dictionary is an abstract data type composed of a collection of (key, value) pairs, 
  * such that each possible key appears at most once in the collection. Full wikipedia article at:

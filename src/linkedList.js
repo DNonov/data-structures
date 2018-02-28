@@ -4,7 +4,8 @@ const error = chalk.bgRed;
 /**
  * Linked list function constructor.
  * 
- * @example let myLinkedList = new LinkedList();
+ * @example const LinkedList = require('dstructures').LinkedList;
+ * const myLinkedList = new LinkedList();
  * @description In computer science, a linked list is a linear collection of data elements, 
  * in which linear order is not given by their physical placement in memory. Instead, each element
  *  points to the next. It is a data structure consisting of a group of nodes which together represent 

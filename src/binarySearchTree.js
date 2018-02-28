@@ -1,7 +1,8 @@
 /**
  * Binary search tree function constructor.
  * 
- * @example let myBST = new BST();
+ * @example const BST = require('dstructures').BST;
+ * const myBST = new BST();
  * @description In computer science, binary search trees (BST), sometimes called 
  * ordered or sorted binary trees, are a particular type of container: data 
  * structures that store "items" (such as numbers, names etc.) in memory. 

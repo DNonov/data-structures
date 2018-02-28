@@ -4,13 +4,14 @@ const error = chalk.bgRed;
 /**
  * Set function constructor.
  * 
+ * @example const _Set = require('dstructures')._Set;
+ * const mySet = new _Set();
  * @description In computer science, a set is an abstract data type that can store
  * certain values, without any particular order, and no repeated values. It is a computer 
  * implementation of the mathematical concept of a finite set. Unlike most other collection 
  * types, rather than retrieving a specific element from a set, one typically tests a value for 
  * membership in a set. Full wikipedia article at: 
  * {@link https://en.wikipedia.org/wiki/Set_(abstract_data_type)}
- * @example let mySet = new Set();
  * @public
  * @constructor
  */
