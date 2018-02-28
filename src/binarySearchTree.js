@@ -103,9 +103,9 @@ function BST() {
   this.inOrder = function () {
     let arr = [];
     (function Order(node) {
-      if (!(node === null)) {
+      if (!(node === null)) { 
         Order(node.left);
-        arr.push(node.return());
+        arr.push(node.return()); 
         Order(node.right);
       }
     })(this.root);
@@ -172,10 +172,7 @@ function BST() {
     return currentNode.data;
   }
 
-  /**
-   *  Small private helper function for removing.
-   * 
-   */
+ // small private helper function for removing.
   const smallestNode = function (currentNode) {
     const result = (function minNode(currentNode) {      
       if(currentNode.left === null) return currentNode;
@@ -197,10 +194,7 @@ function BST() {
     this.root = removeNode(this.root, data)
   }
 
-  /**
-   *  The actual removing function.
-   * 
-   */
+  // This is the actual removal function 
   const removeNode = function (node , data) {
     if (node === null) return null;
     if (node.data === data) {
