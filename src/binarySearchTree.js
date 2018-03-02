@@ -14,7 +14,7 @@
 function BST() {
   this.root = null;
   this.parent;
-  
+
   /**
    * Node function constructor
    * 
@@ -33,7 +33,7 @@ function BST() {
       this.data = data;
     }
   }
-
+  
   /**
    * Inserts new node.
    * 

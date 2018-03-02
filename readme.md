@@ -1,9 +1,9 @@
-[![Build Status](https://travis-ci.org/DNonov/data-structures-lib.svg?branch=master)](https://travis-ci.org/DNonov/data-structures-lib) [![license](https://img.shields.io/github/license/DNonov/data-structures-lib.svg)](./LICENSE) [![GitHub package version](https://img.shields.io/github/package-json/v/DNonov/data-structures-lib.svg)](./package.json) [![Coverage Status](https://coveralls.io/repos/github/DNonov/data-structures-lib/badge.svg?branch=master)](https://coveralls.io/github/DNonov/data-structures-lib?branch=master)
+[![Build Status](https://travis-ci.org/DNonov/Dstructures.svg?branch=master)](https://travis-ci.org/DNonov/Dstructures) [![license](https://img.shields.io/github/license/DNonov/Dstructures.svg)](./LICENSE) [![GitHub package version](https://img.shields.io/github/package-json/v/DNonov/Dstructures.svg)](./package.json) [![Coverage Status](https://coveralls.io/repos/github/DNonov/Dstructures/badge.svg?branch=master)](https://coveralls.io/github/DNonov/Dstructures?branch=master)
 
 
 
 ## About
-This repository contains collection of data structures.
+Collection of data structures.
 
 * Binary search tree
 * Dictionary
@@ -15,25 +15,34 @@ This repository contains collection of data structures.
 
 [Here is the documentation.](https://dnonov.github.io/DStructures/)
 
+## Installation
+This is [Node.js](https://nodejs.org/en/) module available through [npm](https://www.npmjs.com/).
+
+First get yourself [Node.js](https://nodejs.org/en/download), and then 
+
+```bash
+$ npm install dstructures
+```
+
 ## Development
 
 **To install all development dependencies**
 
 ```bash
-npm install
+$ npm install
 ```
 
 **To run tests**
 ```bash
-npm run test
+$ npm run test
 ```
 or
 ```bash
-gulp test
+$ gulp test
 ```
 or if you want to run tests on every change at **/test** folder
 ```bash
-gulp watch-test
+$ gulp watch-test
 ```
 ## License
 [MIT](./LICENSE)
