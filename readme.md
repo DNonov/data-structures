@@ -1,4 +1,5 @@
 ![](./images/logo.jpg)
+[Logo design](https://www.designevo.com/)
 
 [![Build Status](https://travis-ci.org/DNonov/DStructures.svg?branch=master)](https://travis-ci.org/DNonov/DStructures) [![license](https://img.shields.io/github/license/DNonov/Dstructures.svg)](./LICENSE) [![GitHub package version](https://img.shields.io/github/package-json/v/DNonov/Dstructures.svg)](./package.json) [![Coverage Status](https://coveralls.io/repos/github/DNonov/data-structures-lib/badge.svg?branch=master)](https://coveralls.io/github/DNonov/data-structures-lib?branch=master)
 
