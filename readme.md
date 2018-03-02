@@ -1,3 +1,5 @@
+![](https://github.com/Dnonov/Dstructures/images/logo.jpg)
+
 [![Build Status](https://travis-ci.org/DNonov/Dstructures.svg?branch=master)](https://travis-ci.org/DNonov/Dstructures) [![license](https://img.shields.io/github/license/DNonov/Dstructures.svg)](./LICENSE) [![GitHub package version](https://img.shields.io/github/package-json/v/DNonov/Dstructures.svg)](./package.json) [![Coverage Status](https://coveralls.io/repos/github/DNonov/Dstructures/badge.svg?branch=master)](https://coveralls.io/github/DNonov/Dstructures?branch=master)
 
 
