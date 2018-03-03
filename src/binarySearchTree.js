@@ -15,13 +15,8 @@ function BST() {
   this.root = null;
   this.parent;
 
-  /**
-   * Node function constructor
-   * 
-   * @param {any} data 
-   * @param {any} left 
-   * @param {any} right 
-   */
+  
+  // Node function constructor
   function Node (data, left, right) {
     this.data = data;
     this.left = left;

@@ -19,22 +19,15 @@ function LinkedList() {
   let head = new Node('head');
 
 
-  /**
-   * Node function constructor.
-   * 
-   * @param {any} element Node's data.
-   */
+  
+  // Node function constructor.
   function Node(element) {
     this.element = element;
     this.next    = null;
   }
 
-  /**
-   * Finds given node.
-   * 
-   * @param {any} element Element property of the node.
-   * @returns Returns the node.
-   */
+  
+  // Finds given node.
   const _find = function (element) {
     let currentNode = head;
     while (currentNode.element !== element  && currentNode.next !== null) {
@@ -48,7 +41,7 @@ function LinkedList() {
   }
 
   /**
-   * Simple wrapper, that makes function find easier to test.
+   * Returns the element property of the given node.
    * 
    * @param {any} element Element property of the node.
    * @returns Returns the element property of the node.
@@ -63,7 +56,7 @@ function LinkedList() {
    * @param {any} newElement The element that will be inserted.
    * @param {any} oldElement The old element after whitch the new element will be added.
    * At the first insertion this argument have to be ommited.  
-   * @returns Returns false if the element is not present.
+   * @returns {Boolean} Returns false if the element is not present.
    * @example LinkedList.insert(1); // [1]
    * LinkedList.insert(2, 1); // [1] -> [2]
    * LinkedList.insert(3, 2); // [1] -> [2] -> [3]
@@ -83,7 +76,7 @@ function LinkedList() {
   /**
    * Returns array representation of the linked list.
    * 
-   * @returns Returns array representation of the linked list. 
+   * @returns {Array} Returns array representation of the linked list. 
    * @example LinkedList; // ['cat'] -> ['pig'] -> ['dog']
    * LinkedList.toArray(); // ['cat', 'pig', 'dog']
    */
@@ -97,12 +90,8 @@ function LinkedList() {
     return resultArray;
   }
 
-  /**
-   * Helper function used by remove function.
-   * 
-   * @param {any} element 
-   * 
-   */
+  
+  // Helper function used by remove function.  
   const _findPrevius = function (element) {
     let currentNode = head;
     while (!(currentNode.next === null) && (currentNode.next.element !== element)) {
@@ -115,7 +104,7 @@ function LinkedList() {
    * Removes element from a linked list.
    * 
    * @param {any} element Element that will be removed.
-   * @returns Returns false if the element is not present.
+   * @returns {Boolean} Returns false if the element is not present.
    * @example LinkedList; // [1] -> [2] -> [3]
    * LinkedList.remove(2); // [1] -> [3]
    */
