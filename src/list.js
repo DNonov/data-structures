@@ -1,6 +1,3 @@
-const chalk = require('chalk');
-const error = chalk.bgRed;
-
 /**
  * List function constructor.
  * 
@@ -65,7 +62,7 @@ function List() {
       --_listSize;
       return true;
     }
-    console.error(error(`List.remove(): Cannot find ${element}!`));
+    console.error(`List.remove(): Cannot find ${element}!`);
     return false;
   }
 
@@ -101,7 +98,7 @@ function List() {
       ++_listSize;
       return true;
     }
-    console.error(error('List.insert(): Wrong or less arguments!'));
+    console.error('List.insert(): Wrong or less arguments!');
     return false;
   }
 
@@ -127,7 +124,7 @@ function List() {
         return true;
       }
     }
-    console.error(error(`List.contains(): Cannot find ${element}!`));
+    console.error(`List.contains(): Cannot find ${element}!`);
     return false;
   }
 
@@ -185,7 +182,7 @@ function List() {
     if (position < _listSize) {
       _position = position;
     }
-    console.error(error('List.moveTo(): Out of range argument!'));
+    console.error('List.moveTo(): Out of range argument!');
     return false;
   }
 
@@ -198,7 +195,7 @@ function List() {
     if (_container[0] !== undefined ) {
       return _container[_position];
     }
-    console.error(error('List.getElement(): Empty List!'));
+    console.error('List.getElement(): Empty List!');
     return false;
   }
 }

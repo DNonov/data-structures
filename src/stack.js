@@ -1,6 +1,3 @@
-const chalk = require('chalk');
-const error = chalk.bgRed;
-
 /**
  * Function constructor of a stack.
  * 
@@ -48,7 +45,7 @@ function Stack() {
     if (_top !== 0) {
       return _container[--_top];
     }
-    console.error(error('Stack.pop(): Empty Stack!'));
+    console.error('Stack.pop(): Empty Stack!');
     return false;
   }
 
@@ -63,7 +60,7 @@ function Stack() {
     if (_top !== 0) {
       return _container[_top - 1];
     }
-    console.error(error('Stack.peek(): Empty Stack!'));
+    console.error('Stack.peek(): Empty Stack!');
     return false;
   }
 
