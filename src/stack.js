@@ -87,9 +87,9 @@ function Stack() {
   }
 
   /**
-   * Returns array representation of a queue.
+   * Returns array representation of a stack.
    * 
-   * @returns Array representation of a queue.
+   * @returns Array representation of a stack.
    */
   this.toArray = function () {
     return _container;
