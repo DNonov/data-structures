@@ -8,25 +8,39 @@ function MaxHeap () {
   }
 
   this.insert = function (element, priority) {
-    const newNode = new Node (element, priority);
-    _container.push(newNode);
-    let currNodeIndex = _container.length - 1;
-    let parentNodeIndex = Math.floor(currNodeIndex / 2);
-
-    while (_container[parentNodeIndex] && newNode.priority > _container[parentNodeIndex].priority) {
-      const parent = _container[parentNodeIndex];
-      _container[parentNodeIndex] = newNode;
-      _container[currNodeIndex] = parent;
-      currNodeIndex = parentNodeIndex;
-      parentNodeIndex = Math.floor(currNodeIndex / 2);
+    // No priority is given if priority argument is ommited.
+    priority = priority || 0;
+    // If element argument is present
+    if (element) {
+      // Push the new node
+      const newNode = new Node (element, priority);
+      _container.push(newNode);
+      // Get the curreent index and the parent index
+      let currNodeIndex = _container.length - 1;
+      let parentNodeIndex = Math.floor(currNodeIndex / 2);
+      
+      while (_container[parentNodeIndex] && newNode.priority > _container[parentNodeIndex].priority) {
+        const parent = _container[parentNodeIndex];
+        _container[parentNodeIndex] = newNode;
+        _container[currNodeIndex] = parent;
+        currNodeIndex = parentNodeIndex;
+        parentNodeIndex = Math.floor(currNodeIndex / 2);
+      }
     }
+    console.error(`MaxHeap.insert(): Arguments missing!`);
+    return false;
   }
 
   this.remove = function () {
     if (_container.length < 3) { 
       const toReturn = _container.pop();
       _container[0] = null;
-      return toReturn;
+      if (toReturn !== null) {  
+        return toReturn;
+      }
+      console.error(`MaxHeap.remove(): Empty heap!`);
+      return false;
+      
     }
 
     const toRemove = _container[1];
@@ -40,7 +54,7 @@ function MaxHeap () {
       _container[currChildIndex] = currNode;
       _container[currIndex] = currChildNode;
     }
-    return toRemove;
+    return toRemove.element;
   }
 
   this.peek = function () {
@@ -48,14 +62,12 @@ function MaxHeap () {
   }
 
   this.isEmpty = function () {
-    if (_container[1] !== null) {
-      return false;
-    }
-    return true;
+    return _container.length !== 1 ? false : true;
   }
 
   this.toArray = function () {
-    return _container;
+    _container.shift();
+    return _container.map(item => item.element);
   }
 }
 module.exports = MaxHeap;
