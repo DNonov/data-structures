@@ -1,22 +1,24 @@
 /**
- * Linked list function constructor.
+ * Doubly Linked list function constructor.
  * 
- * @example const LinkedList = require('dstructures').LinkedList;
- * const myLinkedList = new LinkedList();
- * @description In computer science, a linked list is a linear collection of data elements, 
- * in which linear order is not given by their physical placement in memory. Instead, each element
- *  points to the next. It is a data structure consisting of a group of nodes which together represent 
- * a sequence. Under the simplest form, each node is composed of data and a reference (in other words, a link) 
- * to the next node in the sequence. Full wikipedia article at:
- * {@link https://en.wikipedia.org/wiki/Linked_list}
+ * @example const DoublyLinkedList = require('dstructures').DoublyLinkedList;
+ * const myDoublyLinkedList = new DoublyLinkedList();
+ * @description In computer science, a doubly linked list is a linked data 
+ * structure that consists of a set of sequentially linked records called 
+ * nodes. Each node contains two fields, called links, that are references 
+ * to the previous and to the next node in the sequence of nodes. The beginning 
+ * and ending nodes' previous and next links, respectively, point to some kind 
+ * of terminator, typically a sentinel node or null, to facilitate traversal 
+ * of the list. Full wikipedia article at:
+ * {@link https://en.wikipedia.org/wiki/Doubly_linked_list}
  * @public
  * @constructor
  */
-function LinkedList() {
+function DoublyLinkedList() {
   let head = new Node('head');
 
 
-  
+
   // Node function constructor.
   function Node(element) {
     this.element = element;
@@ -24,7 +26,7 @@ function LinkedList() {
     this.previous = null;
   }
 
-  
+
   // Finds given node.
   const _find = function (element) {
     let currentNode = head;
@@ -55,9 +57,9 @@ function LinkedList() {
    * @param {any} oldElement The old element after whitch the new element will be added.
    * At the first insertion this argument have to be ommited.  
    * @returns {Boolean} Returns false if the element is not present.
-   * @example LinkedList.insert(1); // [1]
-   * LinkedList.insert(2, 1); // [1] -> [2]
-   * LinkedList.insert(3, 2); // [1] -> [2] -> [3]
+   * @example DoublyLinkedList.insert(1); // [1]
+   * DoublyLinkedList.insert(2, 1); // [1] -> [2]
+   * DoublyLinkedList.insert(3, 2); // [1] -> [2] -> [3]
    */
   this.insert = function (newElement, oldElement) {
     oldElement   = oldElement || 'head';
@@ -68,15 +70,16 @@ function LinkedList() {
         return false;
       }
     newNode.next = current.next;
+    newNode.previous = current;
     current.next = newNode;
   }
 
   /**
    * Returns array representation of the linked list.
    * 
-   * @returns {Array} Returns array representation of the linked list. 
-   * @example LinkedList; // ['cat'] -> ['pig'] -> ['dog']
-   * LinkedList.toArray(); // ['cat', 'pig', 'dog']
+   * @returns {Array} Returns array representation of the Doubly linked list. 
+   * @example DoublyLinkedList; // ['cat'] -> ['pig'] -> ['dog']
+   * DoublyLinkedList.toArray(); // ['cat', 'pig', 'dog']
    */
   this.toArray = function () {
     let resultArray  = [];
@@ -88,33 +91,26 @@ function LinkedList() {
     return resultArray;
   }
 
-  
-  // Helper function used by remove function.  
-  const _findPrevius = function (element) {
-    let currentNode = head;
-    while (!(currentNode.next === null) && (currentNode.next.element !== element)) {
-      currentNode = currentNode.next;
-    }
-    return currentNode;
-  }
-
   /**
    * Removes element from a linked list.
    * 
    * @param {any} element Element that will be removed.
    * @returns {Boolean} Returns false if the element is not present.
-   * @example LinkedList; // [1] -> [2] -> [3]
-   * LinkedList.remove(2); // [1] -> [3]
+   * @example DoublyLinkedList; // [1] -> [2] -> [3]
+   * DoublyLinkedList.remove(2); // [1] -> [3]
    */
   this.remove = function (element) {
-    let previusNode = _findPrevius(element)
-    if (previusNode.next !== null) {
-      previusNode.next = previusNode.next.next;
+    let currentNode = _find(element);
+    if (currentNode.next !== null) {
+      currentNode.previous.next = currentNode.next;
+      currentNode.next.previous = currentNode.previous;
+      currentNode.next = null;
+      currentNode.previous = null;
     }
     console.error(`LinkedList.remove(): Cannot find ${element}!`);
     return false;
   }
 }
-module.exports = LinkedList;
+module.exports = DoublyLinkedList;
 
 
