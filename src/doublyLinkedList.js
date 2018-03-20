@@ -101,7 +101,7 @@ function DoublyLinkedList() {
    */
   this.remove = function (element) {
     let currentNode = _find(element);
-    if (currentNode.next !== null) {
+    if (currentNode.next !== null && currentNode !== false) {
       currentNode.previous.next = currentNode.next;
       currentNode.next.previous = currentNode.previous;
       currentNode.next = null;
