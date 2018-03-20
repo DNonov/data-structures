@@ -89,7 +89,7 @@ function LinkedList() {
 
   
   // Helper function used by remove function.  
-  const _findPrevius = function (element) {
+  const _findprevious = function (element) {
     let currentNode = head;
     while (!(currentNode.next === null) && (currentNode.next.element !== element)) {
       currentNode = currentNode.next;
@@ -106,9 +106,9 @@ function LinkedList() {
    * LinkedList.remove(2); // [1] -> [3]
    */
   this.remove = function (element) {
-    let previusNode = _findPrevius(element)
-    if (previusNode.next !== null) {
-      previusNode.next = previusNode.next.next;
+    let previousNode = _findprevious(element)
+    if (previousNode.next !== null) {
+      previousNode.next = previousNode.next.next;
     }
     console.error(`LinkedList.remove(): Cannot find ${element}!`);
     return false;

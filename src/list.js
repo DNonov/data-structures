@@ -145,10 +145,10 @@ function List() {
   }
 
   /**
-   * Goes to the previus element in the list.
+   * Goes to the previous element in the list.
    * 
    */
-  this.previus = function () {
+  this.previous = function () {
     if (_position > 0) {
       --_position;
     }

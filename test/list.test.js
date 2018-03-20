@@ -81,14 +81,14 @@ describe('List method', () => {
     expect(tailTestCaseList.getElement()).toBe('Jill');
   });
 
-  it('goes to previus element in the list', () => {
-    let previusTestCaseList = new List();
-    previusTestCaseList.append('Alice');
-    previusTestCaseList.append('Bob');
-    previusTestCaseList.append('Jill');
-    previusTestCaseList.tail();
-    previusTestCaseList.previus();
-    expect(previusTestCaseList.getElement()).toBe('Bob');
+  it('goes to previous element in the list', () => {
+    let previousTestCaseList = new List();
+    previousTestCaseList.append('Alice');
+    previousTestCaseList.append('Bob');
+    previousTestCaseList.append('Jill');
+    previousTestCaseList.tail();
+    previousTestCaseList.previous();
+    expect(previousTestCaseList.getElement()).toBe('Bob');
   });
 
   it('goes to next element in the list', () => {
