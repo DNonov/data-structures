@@ -9,8 +9,11 @@ Collection of data structures.
 
 * Binary search tree
 * Dictionary
+* Doubly Linked List
 * Linked List
 * List
+* Max Heap
+* Min Heap
 * Queue
 * Set
 * Stack
