@@ -62,7 +62,7 @@ function MaxHeap () {
   }
 
   this.isEmpty = function () {
-    return _container.length !== 1 ? false : true;
+    return _container.length >= 2 ? false : true;
   }
 
   this.toArray = function () {
