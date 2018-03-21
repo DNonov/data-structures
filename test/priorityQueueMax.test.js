@@ -21,8 +21,9 @@ describe('PriorityQueue method', () => {
     myPriorityQueue.enqueue('Dog', 21);
     myPriorityQueue.enqueue('Bat', 2);
     myPriorityQueue.dequeue(); 
-    expect(myPriorityQueue.head()).toBe('Bat')
-
+    expect(myPriorityQueue.head()).toBe('Bat');
+    myPriorityQueue.enqueue('Pig', 31);
+    expect(myPriorityQueue.head()).toBe('Pig');
   }); 
   
   it('returns true if a PriorityQueue is empty', () => {
@@ -34,6 +35,8 @@ describe('PriorityQueue method', () => {
   
   it('returns array representation of a PriorityQueue', () => {
     let myPriorityQueue = new PriorityQueue();
+    expect(myPriorityQueue.toArray()).toEqual([]);
+    expect(myPriorityQueue.head()).toEqual(false);
     myPriorityQueue.enqueue('Cat', 1);
     myPriorityQueue.enqueue('Dog', 21);
     myPriorityQueue.enqueue('Bat', 2);

@@ -38,6 +38,6 @@ describe('MaxHeap', () => {
     myMaxHeap.insert('Cat', 1);
     myMaxHeap.insert('Dog', 21);
     myMaxHeap.insert('Bat', 2);
-    // expect(myMaxHeap.toArray()).toEqual(['Dog', 'Cat', 'Bat']);
+    expect(myMaxHeap.toArray()).toEqual(['Dog', 'Cat', 'Bat']);
   });
 });
