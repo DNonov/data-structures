@@ -14,83 +14,45 @@
  * @public
  * @constructor
  */
-function DoublyLinkedList() {
-  let head = new Node('head');
-
-
-
-  // Node function constructor.
-  function Node(element) {
-    this.element = element;
-    this.next    = null;
-    this.previous = null;
+class DoublyLinkedList {
+  
+  constructor(){
+    this.head = new Node('head');   
   }
-
-
-  // Finds given node.
-  const _find = function (element) {
-    let currentNode = head;
-    while (currentNode.element !== element  && currentNode.next !== null) {
-      currentNode = currentNode.next;
-    }
-    if (currentNode.element === element) {
-      return currentNode;
-    }
-    console.error(`LinkedList.find(): Cannot find ${element}!`);
-    return false;
-  }
-
+  
   /**
    * Returns the element property of the given node.
    * 
    * @param {any} element Element property of the node.
    * @returns Returns the element property of the node.
    */
-  this.GetElement = function (element) {
-    return _find(element).element;
+  GetElement (element) {
+    return this._find(element).element;
   }
-
+  
   /**
-   * Inserts a node in a linked list.
+   * Inserts a node in a doubly linked list.
    * 
    * @param {any} newElement The element that will be inserted.
    * @param {any} oldElement The old element after whitch the new element will be added.
    * At the first insertion this argument have to be ommited.  
-   * @returns {Boolean} Returns false if the element is not present.
+   * @returns {Boolean|Void} Returns false if the element is not present.
    * @example DoublyLinkedList.insert(1); // [1]
    * DoublyLinkedList.insert(2, 1); // [1] -> [2]
    * DoublyLinkedList.insert(3, 2); // [1] -> [2] -> [3]
    */
-  this.insert = function (newElement, oldElement) {
+  insert (newElement, oldElement) {
     oldElement   = oldElement || 'head';
     let newNode  = new Node(newElement);
-    let current  = _find(oldElement);
-      if (current === false) {
-        console.error(`LinkedList.insert(): Cannot find ${oldElement}!`);
-        return false;
-      }
+    let current  = this._find(oldElement);
+    if (current === false) {
+      return false;
+    }
     newNode.next = current.next;
     newNode.previous = current;
     current.next = newNode;
   }
-
-  /**
-   * Returns array representation of the linked list.
-   * 
-   * @returns {Array} Returns array representation of the Doubly linked list. 
-   * @example DoublyLinkedList; // ['cat'] -> ['pig'] -> ['dog']
-   * DoublyLinkedList.toArray(); // ['cat', 'pig', 'dog']
-   */
-  this.toArray = function () {
-    let resultArray  = [];
-    let currentNode  = head;
-    while (currentNode.next !== null) {
-      resultArray.push(currentNode.next.element);
-      currentNode = currentNode.next;
-    }
-    return resultArray;
-  }
-
+  
   /**
    * Removes element from a linked list.
    * 
@@ -99,18 +61,53 @@ function DoublyLinkedList() {
    * @example DoublyLinkedList; // [1] -> [2] -> [3]
    * DoublyLinkedList.remove(2); // [1] -> [3]
    */
-  this.remove = function (element) {
-    let currentNode = _find(element);
+  remove (element) {
+    let currentNode = this._find(element);
     if (currentNode.next !== null && currentNode !== false) {
       currentNode.previous.next = currentNode.next;
       currentNode.next.previous = currentNode.previous;
       currentNode.next = null;
       currentNode.previous = null;
     }
-    console.error(`LinkedList.remove(): Cannot find ${element}!`);
     return false;
   }
+  
+  /**
+   * Returns array representation of a doubly linked list.
+   * 
+   * @returns {Array} Returns array representation of the Doubly linked list. 
+   * @example DoublyLinkedList; // ['cat'] -> ['pig'] -> ['dog']
+   * DoublyLinkedList.toArray(); // ['cat', 'pig', 'dog']
+   */
+  toArray () {
+    let resultArray  = [];
+    let currentNode  = this.head;
+    while (currentNode.next !== null) {
+      resultArray.push(currentNode.next.element);
+      currentNode = currentNode.next;
+    }
+    return resultArray;
+  }
+
+  _find (element) {
+    let currentNode = this.head;
+    while (currentNode.element !== element  && currentNode.next !== null) {
+      currentNode = currentNode.next;
+    }
+    if (currentNode.element === element) {
+      return currentNode;
+    }
+    return false;
+  }
+  
 }
-module.exports = DoublyLinkedList;
 
+// Node function constructor.
+//  @private
+function Node(element) {
+  this.element = element;
+  this.next    = null;
+  this.previous = null;
+}
 
+module.exports = DoublyLinkedList
