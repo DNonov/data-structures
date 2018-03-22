@@ -1,4 +1,4 @@
-const MinHeap = require('./MinHeap');
+const MinHeap = require('./minHeap');
 /**
  * Priority Queue Max.
  * 
@@ -37,7 +37,10 @@ class  PriorityQueueMin {
    * @memberOf PriorityQueueMin
    */
   enqueue (element, priority) {
-    if (!element || typeof(priority) !== 'number') {
+    if (typeof(priority) !== 'number') {
+      priority = 0
+    }
+    if (!element) {
       return false;
     }
     this._heap.insert(element, priority);
