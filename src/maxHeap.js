@@ -6,6 +6,17 @@ class MaxHeap {
     this._container = [null];
   }
 
+  /**
+   * Inserts element in a heap.
+   * 
+   * @param {any} element Given element.
+   * @param {Number} [priority = 0] Priority defaults to 0 if is not present.
+   * @returns {Boolean|Void} Returns false if 'priority' is not number or 
+   * 'element' is undefined or null.
+   * @example MaxHeap.insert('Cat', 1); // ['Cat']
+   * MaxHeap.insert('Dog', 2); // ['Dog', 'Cat']
+   * @memberOf MaxHeap
+   */
   insert (element, priority) {
     // No priority is given if priority argument is ommited.
     priority = priority || 0;
@@ -29,6 +40,18 @@ class MaxHeap {
     }
   }
 
+  /**
+   * Removes and returns the top element in a heap 
+   * (the element with most priority).
+   * 
+   * @returns {Boolean|Any} Returns false if a heap is
+   * empty, otherwise the top element in a heap.
+   * @example MaxHeap.insert('Cat', 1); // ['Cat']
+   * MaxHeap.insert('Dog', 2); // ['Dog', 'Cat']
+   * MaxHeap.insert('Fox', 3); // ['Fox', 'Dog', 'Cat']
+   * MaxHeap.remove(); // ['Dog', 'Cat'] 
+   * @memberOf MaxHeap
+   */
   remove () {
     if (this._container.length < 3) { 
       const toReturn = this._container.pop();
@@ -53,6 +76,17 @@ class MaxHeap {
     return toRemove.element;
   }
 
+  /**
+   * Returns the top element in a heap.
+   * 
+   * @returns {Boolean|Any} Returns false if a heap is
+   * empty, otherwise the top element in a heap.
+   * @example MaxHeap.insert('Cat', 1); // ['Cat']
+   * MaxHeap.insert('Dog', 2); // ['Dog', 'Cat']
+   * MaxHeap.insert('Fox', 3); // ['Fox', 'Dog', 'Cat']
+   * MaxHeap.peek(); // 'Fox', ['Fox', 'Dog', 'Cat']  
+   * @memberOf MaxHeap
+   */
   peek () {
     if (!this._container[1]) {
       return false;
@@ -60,10 +94,26 @@ class MaxHeap {
     return this._container[1].element;
   }
 
+  /**
+   * Checks if a heap is empty.
+   * 
+   * @returns {Boolean} Returns true if a heap is empty,
+   * otherwise fasle.
+   * @example MaxHeap.isEmpty(); // true
+   * MaxHeap.insert('Cat', 1); // ['Cat']
+   * MaxHeap.isEmpty(); // false 
+   * @memberOf MaxHeap
+   */
   isEmpty () {
     return this._container.length >= 2 ? false : true;
   }
 
+  /**
+   * Returns array representation of a heap.
+   * 
+   * @returns {Array} Returns array representation of a heap. 
+   * @memberOf MaxHeap
+   */
   toArray () {
     return this._container
       .filter(item => item === null ? false : true)
