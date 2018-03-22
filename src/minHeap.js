@@ -1,5 +1,5 @@
 /**
- * Max Heap.
+ * Min Heap.
  * 
  * @example const MinHeap = require('dstructures').MinHeap;
  * const myMinHeap = new MinHeap();
