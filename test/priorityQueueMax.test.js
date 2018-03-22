@@ -6,11 +6,14 @@ describe('PriorityQueue method', () => {
     const myPriorityQueue = new PriorityQueue();
     expect(myPriorityQueue.enqueue()).toEqual(false);
     myPriorityQueue.enqueue('Rat');
+    expect(myPriorityQueue.enqueue('Rat', 'fish')).toEqual(false);
     myPriorityQueue.enqueue('Cat', 1);
     expect(myPriorityQueue.enqueue(null)).toBe(false);
     expect(myPriorityQueue.head()).toBe('Cat');
+    console.log(myPriorityQueue.toArray());
     myPriorityQueue.enqueue('Dog', 21);
     myPriorityQueue.enqueue('Bat', 2);
+    console.log(myPriorityQueue.toArray());
     expect(myPriorityQueue.head()).toBe('Dog');
   });
   
