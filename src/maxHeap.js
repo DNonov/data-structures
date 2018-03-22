@@ -1,3 +1,20 @@
+/**
+ * Max Heap.
+ * 
+ * @example const MaxHeap = require('dstructures').MaxHeap;
+ * const myMaxHeap = new MaxHeap();
+ * @description This is "max" implementation so, larger numbers have priority!
+ * For "min" implementation where lower numbers have priority, use PriorityQueueMin.
+ * @description In computer science, a heap is a specialized tree-based data 
+ * structure that satisfies the heap property: if P is a parent node of C, then the 
+ * key (the value) of P is either greater than or equal to (in a max heap) or less 
+ * than or equal to (in a min heap) the key of C.[1] The node at the "top" of the 
+ * heap (with no parents) is called the root node. Full wikipedia article at: 
+ * {@link https://en.wikipedia.org/wiki/Heap_(data_structure)}
+ * @public
+ * @constructor
+ * @class
+ */
 class MaxHeap {
 
   constructor(){
