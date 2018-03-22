@@ -41,14 +41,17 @@ describe('BST method', () => {
   });
   it('removes given node', () => {
     let myBST = new BST();
+    expect(myBST.remove(23)).toBe(undefined);
+    expect(myBST.remove()).toBe(false);
     myBST.insert(47);
+    myBST.insert(23);
     myBST.insert(23);
     myBST.insert(2);
     myBST.insert(4);
     myBST.insert(17);
     myBST.remove(2);  
-    expect(myBST.inOrder()).toEqual([4, 17, 23, 47]);
+    expect(myBST.inOrder()).toEqual([4, 17, 23, 23, 47]);
     myBST.remove(23);
-    expect(myBST.inOrder()).toEqual([4, 17, 47]);
+    expect(myBST.inOrder()).toEqual([4, 17, 23, 47]);
   });
 });

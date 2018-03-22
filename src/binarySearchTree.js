@@ -15,7 +15,6 @@ class BinarySearchTree {
 
   constructor(){
     this.root = null;
-    this.parent;
   }
 
   /**
@@ -141,12 +140,17 @@ class BinarySearchTree {
    * Removes node from the BinarySearchTree.
    * 
    * @param {any} data Given data.
+   * @returns {Boolean|undefined} Returns false if 'data' argument is ommited, 
+   * or undefined if the 'data' argument value is not present within a BinarySearchTree.
    * @example BST.insert(10);
    * BST.insert(32);
    * BST.insert(41);
    * BST.remove(41); // 10, 32
    */
   remove (data) {
+    if (!data) {
+      return false;
+    }
     this.root = _removeNode(this.root, data)
   }
 
@@ -198,9 +202,11 @@ const _removeNode = function (node , data) {
 // @private
 const smallestNode = function (currentNode) {
   const result = (function minNode(currentNode) {      
-    if(currentNode.left === null) return currentNode;
+    if(currentNode.left === null) {
+      return currentNode
+    }
     return minNode(currentNode.left);
-  })(this.root);
+  })(currentNode);
   return result;
 }
 
