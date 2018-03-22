@@ -1,7 +1,7 @@
 /**
- * Binary search tree function constructor.
+ * Binary search tree.
  * 
- * @example const BST = require('dstructures').BST;
+ * @example const BST = require('dstructures').BinarySearchTree;
  * const myBST = new BST();
  * @description In computer science, binary search trees (BST), sometimes called 
  * ordered or sorted binary trees, are a particular type of container: data 
@@ -11,33 +11,22 @@
  * @public
  * @constructor
  */
-function BST() {
-  this.root = null;
-  this.parent;
+class BinarySearchTree {
 
-  
-  // Node function constructor
-  function Node (data, left, right) {
-    this.data = data;
-    this.left = left;
-    this.right = right;
-    this.return = function () {
-      return this.data;
-    }
-    this.setData = function (data) {
-      this.data = data;
-    }
+  constructor(){
+    this.root = null;
+    this.parent;
   }
-  
+
   /**
-   * Inserts new node.
+   * Inserts new node in a BinarySearchTree.
    * 
-   * @param {any} data
+   * @param {any} data Given data.
    * @example BST.insert(10);
-   *
+   * @memberOf BinarySearchTree
    */
-  this.insert = function (data) {
-    let newNode = new Node(data, null, null);
+  insert (data) {
+    let newNode = new _Node(data, null, null);
     if (this.root === null) {
       this.root = newNode;
     } else {
@@ -64,15 +53,15 @@ function BST() {
   }
 
   /**
-   * Returns sorted array representation of the tree.
+   * Returns sorted array representation of the BinarySearchTree.
    *  
-   * @returns {Array} Returns array representation of the tree.
+   * @returns {Array} Returns array representation of the BinarySearchTree.
    * @example BST.insert(10);
    * BST.insert(32);
    * BST.insert(41);
    * BST.inOrder(41); // [10, 32, 41]
    */
-  this.inOrder = function () {
+  inOrder () {
     let arr = [];
     (function Order(node) {
       if (!(node === null)) { 
@@ -85,45 +74,49 @@ function BST() {
   }
 
   /**
-   * Returns the smallest value within the tree.
+   * Returns the smallest value within the BinarySearchTree.
    * 
-   * @returns Returns the smallest value within the tree.
+   * @returns {Any} Returns the smallest value within the BinarySearchTree.
    * @example BST.insert(10);
    * BST.insert(32);
    * BST.insert(41);
    * BST.min(); // 10
    */
-  this.min = function () {
+  min () {
     const result = (function minNode(currentNode) {      
-      if(currentNode.left === null) return currentNode.data;
+      if(currentNode.left === null) {
+        return currentNode.data
+      }
       return minNode(currentNode.left);
     })(this.root);
     return result;
   }
 
   /**
-   * Returns the biggest value within the tree.
+   * Returns the biggest value within the BinarySearchTree.
    * 
-   * @returns Returns the biggest value within the tree.
+   * @returns {Any} Returns the biggest value within the BinarySearchTree.
    * @example BST.insert(10);
    * BST.insert(32);
    * BST.insert(41);
    * BST.max(); // 41
    * 
    */
-  this.max = function () {
+  max () {
     const result = (function minNode(currentNode) {      
-      if(currentNode.right === null) return currentNode.data;
+      if(currentNode.right === null) {
+        return currentNode.data
+      }
       return minNode(currentNode.right);
     })(this.root);
     return result;
   }
 
   /**
-   * Finds given value within the tree.
+   * Finds given value within the BinarySearchTree.
    * 
-   * @param {any} data 
-   * @returns Returns given value or false if the value is not present.
+   * @param {any} data Given data.
+   * @returns {Boolean|Any} Returns given value or false if the value is not present.
    * @example BST.insert(10);
    * BST.insert(32);
    * BST.insert(41);
@@ -131,7 +124,7 @@ function BST() {
    * BST.find(72); // false
    * 
    */
-  this.find = function (data) {
+  find (data) {
     let currentNode = this.root;
     while (currentNode.data !== data) {
       if (data < currentNode.data) {
@@ -144,51 +137,71 @@ function BST() {
     return currentNode.data;
   }
 
- // small private helper function for removing.
-  const smallestNode = function (currentNode) {
-    const result = (function minNode(currentNode) {      
-      if(currentNode.left === null) return currentNode;
-      return minNode(currentNode.left);
-    })(this.root);
-    return result;
-  }
-
   /**
-   * Removes node from the tree.
+   * Removes node from the BinarySearchTree.
    * 
-   * @param {any} data 
+   * @param {any} data Given data.
    * @example BST.insert(10);
    * BST.insert(32);
    * BST.insert(41);
    * BST.remove(41); // 10, 32
    */
-  this.remove = function(data) {
-    this.root = removeNode(this.root, data)
+  remove (data) {
+    this.root = _removeNode(this.root, data)
   }
 
-  // This is the actual removal function 
-  const removeNode = function (node , data) {
-    if (node === null) return null;
-    if (node.data === data) {
-      // node has no children
-      if (node.left === null && node.right === null) return null;
-      // node has no left child
-      if (node.left === null) return node.right;
-      // node has no right child
-      if (node.right === null) return node.left;
-      // node has two children
-      var tempNode = smallestNode(node.right);
-      node.data = tempNode.data;
-      node.right = removeNode(node.right, node.data);
-      return node;
-    } else if (data < node.data) {
-      node.left = removeNode(node.left, data);
-      return node;
-    } else {
-      node.right = removeNode(node.right, data);
-      return node;
-    }
+}
+
+
+// =======private section===========
+
+// Node function constructor
+// @private
+function _Node (data, left, right) {
+  this.data = data;
+  this.left = left;
+  this.right = right;
+  this.return = function () {
+    return this.data;
+  }
+  this.setData = function (data) {
+    this.data = data;
   }
 }
 
-module.exports = BST;
+// This is the actual removal function.
+// @private
+const _removeNode = function (node , data) {
+  if (node === null) return null;
+  if (node.data === data) {
+    // node has no children
+    if (node.left === null && node.right === null) return null;
+    // node has no left child
+    if (node.left === null) return node.right;
+    // node has no right child
+    if (node.right === null) return node.left;
+    // node has two children
+    var tempNode = smallestNode(node.right);
+    node.data = tempNode.data;
+    node.right = _removeNode(node.right, node.data);
+    return node;
+  } else if (data < node.data) {
+    node.left = _removeNode(node.left, data);
+    return node;
+  } else {
+    node.right = _removeNode(node.right, data);
+    return node;
+  }
+}
+
+// small helper function for removing.
+// @private
+const smallestNode = function (currentNode) {
+  const result = (function minNode(currentNode) {      
+    if(currentNode.left === null) return currentNode;
+    return minNode(currentNode.left);
+  })(this.root);
+  return result;
+}
+
+module.exports = BinarySearchTree;
