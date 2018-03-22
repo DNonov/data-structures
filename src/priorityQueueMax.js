@@ -37,7 +37,10 @@ class  PriorityQueueMax {
    * @memberOf PriorityQueueMax
    */
   enqueue (element, priority) {
-    if (!element || typeof(priority) !== 'number') {
+    if (typeof(priority) !== 'number') {
+      priority = 0
+    }
+    if (!element) {
       return false;
     }
     this._heap.insert(element, priority);

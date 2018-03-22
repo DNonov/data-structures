@@ -6,7 +6,7 @@ describe('PriorityQueue method', () => {
     const myPriorityQueue = new PriorityQueue();
     expect(myPriorityQueue.enqueue()).toEqual(false);
     myPriorityQueue.enqueue('Rat');
-    expect(myPriorityQueue.enqueue('Rat', 'fish')).toEqual(false);
+    expect(myPriorityQueue.enqueue('Rat', 'fish')).toEqual(undefined);
     myPriorityQueue.enqueue('Cat', 1);
     expect(myPriorityQueue.enqueue(null)).toBe(false);
     expect(myPriorityQueue.head()).toBe('Cat');
