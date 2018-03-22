@@ -20,6 +20,8 @@ const MaxHeap = require('./maxHeap');
 class  PriorityQueueMax {
   
   constructor(){
+    // Underlying heap
+    // @private
     this._heap = new MaxHeap();
   }
 
