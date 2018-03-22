@@ -10,71 +10,79 @@
  * @public
  * @constructor
  */
-function Dictionary() {
-  this._conatiner = [];
+class Dictionary {
 
-//TODO: Have to check for existing key as the given before adding.
+  constructor(){
+    this._conatiner = [];
+  }
+
   /**
    * Adds key value pair in a dictionary.
    * 
-   * @param {any} key The given key.
-   * @param {any} value The given value.
+   * @param {any} key Given key.
+   * @param {any} value Given value.
    * @example Dictionary.add('dog', 1); // ['dog': 1]
    * Dictionary.add('dog', 2); // ['dog': 2]
    * Dictionary.add('cat', 1); // ['dog': 2, 'cat': 1]
    */
-  this.add = function (key, value) {
+  add (key, value) {
+    if (key === undefined || key === null) {
+      return false;
+    }
+    if (value === undefined || value === null) {
+      return false;
+    }
     this._conatiner[key] = value;
   }
 
   /**
    * Returns the value for the given key.
    * 
-   * @param {any} key The given key.
-   * @returns Returns the value for the given key. 
+   * @param {any} key Given key.
+   * @returns Returns the value for the given key.
    * @example Dictionary.add('dog', 1); // ['dog': 1]
    * Dictionary.find('dog'); // 1
    * Dictionary.add('cat', 3); // ['dog': 1, 'cat': 3]
    * Dictionary.find('cat'); // 3
    */
-  this.find = function (key) {
+  find (key) {
     return this._conatiner[key];
   }
 
   /**
    * Removes the value associated to the given key.
    * 
-   * @param {any} key The given key.
+   * @param {any} key Given key.
    * @example Dictionary.add('dog', 2); // ['dog': 2]
    * Dictionary.add('cat', 1); // ['dog': 2, 'cat': 1]
    * Dictionary.remove('dog'); // [cat: 1]
    */
-  this.remove = function (key) {
+  remove (key) {
     delete this._conatiner[key];
   }
 
   /**
    * Returns the underlying array.
    * 
-   * @returns Returns the underlying array.
+   * @returns {Array} Returns the underlying array.
    * @example Dictionary.add('dog', 2); // ['dog': 2]
    * Dictionary.add('cat', 1); // ['dog': 2, 'cat': 1]
    * Dictionary.display(); // ['dog': 2, 'cat': 1]
    */
-  this.display = function () {
+  display () {
     return this._conatiner;
   }
 
   /**
    * Counts all key value pairs.
    * 
-   * @returns The number of all key value pairs.
+   * @returns {Number} Returns number of all key value pairs.
    * @example Dictionary.display(); // ['dog': 2, 'cat': 1]
    * Dictionary.count(); // 2
    * Dictionary.display(); // ['dog': 2, 'cat': 1, 'pig': 4]
    * Dictionary.count(); // 3
    */
-  this.count = function () {
+  count () {
     let number = 0;
     for (const key in Object.keys(this._conatiner)) {
       number++;
@@ -89,8 +97,9 @@ function Dictionary() {
    * Dictionary.clear(); // []
    * 
    */
-  this.clear = function () {
+  clear () {
     this._conatiner = [];
   }
+
 }
 module.exports = Dictionary;

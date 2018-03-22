@@ -7,7 +7,9 @@ describe('Dictionary method', () => {
     testDictionary.add('moo', 'cat');
     expect(testDictionary.find('moo')).toBe('cat');
     testDictionary.add(2, 'dog');
-    testDictionary.add(3, undefined);
+    expect(testDictionary.add(3, undefined)).toBe(false);
+    expect(testDictionary.add(3)).toBe(false);
+    expect(testDictionary.add()).toBe(false);
     testDictionary.add(4, 'car');
     expect(testDictionary.find(2)).toBe('dog');
     expect(testDictionary.find(3)).toBe(undefined);
