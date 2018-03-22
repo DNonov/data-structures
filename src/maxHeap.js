@@ -37,7 +37,7 @@ class MaxHeap {
   insert (element, priority) {
     // No priority is given if priority argument is ommited or different type.
     if (typeof(priority) !== 'number') {
-      priority = 0
+      priority = 0;
     }
     // If element argument is not present
     if (!element) {
