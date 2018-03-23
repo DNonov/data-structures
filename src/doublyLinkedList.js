@@ -17,13 +17,17 @@
 class DoublyLinkedList {
   
   constructor(){
-    this.head = new Node('head');
-    this.tail = new Node('tail');
+    const head = new Node('head');
+    const tail = new Node('tail');
 
-    this.head.next = this.tail;
-    this.tail.previous = this.head;
+    this.getTail = () => tail;
+    this.getHead = () => head;
+    
+    this.getHead().next     = this.getTail();
+    this.getTail().previous = this.getHead();
   }
   
+
   /**
    * Returns the element property of the given node.
    * 
@@ -57,7 +61,7 @@ class DoublyLinkedList {
       return false;
     }
 
-    if (this.head.next.element === 'tail') {
+    if (this.getHead().next.element === 'tail') {
       return this.append(newElement);
     }
 
@@ -82,7 +86,7 @@ class DoublyLinkedList {
     }
 
     const newNode  = new Node(element);
-    const current  = this._find('tail');
+    const current  = this.getTail(); 
 
     newNode.previous      = current.previous;
     current.previous.next = newNode;
@@ -118,7 +122,7 @@ class DoublyLinkedList {
    */
   toArray () {
     let resultArray  = [];
-    let currentNode  = this.head;
+    let currentNode  = this.getHead();
     while (currentNode.next.next !== null) {
       resultArray.push(currentNode.next.element);
       currentNode = currentNode.next;
@@ -127,7 +131,7 @@ class DoublyLinkedList {
   }
 
   _find (element) {
-    let currentNode = this.head;
+    let currentNode = this.getHead();
     while (currentNode.element !== element  && currentNode.next !== null) {
       currentNode = currentNode.next;
     }
