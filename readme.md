@@ -7,13 +7,15 @@
 ## About
 Collection of data structures.
 
-* Binary search tree
+* Binary Search Tree
 * Dictionary
 * Doubly Linked List
 * Linked List
 * List
 * Max Heap
 * Min Heap
+* Priority Queue Max
+* Priority Queue Min
 * Queue
 * Set
 * Stack
@@ -41,11 +43,8 @@ $ npm install
 ```bash
 $ npm run test
 ```
-or
-```bash
-$ gulp test
-```
-or if you want to run tests on every change at **/test** folder
+
+or if you want to run tests on every change at **/test** and **/src** folder
 ```bash
 $ gulp watch-test
 ```
