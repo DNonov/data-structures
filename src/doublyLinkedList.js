@@ -17,7 +17,11 @@
 class DoublyLinkedList {
   
   constructor(){
-    this.head = new Node('head');   
+    this.head = new Node('head');
+    this.tail = new Node('tail');
+
+    this.head.next = this.tail;
+    this.tail.previous = this.head;
   }
   
   /**
@@ -33,28 +37,61 @@ class DoublyLinkedList {
   /**
    * Inserts a node in a doubly linked list.
    * 
-   * @param {any} newElement The element that will be inserted.
-   * @param {any} oldElement The old element after whitch the new element will be added.
-   * At the first insertion this argument have to be ommited.  
-   * @returns {Boolean|Void} Returns false if the element is not present.
+   * @param {any} newElement Given element.
+   * @param {any} [oldElement = head] 'oldElement' argument defaults to 'head' if 
+   * is not present, and inserts at the head of doubly linked list.  
+   * @returns {Boolean|Void} Returns false if the 'newElement' argument is not present.
    * @example DoublyLinkedList.insert(1); // [1]
    * DoublyLinkedList.insert(2, 1); // [1] -> [2]
-   * DoublyLinkedList.insert(3, 2); // [1] -> [2] -> [3]
+   * DoublyLinkedList.insert(3, 1); // [1] -> [3] -> [2]
+   * DoublyLinkedList.insert(4); // [4] -> [1] -> [3] -> [2]
    */
   insert (newElement, oldElement) {
     oldElement   = oldElement || 'head';
+    if (!newElement) {return false;}
+
     let newNode  = new Node(newElement);
     let current  = this._find(oldElement);
+
     if (current === false) {
       return false;
     }
-    newNode.next = current.next;
+
+    if (this.head.next.element === 'tail') {
+      return this.append(newElement);
+    }
+
+    newNode.next     = current.next;
     newNode.previous = current;
-    current.next = newNode;
+    current.next     = newNode;
+  }
+
+  /**
+   * Appends element to a doubly linked list.
+   * 
+   * @param {any} element Given element.
+   * @returns {Boolean|Void} Returns false if 'element' argument is not present.
+   * @example DoublyLinkedList.append(1); // [1]
+   * DoublyLinkedList.append(2, 1); // [1] -> [2]
+   * DoublyLinkedList.append(3, 1); // [1] -> [3] -> [2]
+   * @memberOf DoublyLinkedList
+   */
+  append (element) {
+    if (!element) {
+      return false;
+    }
+
+    const newNode  = new Node(element);
+    const current  = this._find('tail');
+
+    newNode.previous      = current.previous;
+    current.previous.next = newNode;
+    newNode.next          = current;
+    current.previous      = newNode;
   }
   
   /**
-   * Removes element from a linked list.
+   * Removes element from a doubly linked list.
    * 
    * @param {any} element Element that will be removed.
    * @returns {Boolean} Returns false if the element is not present.
@@ -82,7 +119,7 @@ class DoublyLinkedList {
   toArray () {
     let resultArray  = [];
     let currentNode  = this.head;
-    while (currentNode.next !== null) {
+    while (currentNode.next.next !== null) {
       resultArray.push(currentNode.next.element);
       currentNode = currentNode.next;
     }

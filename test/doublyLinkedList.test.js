@@ -2,16 +2,27 @@ const DoublyLinkedList = require('../src/doublyLinkedList');
 const jasmine = require('jasmine');
 
 describe('DoublyLinkedList method', () => {
-  it('insert new node doubly', () => {
+  it('insert new node', () => {
     let testList = new DoublyLinkedList();
     expect(testList.insert(1, 2)).toBe(false);
     testList.insert(1);
     expect(testList.toArray()[0]).toBe(1);
+    expect(testList.insert()).toBe(false);
     testList.insert(2, 1);
     expect(testList.toArray()[1]).toBe(2);
     testList.insert(3, 2);
     expect(testList.toArray()[2]).toBe(3);
-    expect(testList.insert(1, 78)).toBe(false); 
+    expect(testList.insert(1, 78)).toBe(false);
+  });
+
+  it('appends new node', () => {
+    let testList = new DoublyLinkedList();
+    expect(testList.append()).toBe(false);
+    testList.append(1);
+    testList.append(2);
+    testList.append(3);
+    expect(testList.toArray()).toEqual([1, 2, 3]);
+    expect(testList.toArray()[0]).toBe(1);
   });
   
   it('find node', () => {
@@ -38,6 +49,7 @@ describe('DoublyLinkedList method', () => {
   it('removes node form the DoublyLinkedList', () => {
     let testList = new DoublyLinkedList();
     expect(testList.remove(1)).toBe(false);
+    expect(testList.remove()).toBe(false);
     testList.insert(1);
     testList.insert(2, 1);
     testList.insert(3, 2);
