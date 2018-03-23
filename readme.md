@@ -14,6 +14,8 @@ Collection of data structures.
 * List
 * Max Heap
 * Min Heap
+* Priority Queue Max
+* Priority Queue Min
 * Queue
 * Set
 * Stack
