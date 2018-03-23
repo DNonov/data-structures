@@ -72,8 +72,8 @@ class DoublyLinkedList {
    * @param {any} element Given element.
    * @returns {Boolean|Void} Returns false if 'element' argument is not present.
    * @example DoublyLinkedList.append(1); // [1]
-   * DoublyLinkedList.append(2, 1); // [1] -> [2]
-   * DoublyLinkedList.append(3, 1); // [1] -> [3] -> [2]
+   * DoublyLinkedList.append(2); // [1] -> [2]
+   * DoublyLinkedList.append(3); // [1] -> [2] -> [3]
    * @memberOf DoublyLinkedList
    */
   append (element) {
