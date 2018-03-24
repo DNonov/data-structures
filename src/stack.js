@@ -45,7 +45,6 @@ function Stack() {
     if (_top !== 0) {
       return _container[--_top];
     }
-    console.error('Stack.pop(): Empty Stack!');
     return false;
   }
 
@@ -60,7 +59,6 @@ function Stack() {
     if (_top !== 0) {
       return _container[_top - 1];
     }
-    console.error('Stack.peek(): Empty Stack!');
     return false;
   }
 
