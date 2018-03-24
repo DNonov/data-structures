@@ -13,7 +13,9 @@
 class Dictionary {
 
   constructor(){
-    this._conatiner = [];
+    let container = [];
+    this.setContainer = (value) => container = value;
+    this.getContainer = () => container;
   }
 
   /**
@@ -32,7 +34,7 @@ class Dictionary {
     if (value === undefined || value === null) {
       return false;
     }
-    this._conatiner[key] = value;
+    this.getContainer()[key] = value;
   }
 
   /**
@@ -46,7 +48,7 @@ class Dictionary {
    * Dictionary.find('cat'); // 3
    */
   find (key) {
-    return this._conatiner[key];
+    return this.getContainer()[key];
   }
 
   /**
@@ -58,7 +60,7 @@ class Dictionary {
    * Dictionary.remove('dog'); // [cat: 1]
    */
   remove (key) {
-    delete this._conatiner[key];
+    delete this.getContainer()[key];
   }
 
   /**
@@ -70,7 +72,7 @@ class Dictionary {
    * Dictionary.display(); // ['dog': 2, 'cat': 1]
    */
   display () {
-    return this._conatiner;
+    return this.getContainer();
   }
 
   /**
@@ -84,7 +86,7 @@ class Dictionary {
    */
   count () {
     let number = 0;
-    for (const key in Object.keys(this._conatiner)) {
+    for (const key in Object.keys(this.getContainer())) {
       number++;
     }
     return number;
@@ -98,7 +100,7 @@ class Dictionary {
    * 
    */
   clear () {
-    this._conatiner = [];
+    this.setContainer([]);
   }
 
 }
