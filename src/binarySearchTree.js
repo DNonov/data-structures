@@ -14,7 +14,10 @@
 class BinarySearchTree {
 
   constructor(){
-    this.root = null;
+    let root = null;
+
+    this.setRoot = (value) => root = value;
+    this.getRoot = () => root;
   }
 
   /**
@@ -26,10 +29,10 @@ class BinarySearchTree {
    */
   insert (data) {
     let newNode = new _Node(data, null, null);
-    if (this.root === null) {
-      this.root = newNode;
+    if (this.getRoot() === null) {
+      this.setRoot(newNode);
     } else {
-      let currentNode = this.root;
+      let currentNode = this.getRoot();
       let parentNode;
       while (true) {
         parentNode = currentNode;
@@ -68,7 +71,7 @@ class BinarySearchTree {
         arr.push(node.return()); 
         Order(node.right);
       }
-    })(this.root);
+    })(this.getRoot());
     return arr;
   }
 
@@ -87,7 +90,7 @@ class BinarySearchTree {
         return currentNode.data
       }
       return minNode(currentNode.left);
-    })(this.root);
+    })(this.getRoot());
     return result;
   }
 
@@ -107,7 +110,7 @@ class BinarySearchTree {
         return currentNode.data
       }
       return minNode(currentNode.right);
-    })(this.root);
+    })(this.getRoot());
     return result;
   }
 
@@ -124,7 +127,7 @@ class BinarySearchTree {
    * 
    */
   find (data) {
-    let currentNode = this.root;
+    let currentNode = this.getRoot();
     while (currentNode.data !== data) {
       if (data < currentNode.data) {
         currentNode = currentNode.left;
@@ -151,7 +154,7 @@ class BinarySearchTree {
     if (!data) {
       return false;
     }
-    this.root = _removeNode(this.root, data)
+    this.setRoot(_removeNode(this.getRoot(), data)); 
   }
 
 }
@@ -165,12 +168,9 @@ function _Node (data, left, right) {
   this.data = data;
   this.left = left;
   this.right = right;
-  this.return = function () {
-    return this.data;
-  }
-  this.setData = function (data) {
-    this.data = data;
-  }
+  this.return = () => this.data;
+  this.setData = (data) => this.data = data;
+  
 }
 
 // This is the actual removal function.
