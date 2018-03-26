@@ -62,7 +62,6 @@ function List() {
       --_listSize;
       return true;
     }
-    console.error(`List.remove(): Cannot find ${element}!`);
     return false;
   }
 
@@ -98,7 +97,6 @@ function List() {
       ++_listSize;
       return true;
     }
-    console.error('List.insert(): Wrong or less arguments!');
     return false;
   }
 
@@ -124,7 +122,6 @@ function List() {
         return true;
       }
     }
-    console.error(`List.contains(): Cannot find ${element}!`);
     return false;
   }
 
@@ -182,7 +179,6 @@ function List() {
     if (position < _listSize) {
       _position = position;
     }
-    console.error('List.moveTo(): Out of range argument!');
     return false;
   }
 
@@ -195,7 +191,6 @@ function List() {
     if (_container[0] !== undefined ) {
       return _container[_position];
     }
-    console.error('List.getElement(): Empty List!');
     return false;
   }
 }
