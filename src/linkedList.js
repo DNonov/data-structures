@@ -33,7 +33,6 @@ function LinkedList() {
     if (currentNode.element === element) {
       return currentNode;
     }
-    console.error(`LinkedList.find(): Cannot find ${element}!`);
     return false;
   }
 
@@ -63,7 +62,6 @@ function LinkedList() {
     let newNode  = new Node(newElement);
     let current  = _find(oldElement);
       if (current === false) {
-        console.error(`LinkedList.insert(): Cannot find ${oldElement}!`);
         return false;
       }
     newNode.next = current.next;
@@ -110,7 +108,6 @@ function LinkedList() {
     if (previousNode.next !== null) {
       previousNode.next = previousNode.next.next;
     }
-    console.error(`LinkedList.remove(): Cannot find ${element}!`);
     return false;
   }
 }
