@@ -1,7 +1,7 @@
 const Set = require('../src/set');
 const jasmine = require('jasmine');
 
-describe('set method', () => {
+describe('Set method', () => {
   it('adds element in a set', () => {
     let testSet = new Set();
     expect(testSet.display()).toEqual([]);

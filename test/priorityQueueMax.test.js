@@ -1,7 +1,7 @@
 const PriorityQueue = require('../src/priorityQueueMax');
 const jasmine = require('jasmine');
 
-describe('PriorityQueue method', () => {
+describe('PriorityQueueMax method', () => {
   it('insert element in a PriorityQueue', () => {
     const myPriorityQueue = new PriorityQueue();
     expect(myPriorityQueue.enqueue()).toEqual(false);
