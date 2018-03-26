@@ -1,3 +1,193 @@
+// /**
+//  * Set function constructor.
+//  * 
+//  * @example const _Set = require('dstructures')._Set;
+//  * const mySet = new _Set();
+//  * @description In computer science, a set is an abstract data type that can store
+//  * certain values, without any particular order, and no repeated values. It is a computer 
+//  * implementation of the mathematical concept of a finite set. Unlike most other collection 
+//  * types, rather than retrieving a specific element from a set, one typically tests a value for 
+//  * membership in a set. Full wikipedia article at: 
+//  * {@link https://en.wikipedia.org/wiki/Set_(abstract_data_type)}
+//  * @public
+//  * @constructor
+//  */
+// function _Set() {
+//   this._container = [];
+
+//   /**
+//    * Adds element to a set.
+//    * 
+//    * @param {any} element Given element.
+//    * @returns {Boolean} Returns false if the given element is already member of the set, otherwise returns true.
+//    * @example [] Set.add(1); // [1]
+//    * [1] Set.add(2); // [1, 2]
+//    */
+//   this.add = function (element) {
+//     if (this._container.indexOf(element) < 0) {
+//       this._container.push(element);
+//       return true;
+//     }
+//     return false;
+//   }
+
+//   /**
+//    * Deletes given element from a set.
+//    * 
+//    * @param {any} element Given element.
+//    * @returns {Boolean} Returns false if the given element is not present, otherwise returns true.
+//    * @example [1, 2, 3] Set.remove(2); // [1, 3]
+//    * [1, 3] Set.remove(1); // [3]
+//    */
+//   this.remove = function (element) {
+//     const position = this._container.indexOf(element);
+//     if (position > -1) {
+//       this._container.splice(position, 1);
+//       return true;
+//     }
+//     return false;
+//   }
+
+//   /**
+//    * Returns the array representation of set.
+//    * 
+//    * @returns {Array} Returns the array representation of set.
+//    * @example [1, 2, 3] Set.display(); // [1, 2, 3]
+//    */
+//   this.display = function () {
+//     return this._container;
+//   }
+
+//   /**
+//    * Checks if given element is member of the set.
+//    * 
+//    * @param {any} element Given element.
+//    * @returns {Boolean} Returns true if the given element is member of the set, otherwise returns false.
+//    * @example [1, 2, 3] Set.contains(3); // true
+//    * [1, 2, 3] Set.contains('cat'); // false
+//    */
+//   this.conatains = function (element) {
+//     if (this._container.indexOf(element)  > -1) {
+//       return true;
+//     }
+//     return false;
+//   }
+
+//   /**
+//    * Implements union of two sets.
+//    * 
+//    * @param {_Set} set Given set.
+//    * @returns Returns set union of the two sets. 
+//    * Returns false if there is no argument passed to the function or the argument is not of type Set.
+//    * @example [1, 2, 3] Set1 & [4, 5, 6] Set2 Set1.union(Set2); // [1, 2, 3, 4, 5, 6] Set
+//    */
+//   this.union = function (set) {
+//     if (set === undefined) {
+//       return false;
+//     }
+//     if (!(set instanceof _Set)) {
+//       return false;
+//     }
+//     let tempSet = new _Set();
+//     for (let i = 0; i < this._container.length; i++) {
+//       tempSet.add(this._container[i]);
+//     }
+//     for (let i = 0; i < set._container.length; i++) {
+//       if (!tempSet.conatains(set._container[i])) {
+//         tempSet.add(set._container[i]);
+//       }
+//     }
+//     return tempSet;
+//   }
+
+//   /**
+//    * Implements intersection of two sets.
+//    * 
+//    * @param {_Set} set Given set.
+//    * @returns Returns set intersection of the two sets. 
+//    * Returns false if there is no argument passed to the function or the argument is not of type Set.
+//    * @example [1, 2, 3] Set1 & [4, 2, 6] Set2 Set1.intersect(Set2); // [2] Set
+//    *
+//    */
+//   this.intersect = function (set) {
+//     if (set === undefined) {
+//       return false;
+//     }
+//     if (!(set instanceof _Set)) {
+//       return false;
+//     }
+//     let tempSet = new _Set();
+//     for (let i = 0; i < this._container.length; i++) {
+//       if (set.conatains(this._container[i])) {
+//         tempSet.add(this._container[i]);
+//       }
+//     }
+//     return tempSet;
+//   }
+
+//   /**
+//    * Cheks if the set is subset of a given set. 
+//    * 
+//    * @param {_Set} set Given set.
+//    * @returns Returns true if the set is subset of the given set, otherwise returns false.
+//    * Returns false if there is no argument passed to the function or the argument is not of type Set.
+//    * @example [1, 2] Set1 & [1, 2, 3] Set2 Set1.subset(Set2); // true
+//    *
+//    */
+//   this.subset = function (set) {
+//     if (!(set instanceof _Set)) {
+//       return false;
+//     }
+//     if (set === undefined || this.size() > set.size()) {
+//       return false;
+//     } else {
+//       for (let i = 0; i < this._container.length; i++) {
+//         if (!set.conatains(this._container[i])) {
+//           return false;
+//         }
+//       }
+//     }
+//     return true;
+//   }
+
+//   /**
+//    * Implements difference of two sets.
+//    * 
+//    * @param {_Set} set Given set. 
+//    * @returns Returns set difference of the two sets.
+//    * Returns false if there is no argument passed to the function or the argument is not of type Set.
+//    * @example [1, 2, 3] Set1 & [1, 2, 4] Set2 Set1.difference(Set2); // [4] Set
+//    *
+//    */
+//   this.difference = function (set) {
+//     if (set === undefined) {
+//       return false;
+//     }
+//     if (!(set instanceof _Set)) {
+//       return false;
+//     }
+//     let tempSet = new _Set();
+//     for (let i = 0; i < this._container.length; i++) {
+//       if (!set.conatains(this._container[i])) {
+//         tempSet.add(this._container[i]);
+//       }
+//     }
+//     return tempSet;
+//   }
+
+//   /**
+//    * Returns the size of the set.
+//    * 
+//    * @returns {Number} Returns the size of the set.
+//    * @example [1, 2] Set.size(); // 2
+//    */
+//   this.size = function () {
+//     return this._container.length;
+//   }
+// }
+
+// module.exports = _Set;
+
 /**
  * Set function constructor.
  * 
@@ -12,20 +202,25 @@
  * @public
  * @constructor
  */
-function _Set() {
-  this._container = [];
+class _Set {
+  constructor(){
+    const container = [];
+
+    this.getContainer = () => container;
+    this.setContainer = value => container = value;
+  }
 
   /**
-   * Adds given element to a set.
+   * Adds element to a set.
    * 
    * @param {any} element Given element.
    * @returns {Boolean} Returns false if the given element is already member of the set, otherwise returns true.
    * @example [] Set.add(1); // [1]
    * [1] Set.add(2); // [1, 2]
    */
-  this.add = function (element) {
-    if (this._container.indexOf(element) < 0) {
-      this._container.push(element);
+  add (element) {
+    if (this.getContainer().indexOf(element) < 0) {
+      this.getContainer().push(element);
       return true;
     }
     return false;
@@ -39,10 +234,10 @@ function _Set() {
    * @example [1, 2, 3] Set.remove(2); // [1, 3]
    * [1, 3] Set.remove(1); // [3]
    */
-  this.remove = function (element) {
-    const position = this._container.indexOf(element);
+  remove (element) {
+    const position = this.getContainer().indexOf(element);
     if (position > -1) {
-      this._container.splice(position, 1);
+      this.getContainer().splice(position, 1);
       return true;
     }
     return false;
@@ -54,8 +249,8 @@ function _Set() {
    * @returns {Array} Returns the array representation of set.
    * @example [1, 2, 3] Set.display(); // [1, 2, 3]
    */
-  this.display = function () {
-    return this._container;
+  display () {
+    return this.getContainer();
   }
 
   /**
@@ -66,8 +261,8 @@ function _Set() {
    * @example [1, 2, 3] Set.contains(3); // true
    * [1, 2, 3] Set.contains('cat'); // false
    */
-  this.conatains = function (element) {
-    if (this._container.indexOf(element)  > -1) {
+  conatains (element) {
+    if (this.getContainer().indexOf(element)  > -1) {
       return true;
     }
     return false;
@@ -81,7 +276,7 @@ function _Set() {
    * Returns false if there is no argument passed to the function or the argument is not of type Set.
    * @example [1, 2, 3] Set1 & [4, 5, 6] Set2 Set1.union(Set2); // [1, 2, 3, 4, 5, 6] Set
    */
-  this.union = function (set) {
+  union (set) {
     if (set === undefined) {
       return false;
     }
@@ -89,12 +284,12 @@ function _Set() {
       return false;
     }
     let tempSet = new _Set();
-    for (let i = 0; i < this._container.length; i++) {
-      tempSet.add(this._container[i]);
+    for (let i = 0; i < this.getContainer().length; i++) {
+      tempSet.add(this.getContainer()[i]);
     }
-    for (let i = 0; i < set._container.length; i++) {
-      if (!tempSet.conatains(set._container[i])) {
-        tempSet.add(set._container[i]);
+    for (let i = 0; i < set.getContainer().length; i++) {
+      if (!tempSet.conatains(set.getContainer()[i])) {
+        tempSet.add(set.getContainer()[i]);
       }
     }
     return tempSet;
@@ -109,7 +304,7 @@ function _Set() {
    * @example [1, 2, 3] Set1 & [4, 2, 6] Set2 Set1.intersect(Set2); // [2] Set
    *
    */
-  this.intersect = function (set) {
+  intersect (set) {
     if (set === undefined) {
       return false;
     }
@@ -117,9 +312,9 @@ function _Set() {
       return false;
     }
     let tempSet = new _Set();
-    for (let i = 0; i < this._container.length; i++) {
-      if (set.conatains(this._container[i])) {
-        tempSet.add(this._container[i]);
+    for (let i = 0; i < this.getContainer().length; i++) {
+      if (set.conatains(this.getContainer()[i])) {
+        tempSet.add(this.getContainer()[i]);
       }
     }
     return tempSet;
@@ -134,15 +329,15 @@ function _Set() {
    * @example [1, 2] Set1 & [1, 2, 3] Set2 Set1.subset(Set2); // true
    *
    */
-  this.subset = function (set) {
+  subset (set) {
     if (!(set instanceof _Set)) {
       return false;
     }
     if (set === undefined || this.size() > set.size()) {
       return false;
     } else {
-      for (let i = 0; i < this._container.length; i++) {
-        if (!set.conatains(this._container[i])) {
+      for (let i = 0; i < this.getContainer().length; i++) {
+        if (!set.conatains(this.getContainer()[i])) {
           return false;
         }
       }
@@ -159,7 +354,7 @@ function _Set() {
    * @example [1, 2, 3] Set1 & [1, 2, 4] Set2 Set1.difference(Set2); // [4] Set
    *
    */
-  this.difference = function (set) {
+  difference (set) {
     if (set === undefined) {
       return false;
     }
@@ -167,9 +362,9 @@ function _Set() {
       return false;
     }
     let tempSet = new _Set();
-    for (let i = 0; i < this._container.length; i++) {
-      if (!set.conatains(this._container[i])) {
-        tempSet.add(this._container[i]);
+    for (let i = 0; i < this.getContainer().length; i++) {
+      if (!set.conatains(this.getContainer()[i])) {
+        tempSet.add(this.getContainer()[i]);
       }
     }
     return tempSet;
@@ -181,9 +376,8 @@ function _Set() {
    * @returns {Number} Returns the size of the set.
    * @example [1, 2] Set.size(); // 2
    */
-  this.size = function () {
-    return this._container.length;
+  size () {
+    return this.getContainer().length;
   }
 }
-
 module.exports = _Set;
