@@ -28,8 +28,8 @@
     /**
    * Adds element in a stack.
    * 
-   * @param {any} element Element that will be added.
-   * @returns False if the given element is undefined.
+   * @param {any} element Given element.
+   * @returns {Boolean|Void} Returns fasle if the given element is undefined.
    * @example [] Stack.push('Cat'); // ['Cat']
    * ['Cat'] Stack.push('Dog'); // ['Cat', 'Dog']         
    */     
@@ -43,7 +43,7 @@
   /**
    * Removes and returns the topmost element.
    * 
-   * @returns Returns the removed element if the stack is not empty. Otherwise returns false.
+   * @returns {Boolean|Any} Returns the removed element if the stack is not empty. Otherwise returns false.
    * @example ['Cat', 'Dog', 'Deer'] Stack.pop(); // 'Deer'
    * ['Cat', 'Dog'] Stack.pop(); // 'Dog'
    */
@@ -57,7 +57,7 @@
   /**
    * Returns the topmost element of a stack.
    * 
-   * @returns Returns the topmost element if the stack is not empty. Otherwise returns falsse.
+   * @returns {Boolean|Void} Returns the topmost element if the stack is not empty. Otherwise returns falsse.
    * @example ['Cat', 'Dog'] Stack.peek(); // 'Dog'
    * ['Pig','Cat'] Stack.peek(); // 'Cat'
    */
@@ -79,7 +79,7 @@
   /**
    * Returns the length of a stack.
    * 
-   * @returns Returns the length of a stack.
+   * @returns {Number} Returns the length of a stack.
    * @example [] Stack.length(); // 0
    * ['Cat'] Stack.length(); // 1
    */
@@ -90,7 +90,7 @@
   /**
    * Returns array representation of a stack.
    * 
-   * @returns Array representation of a stack.
+   * @returns {Array} Returns array representation of a stack.
    */
   toArray () {
     return this._getContainer();
