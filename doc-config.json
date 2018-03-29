@@ -1,14 +1,17 @@
 {
   "source": {
     "include": [
+      "./src/binarySearchTree.js",
       "./src/dictionary.js",
+      "./src/doublyLinkedList.js",
       "./src/linkedList.js",
-      "./src/list.js",
+      "./src/maxHeap.js",
+      "./src/minHeap.js",
+      "./src/priorityQueueMax.js",
+      "./src/priorityQueueMin.js",
       "./src/queue.js",
       "./src/set.js",
-      "./src/stack.js",
-      "./src/binarySearchTree.js",
-      "./src/priorityQueueMax.js"
+      "./src/stack.js"
     ]
   },
   "opts": {
