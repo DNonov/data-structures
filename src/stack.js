@@ -14,12 +14,18 @@
  * @public
  * @constructor
  */
-function Stack() {
-  let _container = [];
-  let _top       = 0;
+  class Stack {
+    constructor() {
+      const container = [];
+      let top = 0;
 
-
-  /**
+    this._getContainer = () => container;
+    this._getTop = () => top;
+    this._topPlus = () => top++;
+    this._topMinus = () => --top;
+    this._clearTop = () => top = 0;
+  }
+    /**
    * Adds element in a stack.
    * 
    * @param {any} element Element that will be added.
@@ -27,11 +33,11 @@ function Stack() {
    * @example [] Stack.push('Cat'); // ['Cat']
    * ['Cat'] Stack.push('Dog'); // ['Cat', 'Dog']         
    */     
-  this.push = function (element) {
+  push (element) {
     if (element === undefined) {
       return false;
     }
-    _container[_top++] = element;
+    this._getContainer()[this._topPlus()] = element;
   }
 
   /**
@@ -41,9 +47,9 @@ function Stack() {
    * @example ['Cat', 'Dog', 'Deer'] Stack.pop(); // 'Deer'
    * ['Cat', 'Dog'] Stack.pop(); // 'Dog'
    */
-  this.pop = function () {
-    if (_top !== 0) {
-      return _container[--_top];
+  pop () {
+    if (this._getTop() !== 0) {
+      return this._getContainer()[this._topMinus()];
     }
     return false;
   }
@@ -55,9 +61,9 @@ function Stack() {
    * @example ['Cat', 'Dog'] Stack.peek(); // 'Dog'
    * ['Pig','Cat'] Stack.peek(); // 'Cat'
    */
-  this.peek = function () {
-    if (_top !== 0) {
-      return _container[_top - 1];
+  peek () {
+    if (this._getTop() !== 0) {
+      return this._getContainer()[this._getTop() - 1];
     }
     return false;
   }
@@ -66,8 +72,8 @@ function Stack() {
    * Deletes all elements in a stack.
    * @example ['Cat', 'Dog'] Stack.clear(); // []
    */
-  this.clear = function () {
-    _top = 0;
+  clear () {
+    this._clearTop();
   }
 
   /**
@@ -77,8 +83,8 @@ function Stack() {
    * @example [] Stack.length(); // 0
    * ['Cat'] Stack.length(); // 1
    */
-  this.length = function () {
-    return _top;
+  length () {
+    return this._getTop();
   }
 
   /**
@@ -86,8 +92,8 @@ function Stack() {
    * 
    * @returns Array representation of a stack.
    */
-  this.toArray = function () {
-    return _container;
+  toArray () {
+    return this._getContainer();
   }
 
 }
