@@ -11,7 +11,6 @@ Collection of data structures.
 * Dictionary
 * Doubly Linked List
 * Linked List
-* List
 * Max Heap
 * Min Heap
 * Priority Queue Max
@@ -50,7 +49,8 @@ $ gulp watch-test
 ```
 
 ## Credits
-[Logo design](https://www.designevo.com/)
+* [Logo design](https://www.designevo.com/)
+* [Wikipedia](https://en.wikipedia.org/wiki/Main_Page) for the all class descriptions.
 
 ## License
 [MIT](./LICENSE)
