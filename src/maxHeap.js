@@ -101,7 +101,8 @@ class MaxHeap {
       const toRemove = this._container[1];
       this._container[1] = this._container.pop();
       let currIndex = 1;
-      let [left, right] = [2 * currIndex, 2 * currIndex + 1];
+      let left = 2 * currIndex;
+      let right = 2 * currIndex + 1;
       let currChildIndex = this._container[right] && this._container[right].element >= this._container[left].element ? right : left;
       while (this._container[currChildIndex] && this._container[currIndex].element <= this._container[currChildIndex].element) {
         let currNode = this._container[currIndex];
@@ -114,7 +115,8 @@ class MaxHeap {
       const toRemove = this._container[1];
       this._container[1] = this._container.pop();
       let currIndex = 1;
-      let [left, right] = [2 * currIndex, 2 * currIndex + 1];
+      let left = 2 * currIndex;
+      let right = 2 * currIndex + 1;
       let currChildIndex = this._container[right] && this._container[right].priority >= this._container[left].priority ? right : left;
       while (this._container[currChildIndex] && this._container[currIndex].priority <= this._container[currChildIndex].priority) {
         let currNode = this._container[currIndex];
