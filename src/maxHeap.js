@@ -94,7 +94,7 @@ class MaxHeap {
       if (toReturn !== null) {
         return toReturn.element;
       }
-      return false;
+      throw new Error('Heap is empty.');
     }
 
     if (this._container[2].priority === 0) {

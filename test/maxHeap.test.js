@@ -111,7 +111,7 @@ describe('MaxHeap', () => {
   });
 
   it('returns false if a heap is empty while remove element', () => {
-    expect(maxHeap.remove()).toBe(false);
+    expect(() => maxHeap.remove()).toThrow(new Error('Heap is empty.'));
   });
 
   it('returns the removed element', () => {
