@@ -37,7 +37,7 @@ class MaxHeap {
   insert (element, priority) {
     // If element argument is not present
     if (!element) {
-      return false;
+      throw new Error('Missing argument.');
     }
 
     // No priority is given if priority argument is omitted or different type.

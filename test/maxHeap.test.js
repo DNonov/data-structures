@@ -31,7 +31,7 @@ describe('MaxHeap', () => {
   });
 
   it('returns false if there is no arguments passed to insert', () => {
-    expect(maxHeap.insert()).toBe(false);
+    expect(() => maxHeap.insert()).toThrow(new Error('Missing argument.'));
   });
 
   it('inserts a number into a heap', () => {
