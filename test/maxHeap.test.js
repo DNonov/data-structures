@@ -21,7 +21,7 @@ describe('MaxHeap', () => {
     expect(maxHeap.isEmpty()).toBe(false);
   });
 
-  it('returns false if peek is called on an empty heap', () => {
+  it('throws an error if peek is called on an empty heap', () => {
     expect(() => maxHeap.peek()).toThrow(new Error('Heap is empty.'));
   });
 
@@ -30,7 +30,7 @@ describe('MaxHeap', () => {
     expect(maxHeap.peek()).toBe(1);
   });
 
-  it('returns false if there is no arguments passed to insert', () => {
+  it('throws an error if there is no arguments passed to insert', () => {
     expect(() => maxHeap.insert()).toThrow(new Error('Missing argument.'));
   });
 
@@ -110,7 +110,7 @@ describe('MaxHeap', () => {
     expect(maxHeap.remove()).toBe('Dog');
   });
 
-  it('returns false if a heap is empty while remove element', () => {
+  it('throws an error if a heap is empty while remove element', () => {
     expect(() => maxHeap.remove()).toThrow(new Error('Heap is empty.'));
   });
 
