@@ -124,4 +124,8 @@ describe('MaxHeap', () => {
     maxHeap.insert(2);
     expect(maxHeap.toArray()).toEqual([2, 1]);
   });
+
+  it('throws an error if toArray is called on empty heap', () => {
+    expect(() => maxHeap.toArray()).toThrow(new Error('Heap is empty.'));
+  });
 });

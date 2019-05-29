@@ -166,6 +166,10 @@ class MaxHeap {
    * @memberOf MaxHeap
    */
   toArray () {
+    if (!this._container[1]) {
+      throw new Error('Heap is empty.');
+    }
+
     return this._container
       .filter(item => item === null ? false : true)
       .map(item => item.element);
