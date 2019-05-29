@@ -22,7 +22,7 @@ describe('MaxHeap', () => {
   });
 
   it('returns false if peek is called on an empty heap', () => {
-    expect(maxHeap.peek()).toBe(false);
+    expect(() => maxHeap.peek()).toThrow(new Error('Heap is empty.'));
   });
 
   it('returns the peek element', () => {

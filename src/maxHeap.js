@@ -141,7 +141,7 @@ class MaxHeap {
    */
   peek () {
     if (!this._container[1]) {
-      return false;
+      throw new Error('Heap is empty.');
     }
     return this._container[1].element;
   }
