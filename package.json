@@ -4,7 +4,7 @@
   "description": "Collection of data structures",
   "main": "index.js",
   "scripts": {
-    "test": "gulp test",
+    "test": "jasmine --config=./jasmine.json",
     "cover": "istanbul cover gulp test",
     "coveralls": "istanbul cover gulp test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "doc-build": "jsdoc -c doc-config.json"
