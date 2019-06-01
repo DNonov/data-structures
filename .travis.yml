@@ -2,9 +2,8 @@ language: node_js
 node_js:
   - "node"
 before_script:
-  - npm install -g gulp
+  - npm install -g jest
 script:
-  - gulp build
+  - npm test_ci
 after_success:
   - npm run coveralls
-  
