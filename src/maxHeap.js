@@ -1,10 +1,10 @@
 /**
  * Max Heap.
  *
- * @example const MaxHeap = require('dstructures').MaxHeap;
- * const myMaxHeap = new MaxHeap();
- * @description This is "max" implementation so, larger numbers have priority!
- * For "min" implementation where lower numbers have priority, use PriorityQueueMin.
+ * @example const MaxHeap = require('dstructures').Heap;
+ * const myMaxHeap = new Heap(); // This is maxHeap by default
+ * const myMaxHeap = new Heap('max');
+ * const myMinHeap = new Heap('min');
  * @description In computer science, a heap is a specialized tree-based data
  * structure that satisfies the heap property: if P is a parent node of C, then the
  * key (the value) of P is either greater than or equal to (in a max heap) or less
@@ -15,12 +15,13 @@
  * @constructor
  * @class
  */
-class MaxHeap {
+class Heap {
 
-  constructor(){
+  constructor(priority_impl='max'){
     // Underlying array
     // @private
     this._container = [null];
+    this._priority = priority_impl;
   }
 
   /**
@@ -40,23 +41,15 @@ class MaxHeap {
       throw new Error('Missing argument.');
     }
 
-    // No priority is given if priority argument is omitted or different type.
-    if (typeof(priority) !== 'number') {
-      // Push the new node
-      const newNode = new _Node (element, priority=0);
-      this._container.push(newNode);
-      // Get the current index and the parent index
-      let currNodeIndex = this._container.length - 1;
-      let parentNodeIndex = Math.floor(currNodeIndex / 2);
+    if (typeof(priority) === 'undefined' && typeof(element) === 'number') {
+      priority = element;
+    }
 
-      while (this._container[parentNodeIndex] && newNode.element > this._container[parentNodeIndex].element) {
-        const parent = this._container[parentNodeIndex];
-        this._container[parentNodeIndex] = newNode;
-        this._container[currNodeIndex] = parent;
-        currNodeIndex = parentNodeIndex;
-        parentNodeIndex = Math.floor(currNodeIndex / 2);
-      }
-    } else {
+    if (typeof(priority) !== 'number') {
+      priority = 0;
+    }
+
+    if (this._priority === 'max') {
       const newNode = new _Node (element, priority);
       this._container.push(newNode);
       // Get the current index and the parent index
@@ -70,8 +63,22 @@ class MaxHeap {
         currNodeIndex = parentNodeIndex;
         parentNodeIndex = Math.floor(currNodeIndex / 2);
       }
-    }
+    } else {
+      // No priority is given if priority argument is omitted or different type.
+      const newNode = new _Node (element, priority);
+      this._container.push(newNode);
+      // Get the current index and the parent index
+      let currNodeIndex = this._container.length - 1;
+      let parentNodeIndex = Math.floor(currNodeIndex / 2);
 
+      while (this._container[parentNodeIndex] && newNode.priority < this._container[parentNodeIndex].priority) {
+        const parent = this._container[parentNodeIndex];
+        this._container[parentNodeIndex] = newNode;
+        this._container[currNodeIndex] = parent;
+        currNodeIndex = parentNodeIndex;
+        parentNodeIndex = Math.floor(currNodeIndex / 2);
+      }
+    }
   }
 
   /**
@@ -183,4 +190,4 @@ function _Node(element, priority) {
   this.priority = priority;
 }
 
-module.exports = MaxHeap;
+module.exports = Heap;
