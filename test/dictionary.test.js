@@ -1,9 +1,13 @@
 const Dictionary = require('../src/dictionary');
-const jasmine    = require('jasmine');
 
 describe('Dictionary method', () => {
+  let testDictionary;
+
+  beforeEach(() => {
+    testDictionary = new Dictionary();
+  });
+
   it('adds key value pair', () => {
-    let testDictionary = new Dictionary();
     testDictionary.add('moo', 'cat');
     expect(testDictionary.find('moo')).toBe('cat');
     testDictionary.add(2, 'dog');
@@ -17,7 +21,6 @@ describe('Dictionary method', () => {
   });
 
   it('returns the value for the given key', () => {
-    let testDictionary = new Dictionary();
     testDictionary.add('moo', 'cat');
     testDictionary.add(2, 'dog');
     testDictionary.add(3, undefined);
@@ -30,15 +33,13 @@ describe('Dictionary method', () => {
   });
 
   it('removes the value associated to the given key', () => {
-    let testDictionary = new Dictionary();
     testDictionary.add(0, 'cat');
     expect(testDictionary.display()).toContain('cat');
     testDictionary.remove(0);
     expect(testDictionary.find(0)).toBe(undefined);
   });
-  
+
   it('counts all key value pairs', () => {
-    let testDictionary = new Dictionary();
     testDictionary.add(0, 34);
     testDictionary.add('boo', 'cat');
     testDictionary.add(34, 'pig');
@@ -52,7 +53,6 @@ describe('Dictionary method', () => {
   });
 
   it('deletes all key value pairs', () => {
-    let testDictionary = new Dictionary();
     testDictionary.add(0, 34);
     testDictionary.add('boo', 'cat');
     testDictionary.add(34, 'pig');
