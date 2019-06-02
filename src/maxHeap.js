@@ -49,13 +49,13 @@ class Heap {
       priority = 0;
     }
 
-    if (this._priority === 'max') {
-      const newNode = new _Node (element, priority);
-      this._container.push(newNode);
-      // Get the current index and the parent index
-      let currNodeIndex = this._container.length - 1;
-      let parentNodeIndex = Math.floor(currNodeIndex / 2);
+    const newNode = new _Node (element, priority);
+    this._container.push(newNode);
 
+    let currNodeIndex = this._container.length - 1;
+    let parentNodeIndex = Math.floor(currNodeIndex / 2);
+
+    if (this._priority === 'max') {
       while (this._container[parentNodeIndex] && newNode.priority > this._container[parentNodeIndex].priority) {
         const parent = this._container[parentNodeIndex];
         this._container[parentNodeIndex] = newNode;
@@ -64,13 +64,6 @@ class Heap {
         parentNodeIndex = Math.floor(currNodeIndex / 2);
       }
     } else {
-      // No priority is given if priority argument is omitted or different type.
-      const newNode = new _Node (element, priority);
-      this._container.push(newNode);
-      // Get the current index and the parent index
-      let currNodeIndex = this._container.length - 1;
-      let parentNodeIndex = Math.floor(currNodeIndex / 2);
-
       while (this._container[parentNodeIndex] && newNode.priority < this._container[parentNodeIndex].priority) {
         const parent = this._container[parentNodeIndex];
         this._container[parentNodeIndex] = newNode;
