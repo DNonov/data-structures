@@ -1,9 +1,13 @@
 const MinHeap = require('../src/minHeap');
-const jasmine = require('jasmine');
 
 describe('MinHeap method', () => {
+  let myMinHeap;
+
+  beforeEach(() => {
+    myMinHeap = new MinHeap();
+  });
+
   it('insert element in a heap', () => {
-    let myMinHeap = new MinHeap();
     expect(myMinHeap.insert()).toEqual(false);
     myMinHeap.insert('Rat');
     myMinHeap.insert('Cat', 1);
@@ -13,30 +17,27 @@ describe('MinHeap method', () => {
     myMinHeap.insert('Bat', 2);
     expect(myMinHeap.peek()).toBe('Rat');
   });
-  
+
   it('removes and returns element in a heap', () => {
-    let myMaxHeap = new MinHeap();
-    expect(myMaxHeap.remove()).toBe(false);
-    myMaxHeap.insert('Rat');
-    myMaxHeap.insert('Cat', 1);
-    myMaxHeap.insert('Dog', 21);
-    myMaxHeap.insert('Bat', 2);
-    expect(myMaxHeap.remove()).toBe('Rat');
-    expect(myMaxHeap.peek()).toBe('Cat');
+    expect(myMinHeap.remove()).toBe(false);
+    myMinHeap.insert('Rat');
+    myMinHeap.insert('Cat', 1);
+    myMinHeap.insert('Dog', 21);
+    myMinHeap.insert('Bat', 2);
+    expect(myMinHeap.remove()).toBe('Rat');
+    expect(myMinHeap.peek()).toBe('Cat');
   });
-  
+
   it('returns true if a heap is empty', () => {
-    let myMaxHeap = new MinHeap();
-    expect(myMaxHeap.isEmpty()).toBe(true);
-    myMaxHeap.insert('Bat', 2);
-    expect(myMaxHeap.isEmpty()).toBe(false);
+    expect(myMinHeap.isEmpty()).toBe(true);
+    myMinHeap.insert('Bat', 2);
+    expect(myMinHeap.isEmpty()).toBe(false);
   });
-  
+
   it('returns array representation of a heap', () => {
-    let myMaxHeap = new MinHeap();
-    myMaxHeap.insert('Cat', 1);
-    myMaxHeap.insert('Dog', 21);
-    myMaxHeap.insert('Bat', 2);
-    expect(myMaxHeap.toArray()).toEqual(['Cat', 'Dog', 'Bat']);
+    myMinHeap.insert('Cat', 1);
+    myMinHeap.insert('Dog', 21);
+    myMinHeap.insert('Bat', 2);
+    expect(myMinHeap.toArray()).toEqual(['Cat', 'Dog', 'Bat']);
   });
 });
