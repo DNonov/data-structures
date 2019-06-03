@@ -1,8 +1,10 @@
 /**
  * Max Heap.
  *
- * @example const MaxHeap = require('dstructures').MaxHeap;
- * const myMaxHeap = new MaxHeap();
+ * @example const MaxHeap = require('dstructures').Heap;
+ * const myMaxHeap = new Heap(); // This is maxHeap by default
+ * const myMaxHeap = new Heap('max');
+ * const myMinHeap = new Heap('min');
  * @description In computer science, a heap is a specialized tree-based data
  * structure that satisfies the heap property: if P is a parent node of C, then the
  * key (the value) of P is either greater than or equal to (in a max heap) or less
@@ -13,29 +15,30 @@
  * @constructor
  * @class
  */
-class MaxHeap {
+class Heap {
 
-  constructor(){
+  constructor(priority_impl='max'){
     // Underlying array
     // @private
     this._container = [null];
+    this._priority = priority_impl;
   }
 
   /**
    * Inserts element in a heap.
    *
-   * @param {any} element Given element.
+   * @param {Any} element Given element.
    * @param {Number} [priority = 0] Priority defaults to 0 if is not present.
    * @returns {Boolean|Void} Returns false if 'priority' is not number or
    * 'element' is undefined or null.
-   * @example MinHeap.insert('Cat', 1); // ['Cat']
-   * MinHeap.insert('Dog', 2); // ['Dog', 'Cat']
-   * @memberOf MinHeap
+   * @example MaxHeap.insert('Cat', 1); // ['Cat']
+   * MaxHeap.insert('Dog', 2); // ['Dog', 'Cat']
+   * @memberOf MaxHeap
    */
   insert (element, priority) {
     // If element argument is not present
     if (!element) {
-      return false;
+      throw new Error('Missing argument.');
     }
 
     if (typeof(priority) === 'undefined' && typeof(element) === 'number') {
@@ -52,12 +55,22 @@ class MaxHeap {
     let currNodeIndex = this._container.length - 1;
     let parentNodeIndex = Math.floor(currNodeIndex / 2);
 
-    while (this._container[parentNodeIndex] && newNode.priority > this._container[parentNodeIndex].priority) {
-      const parent = this._container[parentNodeIndex];
-      this._container[parentNodeIndex] = newNode;
-      this._container[currNodeIndex] = parent;
-      currNodeIndex = parentNodeIndex;
-      parentNodeIndex = Math.floor(currNodeIndex / 2);
+    if (this._priority === 'max') {
+      while (this._container[parentNodeIndex] && newNode.priority > this._container[parentNodeIndex].priority) {
+        const parent = this._container[parentNodeIndex];
+        this._container[parentNodeIndex] = newNode;
+        this._container[currNodeIndex] = parent;
+        currNodeIndex = parentNodeIndex;
+        parentNodeIndex = Math.floor(currNodeIndex / 2);
+      }
+    } else {
+      while (this._container[parentNodeIndex] && newNode.priority < this._container[parentNodeIndex].priority) {
+        const parent = this._container[parentNodeIndex];
+        this._container[parentNodeIndex] = newNode;
+        this._container[currNodeIndex] = parent;
+        currNodeIndex = parentNodeIndex;
+        parentNodeIndex = Math.floor(currNodeIndex / 2);
+      }
     }
   }
 
@@ -67,11 +80,11 @@ class MaxHeap {
    *
    * @returns {Boolean|Any} Returns false if a heap is
    * empty, otherwise the top element in a heap.
-   * @example MinHeap.insert('Cat', 1); // ['Cat']
-   * MinHeap.insert('Dog', 2); // ['Dog', 'Cat']
-   * MinHeap.insert('Fox', 3); // ['Fox', 'Dog', 'Cat']
-   * MinHeap.remove(); // ['Dog', 'Cat']
-   * @memberOf MinHeap
+   * @example MaxHeap.insert('Cat', 1); // ['Cat']
+   * MaxHeap.insert('Dog', 2); // ['Dog', 'Cat']
+   * MaxHeap.insert('Fox', 3); // ['Fox', 'Dog', 'Cat']
+   * MaxHeap.remove(); // ['Dog', 'Cat']
+   * @memberOf MaxHeap
    */
   remove () {
     if (this._container.length < 3) {
@@ -118,17 +131,17 @@ class MaxHeap {
   /**
    * Returns the top element in a heap.
    *
-   * @returns {Boolean|Any} Returns false if a heap is
-   * empty, otherwise the top element in a heap.
-   * @example MinHeap.insert('Cat', 1); // ['Cat']
-   * MinHeap.insert('Dog', 2); // ['Dog', 'Cat']
-   * MinHeap.insert('Fox', 3); // ['Fox', 'Dog', 'Cat']
-   * MinHeap.peek(); // 'Fox', ['Fox', 'Dog', 'Cat']
-   * @memberOf MinHeap
+   * @returns {Boolean|Any} Returns false if a heap is empty, otherwise
+   * the top element in a heap.
+   * @example MaxHeap.insert('Cat', 1); // ['Cat']
+   * MaxHeap.insert('Dog', 2); // ['Dog', 'Cat']
+   * MaxHeap.insert('Fox', 3); // ['Fox', 'Dog', 'Cat']
+   * MaxHeap.peek(); // 'Fox', ['Fox', 'Dog', 'Cat']
+   * @memberOf MaxHeap
    */
   peek () {
     if (!this._container[1]) {
-      return false;
+      throw new Error('Heap is empty.');
     }
     return this._container[1].element;
   }
@@ -136,12 +149,11 @@ class MaxHeap {
   /**
    * Checks if a heap is empty.
    *
-   * @returns {Boolean} Returns true if a heap is empty,
-   * otherwise fasle.
-   * @example MinHeap.isEmpty(); // true
-   * MinHeap.insert('Cat', 1); // ['Cat']
-   * MinHeap.isEmpty(); // false
-   * @memberOf MinHeap
+   * @returns {Boolean} Returns true if a heap is empty, otherwise false.
+   * @example MaxHeap.isEmpty(); // true
+   * MaxHeap.insert('Cat', 1); // ['Cat']
+   * MaxHeap.isEmpty(); // false
+   * @memberOf MaxHeap
    */
   isEmpty () {
     return this._container.length >= 2 ? false : true;
@@ -151,9 +163,13 @@ class MaxHeap {
    * Returns array representation of a heap.
    *
    * @returns {Array} Returns array representation of a heap.
-   * @memberOf MinHeap
+   * @memberOf MaxHeap
    */
   toArray () {
+    if (!this._container[1]) {
+      throw new Error('Heap is empty.');
+    }
+
     return this._container
       .filter(item => item === null ? false : true)
       .map(item => item.element);
@@ -167,4 +183,4 @@ function _Node(element, priority) {
   this.priority = priority;
 }
 
-module.exports = MaxHeap;
+module.exports = Heap;
