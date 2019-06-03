@@ -24,7 +24,7 @@ Collection of data structures.
 ## Installation
 This is [Node.js](https://nodejs.org/en/) module available through [npm](https://www.npmjs.com/).
 
-First get yourself [Node.js](https://nodejs.org/en/download), and then 
+First get yourself [Node.js](https://nodejs.org/en/download), and then
 
 ```bash
 $ npm install dstructures
@@ -41,11 +41,6 @@ $ npm install
 **To run tests**
 ```bash
 $ npm run test
-```
-
-or if you want to run tests on every change at **/test** and **/src** folder
-```bash
-$ gulp watch-test
 ```
 
 ## Credits
