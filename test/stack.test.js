@@ -1,67 +1,66 @@
 const Stack = require('../src/stack');
-const jasmine = require('jasmine');
 
 describe('Stack method', () => {
-  it('pushes element to a stack', () => {
-    let testStack = new Stack();
-    testStack.push('Jill');
-    testStack.push('Bill');
-    testStack.push(0);
-    testStack.push(undefined);
-    testStack.push(22);
-    testStack.push(-12);
+  let stack;
 
-    expect(testStack.push(undefined)).toBe(false);
-    expect(testStack.toArray()).toEqual(['Jill', 'Bill', 0, 22, -12]);
+  beforeEach(() => {
+    stack = new Stack();
+  });
+
+  it('pushes element to a stack', () => {
+    stack.push('Jill');
+    stack.push('Bill');
+    stack.push(0);
+    stack.push(undefined);
+    stack.push(22);
+    stack.push(-12);
+
+    expect(stack.push(undefined)).toBe(false);
+    expect(stack.toArray()).toEqual(['Jill', 'Bill', 0, 22, -12]);
   });
 
   it('removes the top element in a stack', () => {
-    let testStack = new Stack();
-    testStack.push(1);
-    testStack.push(2);
-    testStack.push(3);
-    expect(testStack.pop()).toBe(3);
-    expect(testStack.pop()).toBe(2);
-    expect(testStack.pop()).toBe(1);
-    expect(testStack.pop()).toBe(false);
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    expect(stack.pop()).toBe(3);
+    expect(stack.pop()).toBe(2);
+    expect(stack.pop()).toBe(1);
+    expect(stack.pop()).toBe(false);
   });
 
   it('returns the top element in a stack', () => {
-    let testStack = new Stack();
-    expect(testStack.peek()).toBe(false);
-    testStack.push(1);
-    expect(testStack.peek()).toBe(1);
-    testStack.push('Jill');
-    expect(testStack.peek()).toBe('Jill');
-    testStack.push(undefined);
-    expect(testStack.peek()).toBe('Jill');
-    testStack.push(null);
-    expect(testStack.peek()).toBe(null);
-    testStack.push(-34);
-    expect(testStack.peek()).toBe(-34);
+    stack.push(1);
+    expect(stack.peek()).toBe(1);
+    stack.push('Jill');
+    expect(stack.peek()).toBe('Jill');
+    stack.push(undefined);
+    expect(stack.peek()).toBe('Jill');
+    stack.push(null);
+    expect(stack.peek()).toBe(null);
+    stack.push(-34);
+    expect(stack.peek()).toBe(-34);
   });
-  
+
   it('deletes all elements in a stack', () => {
-    let testStack = new Stack();
-    testStack.push(1);
-    testStack.push(2);
-    testStack.push(3);
-    testStack.push(4);
-    expect(testStack.peek()).toBe(4);
-    testStack.clear();
-    expect(testStack.peek()).toBe(false);
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    stack.push(4);
+    expect(stack.peek()).toBe(4);
+    stack.clear();
+    expect(stack.peek()).toBe(false);
   });
-  
+
   it('returns the length of a stack', () => {
-    let testStack = new Stack();
-    expect(testStack.length()).toBe(0);
-    testStack.push(1);
-    expect(testStack.length()).toBe(1);
-    testStack.push(2);
-    expect(testStack.length()).toBe(2);
-    testStack.push(3);
-    expect(testStack.length()).toBe(3);
-    testStack.push(4);
-    expect(testStack.length()).toBe(4);
+    expect(stack.length()).toBe(0);
+    stack.push(1);
+    expect(stack.length()).toBe(1);
+    stack.push(2);
+    expect(stack.length()).toBe(2);
+    stack.push(3);
+    expect(stack.length()).toBe(3);
+    stack.push(4);
+    expect(stack.length()).toBe(4);
   });
 });
