@@ -28,9 +28,9 @@ class MaxHeap {
    * @param {Number} [priority = 0] Priority defaults to 0 if is not present.
    * @returns {Boolean|Void} Returns false if 'priority' is not number or
    * 'element' is undefined or null.
-   * @example MinHeap.insert('Cat', 1); // ['Cat']
-   * MinHeap.insert('Dog', 2); // ['Dog', 'Cat']
-   * @memberOf MinHeap
+   * @example MaxHeap.insert('Cat', 1); // ['Cat']
+   * MaxHeap.insert('Dog', 2); // ['Dog', 'Cat']
+   * @memberOf MaxHeap
    */
   insert (element, priority) {
     // If element argument is not present
@@ -67,11 +67,11 @@ class MaxHeap {
    *
    * @returns {Boolean|Any} Returns false if a heap is
    * empty, otherwise the top element in a heap.
-   * @example MinHeap.insert('Cat', 1); // ['Cat']
-   * MinHeap.insert('Dog', 2); // ['Dog', 'Cat']
-   * MinHeap.insert('Fox', 3); // ['Fox', 'Dog', 'Cat']
-   * MinHeap.remove(); // ['Dog', 'Cat']
-   * @memberOf MinHeap
+   * @example MaxHeap.insert('Cat', 1); // ['Cat']
+   * MaxHeap.insert('Dog', 2); // ['Dog', 'Cat']
+   * MaxHeap.insert('Fox', 3); // ['Fox', 'Dog', 'Cat']
+   * MaxHeap.remove(); // ['Dog', 'Cat']
+   * @memberOf MaxHeap
    */
   remove () {
     if (this._container.length < 3) {
@@ -120,11 +120,11 @@ class MaxHeap {
    *
    * @returns {Boolean|Any} Returns false if a heap is
    * empty, otherwise the top element in a heap.
-   * @example MinHeap.insert('Cat', 1); // ['Cat']
-   * MinHeap.insert('Dog', 2); // ['Dog', 'Cat']
-   * MinHeap.insert('Fox', 3); // ['Fox', 'Dog', 'Cat']
-   * MinHeap.peek(); // 'Fox', ['Fox', 'Dog', 'Cat']
-   * @memberOf MinHeap
+   * @example MaxHeap.insert('Cat', 1); // ['Cat']
+   * MaxHeap.insert('Dog', 2); // ['Dog', 'Cat']
+   * MaxHeap.insert('Fox', 3); // ['Fox', 'Dog', 'Cat']
+   * MaxHeap.peek(); // 'Fox', ['Fox', 'Dog', 'Cat']
+   * @memberOf MaxHeap
    */
   peek () {
     if (!this._container[1]) {
@@ -138,10 +138,10 @@ class MaxHeap {
    *
    * @returns {Boolean} Returns true if a heap is empty,
    * otherwise fasle.
-   * @example MinHeap.isEmpty(); // true
-   * MinHeap.insert('Cat', 1); // ['Cat']
-   * MinHeap.isEmpty(); // false
-   * @memberOf MinHeap
+   * @example MaxHeap.isEmpty(); // true
+   * MaxHeap.insert('Cat', 1); // ['Cat']
+   * MaxHeap.isEmpty(); // false
+   * @memberOf MaxHeap
    */
   isEmpty () {
     return this._container.length >= 2 ? false : true;
@@ -151,7 +151,7 @@ class MaxHeap {
    * Returns array representation of a heap.
    *
    * @returns {Array} Returns array representation of a heap.
-   * @memberOf MinHeap
+   * @memberOf MaxHeap
    */
   toArray () {
     return this._container
