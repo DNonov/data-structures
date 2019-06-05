@@ -68,7 +68,7 @@ class _Set {
    * @example [1, 2, 3] Set.contains(3); // true
    * [1, 2, 3] Set.contains('cat'); // false
    */
-  conatains (element) {
+  contains (element) {
     if (this._container.indexOf(element)  > -1) {
       return true;
     }
@@ -95,7 +95,7 @@ class _Set {
       tempSet.add(this._container[i]);
     }
     for (let i = 0; i < set._container.length; i++) {
-      if (!tempSet.conatains(set._container[i])) {
+      if (!tempSet.contains(set._container[i])) {
         tempSet.add(set._container[i]);
       }
     }
@@ -120,7 +120,7 @@ class _Set {
     }
     let tempSet = new _Set();
     for (let i = 0; i < this._container.length; i++) {
-      if (set.conatains(this._container[i])) {
+      if (set.contains(this._container[i])) {
         tempSet.add(this._container[i]);
       }
     }
@@ -144,7 +144,7 @@ class _Set {
       return false;
     } else {
       for (let i = 0; i < this._container.length; i++) {
-        if (!set.conatains(this._container[i])) {
+        if (!set.contains(this._container[i])) {
           return false;
         }
       }
@@ -170,7 +170,7 @@ class _Set {
     }
     let tempSet = new _Set();
     for (let i = 0; i < this._container.length; i++) {
-      if (!set.conatains(this._container[i])) {
+      if (!set.contains(this._container[i])) {
         tempSet.add(this._container[i]);
       }
     }

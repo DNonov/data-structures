@@ -29,10 +29,10 @@ describe('Set method', () => {
   });
 
   it('checks if element is a member of the set', () => {
-    expect(testSet.conatains(1)).toBe(false);
+    expect(testSet.contains(1)).toBe(false);
     testSet.add(1);
-    expect(testSet.conatains(1)).toBe(true);
-    expect(testSet.conatains(2)).toBe(false);
+    expect(testSet.contains(1)).toBe(true);
+    expect(testSet.contains(2)).toBe(false);
   });
 
   it('implements union on two sets', () => {
