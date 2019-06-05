@@ -2,30 +2,42 @@ const Set = require('../src/set');
 
 describe('Set method', () => {
   let testSet;
+  let set;
   let testSet1;
   let testSet2;
 
   beforeEach(() => {
+    set = new Set();
     testSet = new Set();
     testSet1 = new Set();
     testSet2 = new Set();
   });
 
-  it('adds element in a set', () => {
-    expect(testSet.display()).toEqual([]);
-    testSet.add(1);
-    expect(testSet.add(1)).toBe(false);
-    expect(testSet.display()).toEqual([1]);
-    testSet.add('cat');
-    expect(testSet.display()).toEqual([1, 'cat']);
+  it('adds an element in a set', () => {
+    expect(set.add(1)).toBe(true);
+  });
+
+  it('keeps elements unique in a set', () => {
+    set.add(1);
+    expect(() => set.add(1)).toThrow(new Error('1 is already member of the set.'));
+  });
+
+  it('stores different types in a set', () => {
+    expect(set.add(1)).toBe(true);
+    expect(set.add('cat')).toBe(true);
+  });
+
+  it('throws error if remove is called without argument', () => {
+    expect(() => set.remove()).toThrow(new Error('undefined or missing argument.'));
+  });
+
+  it('throws error if element is not member of a set', () => {
+    expect(() => set.remove(1)).toThrow(new Error('1 is not a member of the set.'));
   });
 
   it('removes element from a set ', () => {
-    expect(testSet.remove(1)).toBe(false);
     testSet.add(1);
-    testSet.add('cat');
-    testSet.remove('cat');
-    expect(testSet.display()).toEqual([1]);
+    expect(testSet.remove(1)).toBe(true);
   });
 
   it('checks if element is a member of the set', () => {

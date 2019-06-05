@@ -13,24 +13,27 @@
  * @constructor
  */
 class _Set {
-  constructor(){
+  constructor() {
     this._container = [];
   }
 
   /**
-   * Adds element to a set.
+   * Adds an element to a set.
    *
    * @param {any} element Given element.
-   * @returns {Boolean} Returns false if the given element is already member of the set, otherwise returns true.
+   * @returns {Boolean|Error} Throws error if the given element is already member of a set, otherwise returns true.
    * @example [] Set.add(1); // [1]
    * [1] Set.add(2); // [1, 2]
    */
-  add (element) {
-    if (this._container.indexOf(element) < 0) {
+  add(element) {
+    const elementIsNotMember = this._container.indexOf(element) < 0;
+
+    if (elementIsNotMember) {
       this._container.push(element);
       return true;
     }
-    return false;
+
+    throw new Error(`${element} is already member of the set.`);
   }
 
   /**
@@ -41,13 +44,18 @@ class _Set {
    * @example [1, 2, 3] Set.remove(2); // [1, 3]
    * [1, 3] Set.remove(1); // [3]
    */
-  remove (element) {
+  remove(element) {
+    if (element === undefined) {
+      throw new Error(`${element} or missing argument.`);
+    }
+
     const position = this._container.indexOf(element);
+
     if (position > -1) {
       this._container.splice(position, 1);
       return true;
     }
-    return false;
+    throw new Error(`${element} is not a member of the set.`);
   }
 
   /**
