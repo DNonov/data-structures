@@ -59,12 +59,23 @@ class _Set {
   }
 
   /**
-   * Returns the array representation of a set.
+   * Returns an array representation of a set.
    *
-   * @returns {Array} Returns the array representation of set.
+   * @returns {Array} Returns an array representation of set.
    * @example [1, 2, 3] Set.display(); // [1, 2, 3]
    */
-  display () {
+  toArray() {
+    return this._container;
+  }
+
+  /**
+   * Returns an array representation of a set.
+   *
+   * @returns {Array} Returns an array representation of set.
+   * @example [1, 2, 3] Set.display(); // [1, 2, 3]
+   */
+  display() {
+    console.log('display() will be deprecated in version 2.0.0 use toArray()');
     return this._container;
   }
 

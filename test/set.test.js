@@ -36,8 +36,14 @@ describe('Set method', () => {
   });
 
   it('removes element from a set ', () => {
-    testSet.add(1);
-    expect(testSet.remove(1)).toBe(true);
+    set.add(1);
+    expect(set.remove(1)).toBe(true);
+  });
+
+  it('returns array representation of a set when call toArray', () => {
+    set.add(1);
+    set.add(2);
+    expect(set.toArray()).toEqual([1, 2]);
   });
 
   it('checks if element is a member of the set', () => {
@@ -57,8 +63,8 @@ describe('Set method', () => {
     expect(unitetSet1 = testSet1.union([])).toBe(false);
     expect(unitetSet1 = testSet1.union({})).toBe(false);
     let unitedSet = testSet1.union(testSet2);
-    expect(unitedSet.display()).toContain(1);
-    expect(unitedSet.display()).toContain(2);
+    expect(unitedSet.toArray()).toContain(1);
+    expect(unitedSet.toArray()).toContain(2);
   });
 
   it('implements intersection of sets', () => {
@@ -76,7 +82,7 @@ describe('Set method', () => {
     testSet2.add(4);
     testSet2.add(5);
     let intersect = testSet1.intersect(testSet2);
-    expect(intersect.display()).toEqual([2]);
+    expect(intersect.toArray()).toEqual([2]);
     let testSet11 = new Set();
     testSet11.add(1);
     testSet11.add(3);
@@ -86,7 +92,7 @@ describe('Set method', () => {
     testSet21.add(4);
     testSet21.add(6);
     let intersect1 = testSet11.intersect(testSet21);
-    expect(intersect1.display()).toEqual([]);
+    expect(intersect1.toArray()).toEqual([]);
     let testSet12 = new Set();
     testSet12.add(1);
     testSet12.add(3);
@@ -96,11 +102,11 @@ describe('Set method', () => {
     testSet22.add(3);
     testSet22.add(5);
     let intersect2 = testSet12.intersect(testSet22);
-    expect(intersect2.display()).toEqual([1, 3, 5]);
+    expect(intersect2.toArray()).toEqual([1, 3, 5]);
     let testSet13 = new Set();
     let testSet23 = new Set();
     let intersect3 = testSet13.intersect(testSet23);
-    expect(intersect3.display()).toEqual([]);
+    expect(intersect3.toArray()).toEqual([]);
   });
 
   it('cheks if the set is subset of a given set', () => {
@@ -130,18 +136,18 @@ describe('Set method', () => {
     expect(testSet1.difference('cat')).toBe(false);
     expect(testSet1.difference([])).toBe(false);
     expect(testSet1.difference({})).toBe(false);
-    expect(testSet1.difference(testSet2).display()).toEqual([]);
+    expect(testSet1.difference(testSet2).toArray()).toEqual([]);
     testSet1.add(1);
     testSet1.add(2);
     testSet1.add(3);
     testSet2.add(1);
     testSet2.add(3);
-    expect(testSet1.difference(testSet2).display()).toEqual([2]);
+    expect(testSet1.difference(testSet2).toArray()).toEqual([2]);
     testSet1.add(4);
-    expect(testSet1.difference(testSet2).display()).toEqual([2, 4]);
+    expect(testSet1.difference(testSet2).toArray()).toEqual([2, 4]);
     testSet2.add(2);
     testSet2.add(4);
     testSet2.add(5);
-    expect(testSet1.difference(testSet2).display()).toEqual([]);
+    expect(testSet1.difference(testSet2).toArray()).toEqual([]);
   });
 });
