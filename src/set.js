@@ -46,7 +46,7 @@ class _Set {
    */
   remove(element) {
     if (element === undefined) {
-      throw new Error(`${element} or missing argument.`);
+      throw new Error(`${element} or missing argument`);
     }
 
     const position = this._container.indexOf(element);
@@ -69,18 +69,7 @@ class _Set {
   }
 
   /**
-   * Returns an array representation of a set.
-   *
-   * @returns {Array} Returns an array representation of set.
-   * @example [1, 2, 3] Set.display(); // [1, 2, 3]
-   */
-  display() {
-    console.log('display() will be deprecated in version 2.0.0 use toArray()');
-    return this._container;
-  }
-
-  /**
-   * Checks if given element is member of the set.
+   * Checks if given element is member of a set.
    *
    * @param {any} element Given element.
    * @returns {Boolean} Returns true if the given element is member of the set, otherwise returns false.
@@ -104,20 +93,25 @@ class _Set {
    */
   union (set) {
     if (set === undefined) {
-      return false;
+      throw new Error(`${set} or missing argument`);
     }
+
     if (!(set instanceof _Set)) {
-      return false;
+      throw new Error('The argument is not an instance of a set.');
     }
+
     let tempSet = new _Set();
+
     for (let i = 0; i < this._container.length; i++) {
       tempSet.add(this._container[i]);
     }
+
     for (let i = 0; i < set._container.length; i++) {
       if (!tempSet.contains(set._container[i])) {
         tempSet.add(set._container[i]);
       }
     }
+
     return tempSet;
   }
 

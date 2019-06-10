@@ -28,7 +28,7 @@ describe('Set method', () => {
   });
 
   it('throws error if remove is called without argument', () => {
-    expect(() => set.remove()).toThrow(new Error('undefined or missing argument.'));
+    expect(() => set.remove()).toThrow(new Error('undefined or missing argument'));
   });
 
   it('throws error if element is not member of a set', () => {
@@ -53,19 +53,34 @@ describe('Set method', () => {
     expect(testSet.contains(2)).toBe(false);
   });
 
-  it('implements union on two sets', () => {
-    testSet1.add(1);
-    testSet2.add(2);
-    let unitetSet1;
-    expect(unitetSet1 = testSet1.union()).toBe(false);
-    expect(unitetSet1 = testSet1.union(1)).toBe(false);
-    expect(unitetSet1 = testSet1.union('cat')).toBe(false);
-    expect(unitetSet1 = testSet1.union([])).toBe(false);
-    expect(unitetSet1 = testSet1.union({})).toBe(false);
-    let unitedSet = testSet1.union(testSet2);
-    expect(unitedSet.toArray()).toContain(1);
-    expect(unitedSet.toArray()).toContain(2);
+  it('throws error if union is called without argument', () => {
+    expect(() => set.union()).toThrow(new Error('undefined or missing argument'));
   });
+
+  it('throws error if argument is not a set', () => {
+    expect(() => set.union(12)).toThrow(new Error('The argument is not an instance of a set.'));
+  });
+
+  it('unites two sets', () => {
+    const set2 = new Set();
+    set2.add(2);
+    set.add(1);
+    expect(set.union(set2).toArray()).toEqual([1, 2]);
+  });
+
+  // it('implements union on two sets', () => {
+  //   testSet1.add(1);
+  //   testSet2.add(2);
+  //   let unitetSet1;
+  //   expect(unitetSet1 = testSet1.union()).toBe(false);
+  //   expect(unitetSet1 = testSet1.union(1)).toBe(false);
+  //   expect(unitetSet1 = testSet1.union('cat')).toBe(false);
+  //   expect(unitetSet1 = testSet1.union([])).toBe(false);
+  //   expect(unitetSet1 = testSet1.union({})).toBe(false);
+  //   let unitedSet = testSet1.union(testSet2);
+  //   expect(unitedSet.toArray()).toContain(1);
+  //   expect(unitedSet.toArray()).toContain(2);
+  // });
 
   it('implements intersection of sets', () => {
     let intersectSet;
