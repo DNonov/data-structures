@@ -184,14 +184,15 @@ class _Set {
    */
   difference (set) {
     if (set === undefined) {
-      return false;
+      throw new Error(`${set} or missing argument`);
     }
 
     if (!(set instanceof _Set)) {
-      return false;
+      throw new Error('The argument is not an instance of a set.');
     }
 
     let tempSet = new _Set();
+
     for (let i = 0; i < this._container.length; i++) {
       if (!set.contains(this._container[i])) {
         tempSet.add(this._container[i]);

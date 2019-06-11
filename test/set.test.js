@@ -111,4 +111,26 @@ describe('Set method', () => {
     set.add(2);
     expect(set2.subset(set)).toEqual(true);
   });
+
+  it('throws error if argument of difference is not a set', () => {
+    expect(() => set.difference(12)).toThrow(new Error('The argument is not an instance of a set.'));
+  });
+
+  it('throws error if difference is called without argument', () => {
+    expect(() => set.difference()).toThrow(new Error('undefined or missing argument'));
+  });
+
+  it('returns empty set if get difference of two empty sets', () => {
+    const set2 = new Set();
+    expect(set.difference(set2).toArray()).toEqual([]);
+  });
+
+  // TODO: Add difference on set2
+  it('returns a set difference of two sets', () => {
+    const set2 = new Set();
+    set.add(1);
+    set.add(2);
+    set2.add(1);
+    expect(set.difference(set2).toArray()).toEqual([2]);
+  });
 });
