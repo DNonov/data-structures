@@ -76,7 +76,7 @@ class _Set {
    * @example [1, 2, 3] Set.contains(3); // true
    * [1, 2, 3] Set.contains('cat'); // false
    */
-  contains (element) {
+  contains(element) {
     if (this._container.indexOf(element)  > -1) {
       return true;
     }
@@ -91,7 +91,7 @@ class _Set {
    * Returns false if there is no argument passed to the function or the argument is not of type Set.
    * @example [1, 2, 3] Set1 & [4, 5, 6] Set2 Set1.union(Set2); // [1, 2, 3, 4, 5, 6] Set
    */
-  union (set) {
+  union(set) {
     if (set === undefined) {
       throw new Error(`${set} or missing argument`);
     }
@@ -124,14 +124,17 @@ class _Set {
    * @example [1, 2, 3] Set1 & [4, 2, 6] Set2 Set1.intersect(Set2); // [2] Set
    *
    */
-  intersect (set) {
+  intersect(set) {
     if (set === undefined) {
-      return false;
+      throw new Error(`${set} or missing argument`);
     }
+
     if (!(set instanceof _Set)) {
-      return false;
+      throw new Error('The argument is not an instance of a set.');
     }
+
     let tempSet = new _Set();
+
     for (let i = 0; i < this._container.length; i++) {
       if (set.contains(this._container[i])) {
         tempSet.add(this._container[i]);
@@ -141,7 +144,7 @@ class _Set {
   }
 
   /**
-   * Cheks if the set is subset of a given set.
+   * Checks if the set is subset of a given set.
    *
    * @param {_Set} set Given set.
    * @returns Returns true if the set is subset of the given set, otherwise returns false.
@@ -149,11 +152,16 @@ class _Set {
    * @example [1, 2] Set1 & [1, 2, 3] Set2 Set1.subset(Set2); // true
    *
    */
-  subset (set) {
-    if (!(set instanceof _Set)) {
-      return false;
+  subset(set) {
+    if (set === undefined) {
+      throw new Error(`${set} or missing argument`);
     }
-    if (set === undefined || this.size() > set.size()) {
+
+    if (!(set instanceof _Set)) {
+      throw new Error('The argument is not an instance of a set.');
+    }
+
+    if (this.size() > set.size()) {
       return false;
     } else {
       for (let i = 0; i < this._container.length; i++) {

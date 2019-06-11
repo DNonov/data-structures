@@ -57,7 +57,7 @@ describe('Set method', () => {
     expect(() => set.union()).toThrow(new Error('undefined or missing argument'));
   });
 
-  it('throws error if argument is not a set', () => {
+  it('throws error if argument of union is not a set', () => {
     expect(() => set.union(12)).toThrow(new Error('The argument is not an instance of a set.'));
   });
 
@@ -68,81 +68,54 @@ describe('Set method', () => {
     expect(set.union(set2).toArray()).toEqual([1, 2]);
   });
 
-  // it('implements union on two sets', () => {
-  //   testSet1.add(1);
-  //   testSet2.add(2);
-  //   let unitetSet1;
-  //   expect(unitetSet1 = testSet1.union()).toBe(false);
-  //   expect(unitetSet1 = testSet1.union(1)).toBe(false);
-  //   expect(unitetSet1 = testSet1.union('cat')).toBe(false);
-  //   expect(unitetSet1 = testSet1.union([])).toBe(false);
-  //   expect(unitetSet1 = testSet1.union({})).toBe(false);
-  //   let unitedSet = testSet1.union(testSet2);
-  //   expect(unitedSet.toArray()).toContain(1);
-  //   expect(unitedSet.toArray()).toContain(2);
-  // });
-
-  it('implements intersection of sets', () => {
-    let intersectSet;
-    expect(intersectSet = testSet1.intersect()).toBe(false);
-    expect(intersectSet = testSet1.intersect('cat')).toBe(false);
-    expect(intersectSet = testSet1.intersect(1)).toBe(false);
-    expect(intersectSet = testSet1.intersect([])).toBe(false);
-    expect(intersectSet = testSet1.intersect({})).toBe(false);
-    testSet1.add(1);
-    testSet1.add(2);
-    testSet1.add(3);
-    let testSet2 = new Set();
-    testSet2.add(2);
-    testSet2.add(4);
-    testSet2.add(5);
-    let intersect = testSet1.intersect(testSet2);
-    expect(intersect.toArray()).toEqual([2]);
-    let testSet11 = new Set();
-    testSet11.add(1);
-    testSet11.add(3);
-    testSet11.add(5);
-    let testSet21 = new Set();
-    testSet21.add(2);
-    testSet21.add(4);
-    testSet21.add(6);
-    let intersect1 = testSet11.intersect(testSet21);
-    expect(intersect1.toArray()).toEqual([]);
-    let testSet12 = new Set();
-    testSet12.add(1);
-    testSet12.add(3);
-    testSet12.add(5);
-    let testSet22 = new Set();
-    testSet22.add(1);
-    testSet22.add(3);
-    testSet22.add(5);
-    let intersect2 = testSet12.intersect(testSet22);
-    expect(intersect2.toArray()).toEqual([1, 3, 5]);
-    let testSet13 = new Set();
-    let testSet23 = new Set();
-    let intersect3 = testSet13.intersect(testSet23);
-    expect(intersect3.toArray()).toEqual([]);
+  it('throws error if intersect is called without argument', () => {
+    expect(() => set.intersect()).toThrow(new Error('undefined or missing argument'));
   });
 
-  it('cheks if the set is subset of a given set', () => {
-    expect(testSet1.subset()).toBe(false);
-    expect(testSet1.subset(1)).toBe(false);
-    expect(testSet1.subset('cat')).toBe(false);
-    expect(testSet1.subset([])).toBe(false);
-    expect(testSet1.subset({})).toBe(false);
-    expect(testSet1.subset(testSet2)).toBe(true);
-    testSet1.add(1);
-    testSet1.add(2);
-    testSet1.add(3);
-    testSet2.add(1);
-    testSet2.add(2);
-    testSet2.add(3);
-    expect(testSet1.subset(testSet2)).toBe(true);
-    testSet2.remove(2);
-    expect(testSet1.subset(testSet2)).toBe(false);
-    testSet2.add(2);
-    testSet2.add(5);
-    expect(testSet1.subset(testSet2)).toBe(true);
+  it('throws error if argument of intersect is not a set', () => {
+    expect(() => set.intersect(12)).toThrow(new Error('The argument is not an instance of a set.'));
+  });
+
+  it('returns intersect of two sets', () => {
+    const set2 = new Set();
+    set2.add(2);
+    set2.add(1);
+    set.add(1);
+    set.add(3);
+    expect(set.intersect(set2).toArray()).toEqual([1]);
+  });
+
+  it('returns empty set if there is not members in common', () => {
+    const set2 = new Set();
+    set2.add(2);
+    set2.add(1);
+    set.add(4);
+    set.add(3);
+    expect(set.intersect(set2).toArray()).toEqual([]);
+  });
+
+  it('throws error if argument of subset is not a set', () => {
+    expect(() => set.subset(12)).toThrow(new Error('The argument is not an instance of a set.'));
+  });
+
+  it('throws error if subset is called without argument', () => {
+    expect(() => set.intersect()).toThrow(new Error('undefined or missing argument'));
+  });
+
+  it('returns false if subset is called and the given set is smaller then the set', () => {
+    const set2 = new Set();
+    set2.add(1);
+    set.add(3);
+    set.add(2);
+    expect(set.subset(set2)).toEqual(false);
+  });
+
+  it('returns true if a set is a subset of the given set', () => {
+    const set2 = new Set();
+    set2.add(1);
+    set.add(1);
+    set.add(2);
+    expect(set2.subset(set)).toEqual(true);
   });
 
   it('returns the difference of two sets', () => {
