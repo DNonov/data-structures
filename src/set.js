@@ -186,9 +186,11 @@ class _Set {
     if (set === undefined) {
       return false;
     }
+
     if (!(set instanceof _Set)) {
       return false;
     }
+
     let tempSet = new _Set();
     for (let i = 0; i < this._container.length; i++) {
       if (!set.contains(this._container[i])) {

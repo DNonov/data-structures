@@ -1,16 +1,10 @@
 const Set = require('../src/set');
 
 describe('Set method', () => {
-  let testSet;
   let set;
-  let testSet1;
-  let testSet2;
 
   beforeEach(() => {
     set = new Set();
-    testSet = new Set();
-    testSet1 = new Set();
-    testSet2 = new Set();
   });
 
   it('adds an element in a set', () => {
@@ -47,10 +41,10 @@ describe('Set method', () => {
   });
 
   it('checks if element is a member of the set', () => {
-    expect(testSet.contains(1)).toBe(false);
-    testSet.add(1);
-    expect(testSet.contains(1)).toBe(true);
-    expect(testSet.contains(2)).toBe(false);
+    expect(set.contains(1)).toBe(false);
+    set.add(1);
+    expect(set.contains(1)).toBe(true);
+    expect(set.contains(2)).toBe(false);
   });
 
   it('throws error if union is called without argument', () => {
@@ -116,26 +110,5 @@ describe('Set method', () => {
     set.add(1);
     set.add(2);
     expect(set2.subset(set)).toEqual(true);
-  });
-
-  it('returns the difference of two sets', () => {
-    expect(testSet1.difference()).toBe(false);
-    expect(testSet1.difference(1)).toBe(false);
-    expect(testSet1.difference('cat')).toBe(false);
-    expect(testSet1.difference([])).toBe(false);
-    expect(testSet1.difference({})).toBe(false);
-    expect(testSet1.difference(testSet2).toArray()).toEqual([]);
-    testSet1.add(1);
-    testSet1.add(2);
-    testSet1.add(3);
-    testSet2.add(1);
-    testSet2.add(3);
-    expect(testSet1.difference(testSet2).toArray()).toEqual([2]);
-    testSet1.add(4);
-    expect(testSet1.difference(testSet2).toArray()).toEqual([2, 4]);
-    testSet2.add(2);
-    testSet2.add(4);
-    testSet2.add(5);
-    expect(testSet1.difference(testSet2).toArray()).toEqual([]);
   });
 });
