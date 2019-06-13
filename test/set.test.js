@@ -133,4 +133,13 @@ describe('Set method', () => {
     set2.add(1);
     expect(set.difference(set2).toArray()).toEqual([2]);
   });
+
+  it('returns size 0 of an empty set', () =>{
+    expect(set.size()).toEqual(0);
+  });
+
+  it('returns the size of a non-empty set', () =>{
+    set.add(1);
+    expect(set.size()).toEqual(1);
+  });
 });

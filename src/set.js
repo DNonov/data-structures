@@ -202,9 +202,9 @@ class _Set {
   }
 
   /**
-   * Returns the size of the set.
+   * Returns the size of a set.
    *
-   * @returns {Number} Returns the size of the set.
+   * @returns {Number} Returns the size of a set.
    * @example [1, 2] Set.size(); // 2
    */
   size () {
