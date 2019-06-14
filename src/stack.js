@@ -28,7 +28,7 @@ class Stack {
    * @example [] Stack.push('Cat'); // ['Cat']
    * ['Cat'] Stack.push('Dog'); // ['Cat', 'Dog']
    */
-  push (element) {
+  push(element) {
     if (element === undefined) {
       throw new Error(`${element} or missing argument`);
     }
@@ -42,7 +42,7 @@ class Stack {
    * @example ['Cat', 'Dog', 'Deer'] Stack.pop(); // 'Deer'
    * ['Cat', 'Dog'] Stack.pop(); // 'Dog'
    */
-  pop () {
+  pop() {
     if (this.top !== 0) {
       return this._container[--this.top];
     }
@@ -56,7 +56,7 @@ class Stack {
    * @example ['Cat', 'Dog'] Stack.peek(); // 'Dog'
    * ['Pig','Cat'] Stack.peek(); // 'Cat'
    */
-  peek () {
+  peek() {
     if (this.top !== 0) {
       return this._container[this.top - 1];
     }
@@ -67,7 +67,7 @@ class Stack {
    * Deletes all elements in a stack.
    * @example ['Cat', 'Dog'] Stack.clear(); // []
    */
-  clear () {
+  clear() {
     this.top = 0;
   }
 
@@ -78,7 +78,7 @@ class Stack {
    * @example [] Stack.length(); // 0
    * ['Cat'] Stack.length(); // 1
    */
-  length () {
+  length() {
     return this.top;
   }
 
@@ -87,9 +87,8 @@ class Stack {
    *
    * @returns {Array} Returns array representation of a stack.
    */
-  toArray () {
+  toArray() {
     return this._container;
   }
-
 }
 module.exports = Stack;
