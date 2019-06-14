@@ -7,16 +7,12 @@ describe('Stack method', () => {
     stack = new Stack();
   });
 
-  it('pushes element to a stack', () => {
-    stack.push('Jill');
-    stack.push('Bill');
-    stack.push(0);
-    stack.push(undefined);
-    stack.push(22);
-    stack.push(-12);
+  it('throws error if push is called without argument', () => {
+    expect(() => stack.push()).toThrow(new Error('undefined or missing argument'));
+  });
 
-    expect(stack.push(undefined)).toBe(false);
-    expect(stack.toArray()).toEqual(['Jill', 'Bill', 0, 22, -12]);
+  it('pushes an element into a stack', () => {
+
   });
 
   it('removes the top element in a stack', () => {
@@ -30,16 +26,6 @@ describe('Stack method', () => {
   });
 
   it('returns the top element in a stack', () => {
-    stack.push(1);
-    expect(stack.peek()).toBe(1);
-    stack.push('Jill');
-    expect(stack.peek()).toBe('Jill');
-    stack.push(undefined);
-    expect(stack.peek()).toBe('Jill');
-    stack.push(null);
-    expect(stack.peek()).toBe(null);
-    stack.push(-34);
-    expect(stack.peek()).toBe(-34);
   });
 
   it('deletes all elements in a stack', () => {
