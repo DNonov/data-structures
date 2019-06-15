@@ -46,7 +46,7 @@ class Stack {
     if (this.top !== 0) {
       return this._container[--this.top];
     }
-    return false;
+    throw new Error('The stack is empty.');
   }
 
   /**
@@ -60,7 +60,7 @@ class Stack {
     if (this.top !== 0) {
       return this._container[this.top - 1];
     }
-    return false;
+    throw new Error('The stack is empty.');
   }
 
   /**

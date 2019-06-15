@@ -7,7 +7,7 @@ describe('Stack method', () => {
     stack = new Stack();
   });
 
-  it('throws error if push is called without argument', () => {
+  it('throws an error if push is called without argument', () => {
     expect(() => stack.push()).toThrow(new Error('undefined or missing argument'));
   });
 
@@ -25,17 +25,17 @@ describe('Stack method', () => {
     expect(stack.length()).toEqual(1);
   });
 
-  it('removes the top element in a stack', () => {
-    stack.push(1);
-    stack.push(2);
-    stack.push(3);
-    expect(stack.pop()).toBe(3);
-    expect(stack.pop()).toBe(2);
-    expect(stack.pop()).toBe(1);
-    expect(stack.pop()).toBe(false);
+  it('throws error if pop is called on empty stack', () => {
+    expect(() => stack.pop()).toThrow(new Error('The stack is empty.'));
   });
 
-  it('returns the top element in a stack', () => {
+  it('removes the top element in a stack', () => {
+    stack.push(1);
+    expect(stack.pop()).toBe(1);
+  });
+
+  it('throws an error if peek is called on empty stack', () => {
+    expect(() => stack.peek()).toThrow(new Error('The stack is empty.'));
   });
 
   it('deletes all elements in a stack', () => {
@@ -43,8 +43,6 @@ describe('Stack method', () => {
     stack.push(2);
     stack.push(3);
     stack.push(4);
-    expect(stack.peek()).toBe(4);
     stack.clear();
-    expect(stack.peek()).toBe(false);
   });
 });
